@@ -1,17 +1,39 @@
 package org.viarzilin.hospital.model.entity;
 
+import com.sun.javafx.beans.IDProperty;
+
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 
 public class Patient {
+  @Id
+  @Column(name = "ID_PATIENT")
+  @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
   private int idPatient;
+
+  @Column(name = "LASTNAME", nullable = false, length = 20)
   private String lastName;
+
+  @Column(name = "FIRSTNAME", nullable = false, length = 20)
   private String firstName;
+
+  @Column(name = "SURNAME", length = 20)
   private String surName;
-  private Date berthDate;
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "BIRTH_DATE")
+  private Date birthDate;
+
+  @Column(name = "ADRESS", nullable = false, length = 45)
   private String adress;
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "CREATE_DATE")
   private Date createDate;
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "UPDATE_DATE")
   private Date updateDate;
 
   /**
@@ -20,18 +42,6 @@ public class Patient {
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "patient", orphanRemoval = true)
   private Set<Recieption> recieptions;
 
-  public Patient(int idPatient, String lastName, String firstName,
-                 String surName, Date berthDate, String adress, Date createDate, Date updateDate, Set<Recieption> recieptions) {
-    this.idPatient = idPatient;
-    this.lastName = lastName;
-    this.firstName = firstName;
-    this.surName = surName;
-    this.berthDate = berthDate;
-    this.adress = adress;
-    this.createDate = createDate;
-    this.updateDate = updateDate;
-    this.recieptions = recieptions;
-  }
 
   public Patient(){
 
@@ -72,12 +82,12 @@ public class Patient {
     this.surName = surName;
   }
 
-  public Date getBerthDate() {
-    return berthDate;
+  public java.util.Date getBerthDate() {
+    return birthDate;
   }
 
   public void setBerthDate(Date berthDate) {
-    this.berthDate = berthDate;
+    this.birthDate = berthDate;
   }
 
   public String getAdress() {
@@ -88,7 +98,7 @@ public class Patient {
     this.adress = adress;
   }
 
-  public Date getCreateDate() {
+  public java.util.Date getCreateDate() {
     return createDate;
   }
 
@@ -96,7 +106,7 @@ public class Patient {
     this.createDate = createDate;
   }
 
-  public Date getUpdateDate() {
+  public java.util.Date getUpdateDate() {
     return updateDate;
   }
 
@@ -110,5 +120,20 @@ public class Patient {
 
   public void setRecieptions(Set<Recieption> recieptions) {
     this.recieptions = recieptions;
+  }
+
+  @Override
+  public String toString() {
+    return "Patient{" +
+            "idPatient=" + idPatient +
+            ", lastName='" + lastName + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", surName='" + surName + '\'' +
+            ", birthDate=" + birthDate +
+            ", adress='" + adress + '\'' +
+            ", createDate=" + createDate +
+            ", updateDate=" + updateDate +
+            ", recieptions=" + recieptions +
+            '}';
   }
 }

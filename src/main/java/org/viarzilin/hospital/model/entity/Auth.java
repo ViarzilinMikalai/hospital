@@ -11,8 +11,6 @@ public class Auth {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idAuth;
 
-
-
   @Column(name = "LOGIN", nullable = false, length = 16)
   private String login;
 
@@ -33,14 +31,6 @@ public class Auth {
   @JoinColumn(name="STAFF_ID", unique = true, nullable = false, updatable = false)
   private Staff staff;
 
-
-  public Auth(String login, String password, String email, boolean isActive, Staff staff) {
-    this.login = login;
-    this.password = password;
-    this.email = email;
-    this.isActive = isActive;
-    this.staff = staff;
-  }
 
   public Auth(){
 
