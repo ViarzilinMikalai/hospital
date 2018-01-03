@@ -15,6 +15,10 @@ public class Staff {
   private Date createDate;
   private Date updateDate;
 
+
+  /**
+   * Authentication of this staff
+   */
   @OneToOne(mappedBy = "staff")
   private Auth auth;
 

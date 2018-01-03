@@ -34,9 +34,78 @@ public class Auth {
   private Staff staff;
 
 
+  public Auth(String login, String password, String email, boolean isActive, Staff staff) {
+    this.login = login;
+    this.password = password;
+    this.email = email;
+    this.isActive = isActive;
+    this.staff = staff;
+  }
 
   public Auth(){
 
+  }
+  /**
+   * Getters and Setters
+   */
+  public int getIdAuth() {
+    return idAuth;
+  }
+
+  public void setIdAuth(int idAuth) {
+    this.idAuth = idAuth;
+  }
+
+  public String getLogin() {
+    return login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public boolean isActive() {
+    return isActive;
+  }
+
+  public void setActive(boolean active) {
+    isActive = active;
+  }
+
+  public Staff getStaff() {
+    return staff;
+  }
+
+  public void setStaff(Staff staff) {
+    this.staff = staff;
+  }
+
+  @Override
+  public String toString() {
+    return "Auth{" +
+            "idAuth=" + idAuth +
+            ", login='" + login + '\'' +
+            ", password='" + password + '\'' +
+            ", email='" + email + '\'' +
+            ", isActive=" + isActive +
+            ", staff=" + staff +
+            '}';
   }
 
 
