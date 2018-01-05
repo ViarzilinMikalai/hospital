@@ -2,7 +2,8 @@ package org.viarzilin.hospital.model.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
+
 
 
 @Table(name = "reception")
@@ -54,8 +55,8 @@ public class Reception {
   /**
    * One_to_many relationship Reception to ReceptionPrescription
    */
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "receptions", orphanRemoval = true)
-  private Set<ReceptionPrescription> receptionPrescriptions;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "receptions", orphanRemoval = true)
+  private List<ReceptionPrescription> receptionPrescriptions;
 
 
   /**
@@ -125,14 +126,13 @@ public class Reception {
     this.staff = staff;
   }
 
-  public Set<ReceptionPrescription> getReceptionPrescriptions() {
+  public List<ReceptionPrescription> getReceptionPrescriptions() {
     return receptionPrescriptions;
   }
 
-  public void setReceptionPrescriptions(Set<ReceptionPrescription> receptionPrescriptions) {
+  public void setReceptionPrescriptions(List<ReceptionPrescription> receptionPrescriptions) {
     this.receptionPrescriptions = receptionPrescriptions;
   }
-
 
   @Override
   public String toString() {

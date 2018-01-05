@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.entity;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "Patient")
@@ -41,8 +41,8 @@ public class Patient {
   /**
    * One-to-many relationship Patient to Reception
    */
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "patient", orphanRemoval = true)
-  private Set<Reception> receptions;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "patient", orphanRemoval = true)
+  private List<Reception> receptions;
 
 
   public Patient(){
@@ -84,12 +84,12 @@ public class Patient {
     this.surName = surName;
   }
 
-  public java.util.Date getBerthDate() {
+  public java.util.Date getBirthDate() {
     return birthDate;
   }
 
-  public void setBerthDate(Date berthDate) {
-    this.birthDate = berthDate;
+  public void setBirthDate(Date birthDate) {
+    this.birthDate = birthDate;
   }
 
   public String getAdress() {
@@ -116,11 +116,11 @@ public class Patient {
     this.updateDate = updateDate;
   }
 
-  public Set<Reception> getRecieptions() {
+  public List<Reception> getReceptions() {
     return receptions;
   }
 
-  public void setRecieptions(Set<Reception> receptions) {
+  public void setReceptions(List<Reception> receptions) {
     this.receptions = receptions;
   }
 

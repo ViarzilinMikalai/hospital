@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.entity;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.*;
 
 import org.viarzilin.hospital.model.entity.enumerated.TypeStaff;
@@ -30,9 +30,11 @@ public class Staff {
     @Enumerated(EnumType.STRING)
     private TypeStaff typeStaff;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "CREATE_DATE", nullable = false, updatable = false)
     private Date createDate;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "UPDATE_DATE")
     private Date updateDate;
 
@@ -47,15 +49,15 @@ public class Staff {
     /**
     * One_to_many relationship Staff to Reception
     */
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "patient", orphanRemoval = true)
-    private Set<Reception> receptions;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "patient", orphanRemoval = true)
+    private List<Reception> receptions;
 
 
     /**
     * Many-to-many relationship ReceptionPrescription to Staff
     */
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "staffList")
-    private Set<ReceptionPrescription> receptionPrescriptionSet;
+    private List<ReceptionPrescription> receptionPrescriptionList;
 
     public Staff() {
 
@@ -104,7 +106,7 @@ public class Staff {
         this.typeStaff = typeStaff;
     }
 
-    public Date getCreateDate() {
+    public java.util.Date getCreateDate() {
         return createDate;
     }
 
@@ -112,7 +114,7 @@ public class Staff {
         this.createDate = createDate;
     }
 
-    public Date getUpdateDate() {
+    public java.util.Date getUpdateDate() {
         return updateDate;
     }
 
@@ -128,20 +130,20 @@ public class Staff {
         this.authes = authes;
     }
 
-    public Set<Reception> getReceptions() {
+    public List<Reception> getReceptions() {
         return receptions;
     }
 
-    public void setReceptions(Set<Reception> receptions) {
+    public void setReceptions(List<Reception> receptions) {
         this.receptions = receptions;
     }
 
-    public Set<ReceptionPrescription> getReceptionPrescriptionSet() {
-        return receptionPrescriptionSet;
+    public List<ReceptionPrescription> getReceptionPrescriptionList() {
+        return receptionPrescriptionList;
     }
 
-    public void setReceptionPrescriptionSet(Set<ReceptionPrescription> receptionPrescriptionSet) {
-        this.receptionPrescriptionSet = receptionPrescriptionSet;
+    public void setReceptionPrescriptionList(List<ReceptionPrescription> receptionPrescriptionList) {
+        this.receptionPrescriptionList = receptionPrescriptionList;
     }
 
     @Override
@@ -156,4 +158,6 @@ public class Staff {
                 ", updateDate=" + updateDate +
                 '}';
     }
+
+
 }
