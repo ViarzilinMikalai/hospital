@@ -13,7 +13,7 @@ public class Reception {
 
   @Id
   @Column(name = "ID-RESEPTION")
-  @GeneratedValue(GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idReception;
 
   @Temporal(TemporalType.DATE)

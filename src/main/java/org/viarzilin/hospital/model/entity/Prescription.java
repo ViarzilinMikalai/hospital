@@ -11,7 +11,7 @@ public class Prescription {
 
     @Id
     @Column(name = "ID_PRESCRIPTION")
-    @GeneratedValue(GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPrescription;
 
     @Column(name = "NAME_PRESCRIPTION", nullable = false, length = 20)

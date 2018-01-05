@@ -2,7 +2,7 @@ package org.viarzilin.hospital.model.entity;
 
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*
+import javax.persistence.*;
 
 @Table(name = "reception_pescription")
 @Entity
@@ -10,7 +10,7 @@ public class ReceptionPrescription {
 
   @Id
   @Column(name = "ID_RES_PRESC")
-  @GeneratedValue(GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idRecPrescr;
 
 
