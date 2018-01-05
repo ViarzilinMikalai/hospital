@@ -3,6 +3,7 @@ package org.viarzilin.hospital.model.entity;
 import javax.persistence.*;
 
 
+@Table(name = "auth")
 @Entity
 public class Auth {
 
@@ -94,9 +95,6 @@ public class Auth {
             ", password='" + password + '\'' +
             ", email='" + email + '\'' +
             ", isActive=" + isActive +
-            ", staff=" + staff +
             '}';
   }
-
-
 }

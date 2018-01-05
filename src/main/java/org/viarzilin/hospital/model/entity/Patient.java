@@ -1,12 +1,14 @@
 package org.viarzilin.hospital.model.entity;
 
-import com.sun.javafx.beans.IDProperty;
-
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 
+@Table(name = "Patient")
+@Entity
 public class Patient {
+
+
   @Id
   @Column(name = "ID_PATIENT")
   @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
@@ -29,7 +31,7 @@ public class Patient {
   private String adress;
 
   @Temporal(TemporalType.DATE)
-  @Column(name = "CREATE_DATE")
+  @Column(name = "CREATE_DATE", nullable = false, updatable = false)
   private Date createDate;
 
   @Temporal(TemporalType.DATE)
@@ -37,10 +39,10 @@ public class Patient {
   private Date updateDate;
 
   /**
-   * One-to-many relationship Patient to Recieption
+   * One-to-many relationship Patient to Reception
    */
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "patient", orphanRemoval = true)
-  private Set<Recieption> recieptions;
+  private Set<Reception> receptions;
 
 
   public Patient(){
@@ -114,12 +116,12 @@ public class Patient {
     this.updateDate = updateDate;
   }
 
-  public Set<Recieption> getRecieptions() {
-    return recieptions;
+  public Set<Reception> getRecieptions() {
+    return receptions;
   }
 
-  public void setRecieptions(Set<Recieption> recieptions) {
-    this.recieptions = recieptions;
+  public void setRecieptions(Set<Reception> receptions) {
+    this.receptions = receptions;
   }
 
   @Override
@@ -133,7 +135,6 @@ public class Patient {
             ", adress='" + adress + '\'' +
             ", createDate=" + createDate +
             ", updateDate=" + updateDate +
-            ", recieptions=" + recieptions +
             '}';
   }
 }
