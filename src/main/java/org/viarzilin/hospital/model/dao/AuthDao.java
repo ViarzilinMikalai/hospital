@@ -8,15 +8,15 @@ public interface AuthDao {
 
   public void updateAuth(Auth auth);
 
-  public void deleteAuth(int idAuth);
+  public void deleteAuth(Integer idAuth);
 
-  public Auth getAuthById(int idAuth);
+  public Auth getAuthById(Integer idAuth);
 
   public Auth getAuthByLogin (String login);
 
   public Auth getStaffByEmail (String email);
 
-  public Auth getAuthByStafId (int staffId);
+  public Auth getAuthByStafId (Integer staffId);
 
   List<Auth> getAllAuthes();
 
