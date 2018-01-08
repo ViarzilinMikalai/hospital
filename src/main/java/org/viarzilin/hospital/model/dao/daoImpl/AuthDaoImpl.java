@@ -102,6 +102,4 @@ public class AuthDaoImpl implements AuthDao {
 
       return authList;
   }
-
-
 }

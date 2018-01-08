@@ -56,7 +56,7 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
 
   @Override
   public Prescription getPrescById(Integer idPrescription) {
-    Prescription prescription = (Prescription)getSession().load(Prescription, idPrescription);
+    Prescription prescription = (Prescription)getSession().load(Prescription.class, idPrescription);
     lOGGER.info("Prescription successfully loaded"  + prescription);
     return prescription;
   }
@@ -75,7 +75,7 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
   @Override
   public List<Prescription> getPrescByType(String typePrescription) {
 
-    Query query = (Query) getSession().createQuery("from Prescription where typePrescription = :typePrescription").list();
+    Query query = getSession().createQuery("from Prescription where typePrescription = :typePrescription");
     query.setParameter("typePrescription", typePrescription);
     List<Prescription> prescriptonList = query.list();
 
@@ -83,6 +83,5 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
       lOGGER.info("Prescription list: " + prescription);
     }
     return prescriptonList;
-
   }
 }
