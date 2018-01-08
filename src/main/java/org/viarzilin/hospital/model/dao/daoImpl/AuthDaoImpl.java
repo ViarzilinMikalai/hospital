@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import org.viarzilin.hospital.model.entity.Auth;
 @Repository
 public class AuthDaoImpl implements AuthDao {
 
+  @Autowired
   private static final Logger logger = LoggerFactory.getLogger(AuthDaoImpl.class);
 
   private SessionFactory sessionFactory;
