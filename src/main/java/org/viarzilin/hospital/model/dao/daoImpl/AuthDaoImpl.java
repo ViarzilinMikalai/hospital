@@ -16,9 +16,10 @@ import org.viarzilin.hospital.model.entity.Auth;
 @Repository
 public class AuthDaoImpl implements AuthDao {
 
-  @Autowired
-  private static final Logger logger = LoggerFactory.getLogger(AuthDaoImpl.class);
 
+  private static final Logger lOGGER = LoggerFactory.getLogger(AuthDaoImpl.class);
+
+  @Autowired
   private SessionFactory sessionFactory;
 
   protected Session getSession() {
@@ -33,32 +34,32 @@ public class AuthDaoImpl implements AuthDao {
   @Override
   public void addAuth(Auth auth) {
     getSession().persist(auth);
-    logger.info("Auth successfully saved:" + auth);
+    lOGGER.info("Auth successfully saved:" + auth);
 
   }
 
   @Override
   public void updateAuth(Auth auth) {
     getSession().update(auth);
-    logger.info("Auth saccessfully update:" + auth);
+    lOGGER.info("Auth saccessfully update:" + auth);
 
   }
 
   @Override
-  public void deleteAuth(Integer idAuth) {
+  public void removeAuth(Integer idAuth) {
     Auth auth = (Auth) getSession().load(Auth.class,idAuth);
 
     if (auth !=null){
       getSession().delete(auth);
     }
-    logger.info("Auth successfully deleted" + auth);
+    lOGGER.info("Auth successfully deleted" + auth);
 
   }
 
   @Override
   public Auth getAuthById(Integer idAuth) {
     Auth auth = (Auth) getSession().load(Auth.class, idAuth);
-    logger.info("Auth successfully loaded: " + auth);
+    lOGGER.info("Auth successfully loaded: " + auth);
     return auth;
   }
 
@@ -68,7 +69,7 @@ public class AuthDaoImpl implements AuthDao {
     query.setParameter("login", login);
     Auth auth = (Auth)query.uniqueResult();
 
-    logger.info("Auth successfully loaded: " + auth);
+    lOGGER.info("Auth successfully loaded: " + auth);
     return auth;
   }
 
@@ -78,14 +79,14 @@ public class AuthDaoImpl implements AuthDao {
     query.setParameter("email", email);
     Auth auth = (Auth)query.uniqueResult();
 
-    logger.info("Auth successfully loaded: " + auth);
+    lOGGER.info("Auth successfully loaded: " + auth);
     return auth;
   }
 
   @Override
   public Auth getAuthByStafId(Integer staffId) {
     Auth auth = (Auth) getSession().load(Auth.class, staffId);
-    logger.info("Auth successfully loaded: " + auth);
+    lOGGER.info("Auth successfully loaded: " + auth);
     return auth;
   }
 
@@ -96,7 +97,7 @@ public class AuthDaoImpl implements AuthDao {
       List<Auth> authList = getSession().createQuery("from Auth").list();
 
       for(Auth auth: authList){
-        logger.info("Auth list: " + auth);
+        lOGGER.info("Auth list: " + auth);
       }
 
       return authList;

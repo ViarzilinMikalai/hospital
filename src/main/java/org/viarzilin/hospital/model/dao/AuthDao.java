@@ -8,7 +8,7 @@ public interface AuthDao {
 
   public void updateAuth(Auth auth);
 
-  public void deleteAuth(Integer idAuth);
+  public void removeAuth(Integer idAuth);
 
   public Auth getAuthById(Integer idAuth);
 
@@ -19,5 +19,7 @@ public interface AuthDao {
   public Auth getAuthByStafId (Integer staffId);
 
   List<Auth> getAllAuthes();
+
+
 
 }
