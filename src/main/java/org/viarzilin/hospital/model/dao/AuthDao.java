@@ -8,9 +8,9 @@ public interface AuthDao {
 
   public void updateAuth(Auth auth);
 
-  public void deleteAuth(int id);
+  public void deleteAuth(int idAuth);
 
-  public Auth getAuthById(int id);
+  public Auth getAuthById(int idAuth);
 
   public Auth getAuthByLogin (String login);
 

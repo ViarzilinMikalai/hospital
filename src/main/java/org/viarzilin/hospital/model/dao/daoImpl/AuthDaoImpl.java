@@ -44,17 +44,18 @@ public class AuthDaoImpl implements AuthDao {
 
   @Override
   public void deleteAuth(int idAuth) {
-    Auth auth = (Auth) getSession().load(Auth.class, int idAuth);
+    Auth auth = (Auth) getSession().load(Auth.class,new Integer(idAuth));
 
     if (auth !=null){
-      getSession().delete(Auth);
+      getSession().delete(auth);
     }
-    Logger.info("Auth successfully deleted" = auth);
+    logger.info("Auth successfully deleted" + auth);
+
   }
 
   @Override
   public Auth getAuthById(int idAuth) {
-    Auth auth = (Auth) getSession().load(Auth.class, int idAuth);
+    Auth auth = (Auth) getSession().load(Auth.class, new Integer(idAuth));
     logger.info("Auth successfully loaded: " + auth);
     return auth;
   }
@@ -81,9 +82,10 @@ public class AuthDaoImpl implements AuthDao {
 
   @Override
   public Auth getAuthByStafId(int staffId) {
-    Auth auth = (Auth) getSession().load(Auth.class, int staffId);
+    Auth auth = (Auth) getSession().load(Auth.class, new Integer(staffId));
     logger.info("Auth successfully loaded: " + auth);
     return auth;
+  }
 
   @Override
   public List<Auth> getAllAuthes() {
@@ -91,7 +93,7 @@ public class AuthDaoImpl implements AuthDao {
       List<Auth> authList = getSession().createQuery("from Auth").list();
 
       for(Auth auth: authList){
-        logger.info("Auth list: " + Auth);
+        logger.info("Auth list: " + auth);
       }
 
       return authList;

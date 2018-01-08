@@ -12,13 +12,13 @@ public class Auth {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idAuth;
 
-  @Column(name = "LOGIN", nullable = false, length = 16)
+  @Column(name = "LOGIN", unique = true, nullable = false, length = 16)
   private String login;
 
   @Column(name = "PASSWORD", nullable = false, length = 16)
   private String password;
 
-  @Column(name = "EMAIL", nullable = false, length = 20)
+  @Column(name = "EMAIL",unique = true, nullable = false, length = 20)
   private String email;
 
   @Column(name="ISACTIVE")
