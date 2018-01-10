@@ -71,17 +71,5 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
 
     return prescriptionList;
   }
-
-  @Override
-  public List<Prescription> getPrescByType(String typePrescription) {
-
-    Query query = getSession().createQuery("from Prescription where typePrescription = :typePrescription");
-    query.setParameter("typePrescription", typePrescription);
-    List<Prescription> prescriptonList = query.list();
-
-    for(Prescription prescription: prescriptonList){
-      lOGGER.info("Prescription list: " + prescription);
-    }
-    return prescriptonList;
-  }
+  
 }

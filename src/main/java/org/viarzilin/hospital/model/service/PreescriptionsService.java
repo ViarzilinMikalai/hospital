@@ -1,9 +1,9 @@
-package org.viarzilin.hospital.model.dao;
+package org.viarzilin.hospital.model.service;
 
 import java.util.List;
 import org.viarzilin.hospital.model.entity.Prescription;
 
-public interface PrescriptionDao {
+public interface PreescriptionsService {
   public void addPrescription(Prescription prescription);
 
   public void updatePrescription(Prescription prescription);
@@ -13,6 +13,5 @@ public interface PrescriptionDao {
   public Prescription getPrescById(Integer idPrescription);
 
   List<Prescription> getAllPresc();
-
 
 }
