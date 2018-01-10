@@ -3,7 +3,7 @@ package org.viarzilin.hospital.model.service;
 import java.util.List;
 import org.viarzilin.hospital.model.entity.Prescription;
 
-public interface PreescriptionsService {
+public interface PrescriptionsService {
   public void addPrescription(Prescription prescription);
 
   public void updatePrescription(Prescription prescription);

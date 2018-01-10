@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import org.viarzilin.hospital.model.dao.PrescriptionDao;
 import org.viarzilin.hospital.model.entity.Prescription;
-import org.viarzilin.hospital.model.service.PreescriptionsService;
+import org.viarzilin.hospital.model.service.PrescriptionsService;
 
-public class PreescriptionsServiceImpl implements PreescriptionsService {
+public class PrescriptionsServiceImpl implements PrescriptionsService {
   private PrescriptionDao prescriptionDao;
 
   public void setPrescriptionDao(PrescriptionDao prescriptionDao) {
