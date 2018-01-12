@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%--
   Created by IntelliJ IDEA.
   User: vernik
@@ -88,8 +89,9 @@
 
 <h1>Add a Prescriptions</h1>
 
-<c:url var="addAction" value="/prescriptions/add"/>
+<c:url var="addAction" value="/prescriptions/add">
 
+<%--@elvariable id="prescriptions" type=""--%>
 <form:form action="${addAction}" commandName="prescriptions">
     <table>
         <c:if test="${!empty prescription.namePrescription}">
