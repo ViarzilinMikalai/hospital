@@ -152,7 +152,7 @@
   </dependencies>
 
   <build>
-    <finalName>Hospitaal</finalName>
+    <finalName>Hospital</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -165,7 +165,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <includes>
-            <include>**/*Test.java</include>
+            <include>**/*Tests.java</include>
           </includes>
         </configuration>
       </plugin>

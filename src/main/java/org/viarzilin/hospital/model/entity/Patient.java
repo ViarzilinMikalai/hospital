@@ -11,7 +11,7 @@ public class Patient {
 
   @Id
   @Column(name = "ID_PATIENT")
-  @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idPatient;
 
   @Column(name = "LASTNAME", nullable = false, length = 20)
