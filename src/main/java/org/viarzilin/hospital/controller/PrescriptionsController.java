@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.viarzilin.hospital.model.entity.Prescription;
 import org.viarzilin.hospital.model.service.PrescriptionsService;
 
+
 @Controller
 public class PrescriptionsController {
 

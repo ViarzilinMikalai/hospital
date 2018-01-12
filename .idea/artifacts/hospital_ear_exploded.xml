@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="hospital:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/hospital_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="hospital/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
