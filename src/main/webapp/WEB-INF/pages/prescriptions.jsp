@@ -1,11 +1,3 @@
-<%--suppress ALL --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: vernik
-  Date: 12.01.2018
-  Time: 12:44
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -62,6 +54,8 @@
 
 <h1>Prescriptions List</h1>
 
+
+
 <c:if test="${!empty getAllPresc}">
     <table class="tg">
         <tr>
@@ -72,15 +66,15 @@
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${getAllPresc}" var="book">
+        <c:forEach items="${getAllPresc}" var="prescription">
             <tr>
-                <td>${prescription.idPrescription}</td>
-                <td><a href="/prescriptiondata/${prescription.idPrescription}" target="_blank">
+                <td>${prescription.id}</td>
+                <td><a href="/prescriptiondata/${prescription.id}" target="_blank">
                         ${prescription.namePrescription}</a></td>
                 <td>${prescription.typePrescription}</td>
                 <td>${prescription.description}</td>
-                <td><a href="<c:url value='/edit/${prescription.idPrescription}'/>">Edit</a></td>
-                <td><a href="<c:url value='/remove/${prescription.idPrescription}'/>">Delete</a></td>
+                <td><a href="<c:url value='/edit/${prescription.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/remove/${prescription.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
@@ -89,67 +83,66 @@
 
 <h1>Add a Prescriptions</h1>
 
-<c:url var="addAction" value="/prescriptions/add">
+<c:url var="addAction" value="/prescriptions/add"/>
 
-    <%--@elvariable id="prescriptions" type=""--%>
-    <form:form action="${addAction}" commandName="prescriptions">
-        <table>
-            <c:if test="${!empty prescription.namePrescription}">
-                <tr>
-                    <td>
-                        <form:label path="idPrescription">
-                            <spring:message text="ID"/>
-                        </form:label>
-                    </td>
-                    <td>
-                        <form:input path="idPrescription" readonly="true" size="8" disabled="true"/>
-                        <form:hidden path="idPrescription"/>
-                    </td>
-                </tr>
-            </c:if>
+<form:form action="${addAction}" commandName="prescription">
+    <table>
+        <c:if test="${!empty prescription.namePrescription}">
             <tr>
                 <td>
-                    <form:label path="namePrescription">
-                        <spring:message text="Prescription name"/>
+                    <form:label path="id">
+                        <spring:message text="ID"/>
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="namePrescription"/>
+                    <form:input path="id" readonly="true" size="8" disabled="true"/>
+                    <form:hidden path="id"/>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <form:label path="typePrescription">
-                        <spring:message text="Prescription type"/>
-                    </form:label>
-                </td>
-                <td>
-                    <form:input path="typePrescription"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <form:label path="description">
-                        <spring:message text="Description"/>
-                    </form:label>
-                </td>
-                <td>
-                    <form:input path="description"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <c:if test="${!empty prescription.namePrescription}">
-                        <input type="submit"
-                               value="<spring:message text="Edit Presc"/>"/>
-                    </c:if>
-                    <c:if test="${empty prescription.namePrescription}">
-                        <input type="submit"
-                               value="<spring:message text="Add Presc"/>"/>
-                    </c:if>
-                </td>
-            </tr>
-        </table>
-    </form:form>
-    </body>
-    </html>
+        </c:if>
+        <tr>
+            <td>
+                <form:label path="namePrescription">
+                    <spring:message text="Prescription name"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="namePrescription"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="typePrescription">
+                    <spring:message text="Prescription type"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="typePrescription"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="description">
+                    <spring:message text="Description"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="description"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <c:if test="${!empty prescription.namePrescription}">
+                    <input type="submit"
+                           value="<spring:message text="Edit Prescr"/>"/>
+                </c:if>
+                <c:if test="${empty prescription.namePrescription}">
+                    <input type="submit"
+                           value="<spring:message text="Add Prescr"/>"/>
+                </c:if>
+            </td>
+        </tr>
+    </table>
+</form:form>
+</body>
+</html>

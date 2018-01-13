@@ -67,7 +67,7 @@
 
     </tr>
     <tr>
-        <td>${prescription.idPrescription}</td>
+        <td>${prescription.id}</td>
         <td>${prescription.namePrescription}</td>
         <td>${prescription.typePrescription}</td>
         <td>${prescription.description}</td>
