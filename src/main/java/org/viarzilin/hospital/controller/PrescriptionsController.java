@@ -52,7 +52,7 @@ public class PrescriptionsController {
   @RequestMapping("edit/{idPrescription}")
   public String editPrescription(@PathVariable("idPrescription") int idPrescription, Model model){
     model.addAttribute("prescription", this.prescriptionsService.getPrescById(idPrescription));
-    model.addAttribute("getAllPresc()", this.prescriptionsService.getAllPresc());
+    model.addAttribute("getAllPresc", this.prescriptionsService.getAllPresc());
 
     return "redirect:/prescriptions";
   }
