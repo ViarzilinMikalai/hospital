@@ -91,65 +91,65 @@
 
 <c:url var="addAction" value="/prescriptions/add">
 
-<%--@elvariable id="prescriptions" type=""--%>
-<form:form action="${addAction}" commandName="prescriptions">
-    <table>
-        <c:if test="${!empty prescription.namePrescription}">
+    <%--@elvariable id="prescriptions" type=""--%>
+    <form:form action="${addAction}" commandName="prescriptions">
+        <table>
+            <c:if test="${!empty prescription.namePrescription}">
+                <tr>
+                    <td>
+                        <form:label path="idPrescription">
+                            <spring:message text="ID"/>
+                        </form:label>
+                    </td>
+                    <td>
+                        <form:input path="idPrescription" readonly="true" size="8" disabled="true"/>
+                        <form:hidden path="idPrescription"/>
+                    </td>
+                </tr>
+            </c:if>
             <tr>
                 <td>
-                    <form:label path="idPrescription">
-                        <spring:message text="ID"/>
+                    <form:label path="namePrescription">
+                        <spring:message text="Prescription name"/>
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="idPrescription" readonly="true" size="8" disabled="true"/>
-                    <form:hidden path="idPrescription"/>
+                    <form:input path="namePrescription"/>
                 </td>
             </tr>
-        </c:if>
-        <tr>
-            <td>
-                <form:label path="namePrescription">
-                    <spring:message text="Prescription name"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="namePrescription"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:label path="typePrescription">
-                    <spring:message text="Prescription type"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="typePrescription"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:label path="description">
-                    <spring:message text="Description"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="description"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <c:if test="${!empty prescription.namePrescription}">
-                    <input type="submit"
-                           value="<spring:message text="Edit Presc"/>"/>
-                </c:if>
-                <c:if test="${empty prescription.namePrescription}">
-                    <input type="submit"
-                           value="<spring:message text="Add Presc"/>"/>
-                </c:if>
-            </td>
-        </tr>
-    </table>
-</form:form>
-</body>
-</html>
+            <tr>
+                <td>
+                    <form:label path="typePrescription">
+                        <spring:message text="Prescription type"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="typePrescription"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form:label path="description">
+                        <spring:message text="Description"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="description"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <c:if test="${!empty prescription.namePrescription}">
+                        <input type="submit"
+                               value="<spring:message text="Edit Presc"/>"/>
+                    </c:if>
+                    <c:if test="${empty prescription.namePrescription}">
+                        <input type="submit"
+                               value="<spring:message text="Add Presc"/>"/>
+                    </c:if>
+                </td>
+            </tr>
+        </table>
+    </form:form>
+    </body>
+    </html>
