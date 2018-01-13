@@ -44,7 +44,7 @@
   </bean>
 
   <!--PrescriptionDao and PrescriptionService beans-->
-  <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.daoImpl.PrescriptionDaoImpl">
+  <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.impl.PrescriptionDaoImpl">
     <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
   </bean>
 

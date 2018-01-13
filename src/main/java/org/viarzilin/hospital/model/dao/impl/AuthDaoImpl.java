@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.model.dao.daoImpl;
+package org.viarzilin.hospital.model.dao.impl;
 
 import org.hibernate.Query;
 import org.hibernate.Session;

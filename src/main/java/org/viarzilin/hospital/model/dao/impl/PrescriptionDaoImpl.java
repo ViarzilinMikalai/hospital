@@ -1,7 +1,6 @@
-package org.viarzilin.hospital.model.dao.daoImpl;
+package org.viarzilin.hospital.model.dao.impl;
 
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
