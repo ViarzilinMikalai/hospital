@@ -62,7 +62,7 @@
 
 <h1>Prescriptions List</h1>
 
-<c:if test="${!empty listBooks}">
+<c:if test="${!empty getAllPresc}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
@@ -72,7 +72,7 @@
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${listBooks}" var="book">
+        <c:forEach items="${getAllPresc}" var="book">
             <tr>
                 <td>${prescription.idPrescription}</td>
                 <td><a href="/prescriptiondata/${prescription.idPrescription}" target="_blank">

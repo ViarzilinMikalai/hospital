@@ -26,7 +26,7 @@ public class PrescriptionsController {
   @RequestMapping(value = "prescriptions", method = RequestMethod.GET)
   public String getAllPresc(Model model){
     model.addAttribute("prescription", new Prescription());
-    model.addAttribute("getAllPresc()", this.prescriptionsService.getAllPresc());
+    model.addAttribute("getAllPresc", this.prescriptionsService.getAllPresc());
 
     return "prescriptions";
   }
