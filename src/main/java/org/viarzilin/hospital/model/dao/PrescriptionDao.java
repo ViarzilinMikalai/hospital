@@ -8,9 +8,9 @@ public interface PrescriptionDao {
 
   public void updatePrescription(Prescription prescription);
 
-  public void removePrescription(Integer idPrescription);
+  public void removePrescription(Integer id);
 
-  public Prescription getPrescById(Integer idPrescription);
+  public Prescription getPrescById(Integer id);
 
   List<Prescription> getAllPresc();
 

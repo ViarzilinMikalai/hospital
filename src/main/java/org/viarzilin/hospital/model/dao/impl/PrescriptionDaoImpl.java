@@ -44,8 +44,8 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
   }
 
   @Override
-  public void removePrescription(Integer idPrescription) {
-    Prescription prescription = (Prescription) getSession().load(Prescription.class, idPrescription);
+  public void removePrescription(Integer id) {
+    Prescription prescription = (Prescription) getSession().load(Prescription.class, id);
     if (prescription !=null){
       getSession().delete(prescription);
       lOGGER.info("Prescription successfully deleted" + prescription);
@@ -54,8 +54,8 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
   }
 
   @Override
-  public Prescription getPrescById(Integer idPrescription) {
-    Prescription prescription = (Prescription)getSession().load(Prescription.class, idPrescription);
+  public Prescription getPrescById(Integer id) {
+    Prescription prescription = (Prescription)getSession().load(Prescription.class, id);
     lOGGER.info("Prescription successfully loaded"  + prescription);
     return prescription;
   }

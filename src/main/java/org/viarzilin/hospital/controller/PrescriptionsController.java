@@ -31,9 +31,9 @@ public class PrescriptionsController {
     return "prescriptions";
   }
 
-  @RequestMapping(value = "prescriptions/add", method = RequestMethod.POST)
+  @RequestMapping(value = "/prescriptions/add", method = RequestMethod.POST)
   public String addPrescription(@ModelAttribute("prescription") Prescription prescription){
-    if (prescription.getIdPrescription() == 0){
+    if (prescription.getId() == 0){
       this.prescriptionsService.addPrescription(prescription);
     } else {
       this.prescriptionsService.updatePrescription(prescription);
@@ -42,24 +42,24 @@ public class PrescriptionsController {
     return "redirect:/prescriptions";
   }
 
-  @RequestMapping("/remove/{idPrescription}")
-  public String removePrescription(@PathVariable("idPrescription") int idPrescription){
-    this.prescriptionsService.removePrescription(idPrescription);
+  @RequestMapping("/remove/{id}")
+  public String removePrescription(@PathVariable("id") int id){
+    this.prescriptionsService.removePrescription(id);
 
     return "redirect:/prescriptions";
   }
 
-  @RequestMapping("edit/{idPrescription}")
-  public String editPrescription(@PathVariable("idPrescription") int idPrescription, Model model){
-    model.addAttribute("prescription", this.prescriptionsService.getPrescById(idPrescription));
+  @RequestMapping("edit/{id}")
+  public String editPrescription(@PathVariable("id") int id, Model model){
+    model.addAttribute("prescription", this.prescriptionsService.getPrescById(id));
     model.addAttribute("getAllPresc", this.prescriptionsService.getAllPresc());
 
     return "redirect:/prescriptions";
   }
 
-  @RequestMapping("prescriptiondata/{idPrescription}")
-  public String prescriptionData(@PathVariable("idPrescription") int idPrescription, Model model){
-    model.addAttribute("prescription", this.prescriptionsService.getPrescById(idPrescription));
+  @RequestMapping("prescriptiondata/{id}")
+  public String prescriptionData(@PathVariable("id") int id, Model model){
+    model.addAttribute("prescription", this.prescriptionsService.getPrescById(id));
 
     return "prescriptiondata";
   }

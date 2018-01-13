@@ -12,7 +12,7 @@ public class Prescription {
     @Id
     @Column(name = "ID_PRESCRIPTION")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPrescription;
+    private int id;
 
     @Column(name = "NAME_PRESCRIPTION", nullable = false, length = 20)
     private String namePrescription;
@@ -35,12 +35,12 @@ public class Prescription {
      * Getters and Setters
      */
 
-    public int getIdPrescription() {
-        return idPrescription;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPrescription(int idPrescription) {
-        this.idPrescription = idPrescription;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNamePrescription() {
@@ -78,7 +78,7 @@ public class Prescription {
     @Override
     public String toString() {
         return "Prescription{" +
-                "idPrescription=" + idPrescription +
+                "id=" + id +
                 ", namePrescription='" + namePrescription + '\'' +
                 ", typePrescription=" + typePrescription +
                 ", description='" + description + '\'' +

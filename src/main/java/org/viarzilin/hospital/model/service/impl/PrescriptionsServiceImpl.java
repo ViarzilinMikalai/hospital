@@ -28,14 +28,14 @@ public class PrescriptionsServiceImpl implements PrescriptionsService {
 
   @Override
   @Transactional
-  public void removePrescription(Integer idPrescription) {
-    this.prescriptionDao.removePrescription(idPrescription);
+  public void removePrescription(Integer id) {
+    this.prescriptionDao.removePrescription(id);
   }
 
   @Override
   @Transactional
-  public Prescription getPrescById(Integer idPrescription) {
-    return this.prescriptionDao.getPrescById(idPrescription);
+  public Prescription getPrescById(Integer id) {
+    return this.prescriptionDao.getPrescById(id);
   }
 
   @Override
