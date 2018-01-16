@@ -5,8 +5,8 @@ import javax.persistence.*;
 import java.util.List;
 
 
-@Table(name = "prescription")
 @Entity
+@Table(name = "prescription")
 public class Prescription {
 
     @Id
@@ -27,10 +27,10 @@ public class Prescription {
 
     /**
     * One_to_many relationship Prescription to ReceptionPrescription
-    */
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prescriptions", orphanRemoval = true)
      private List<ReceptionPrescription> receptionPrescriptions;
-
+     */
     /**
      * Getters and Setters
      */
@@ -66,7 +66,7 @@ public class Prescription {
     public void setDescription(String description) {
         this.description = description;
     }
-
+/**
     public List<ReceptionPrescription> getReceptionPrescriptions() {
         return receptionPrescriptions;
     }
@@ -74,7 +74,7 @@ public class Prescription {
     public void setReceptionPrescriptions(List<ReceptionPrescription> receptionPrescriptions) {
         this.receptionPrescriptions = receptionPrescriptions;
     }
-
+*/
     @Override
     public String toString() {
         return "Prescription{" +

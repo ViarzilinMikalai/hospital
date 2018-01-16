@@ -1,17 +1,17 @@
 package org.viarzilin.hospital.model.service;
 
-import java.util.List;
 import org.viarzilin.hospital.model.entity.Prescription;
 
-public interface PrescriptionsService {
+import java.util.List;
+
+public interface PrescriptionService {
   public void addPrescription(Prescription prescription);
 
   public void updatePrescription(Prescription prescription);
 
   public void removePrescription(Integer id);
 
-  public Prescription getPrescById(Integer id);
+  public Prescription getPrescriptionById(Integer id);
 
-  List<Prescription> getAllPresc();
-
+  public List<Prescription> listPrescriptions();
 }

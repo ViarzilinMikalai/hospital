@@ -52,25 +52,24 @@
 <br/>
 <br/>
 
-<h1>Prescriptions List</h1>
+<h1>Prescription List</h1>
 
 
 
-<c:if test="${!empty getAllPresc}">
+<c:if test="${!empty listPrescriptions}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
-            <th width="120">Prescription name</th>
-            <th width="120">Prescription type</th>
+            <th width="120">NamePrescription</th>
+            <th width="120">TypePrescription</th>
             <th width="120">Description</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${getAllPresc}" var="prescription">
+        <c:forEach items="${listPrescriptions}" var="prescription">
             <tr>
                 <td>${prescription.id}</td>
-                <td><a href="/prescriptiondata/${prescription.id}" target="_blank">
-                        ${prescription.namePrescription}</a></td>
+                <td><a href="/prescriptiondata/${prescription.id}" target="_blank">${prescription.namePrescription}</a></td>
                 <td>${prescription.typePrescription}</td>
                 <td>${prescription.description}</td>
                 <td><a href="<c:url value='/edit/${prescription.id}'/>">Edit</a></td>
@@ -81,10 +80,9 @@
 </c:if>
 
 
-<h1>Add a Prescriptions</h1>
+<h1>Add a Prescription</h1>
 
 <c:url var="addAction" value="/prescriptions/add"/>
-
 <form:form action="${addAction}" commandName="prescription">
     <table>
         <c:if test="${!empty prescription.namePrescription}">
@@ -103,7 +101,7 @@
         <tr>
             <td>
                 <form:label path="namePrescription">
-                    <spring:message text="Prescription name"/>
+                    <spring:message text="NamePrescription"/>
                 </form:label>
             </td>
             <td>
@@ -113,11 +111,15 @@
         <tr>
             <td>
                 <form:label path="typePrescription">
-                    <spring:message text="Prescription type"/>
+                    <spring:message text="TypePrescription"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="typePrescription"/>
+                <form:select path="typePrescription">
+                    <form:option value="MEDICAMENT">medicament</form:option>
+                    <form:option value="PROCEDURE">procedure</form:option>
+                    <form:option value="OPERATION">operation</form:option>
+                </form:select>
             </td>
         </tr>
         <tr>
@@ -134,11 +136,11 @@
             <td colspan="2">
                 <c:if test="${!empty prescription.namePrescription}">
                     <input type="submit"
-                           value="<spring:message text="Edit Prescr"/>"/>
+                           value="<spring:message text="Edit Prescription"/>"/>
                 </c:if>
                 <c:if test="${empty prescription.namePrescription}">
                     <input type="submit"
-                           value="<spring:message text="Add Prescr"/>"/>
+                           value="<spring:message text="Add Prescription"/>"/>
                 </c:if>
             </td>
         </tr>

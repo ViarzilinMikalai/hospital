@@ -1,18 +1,21 @@
 package org.viarzilin.hospital.model.service.impl;
 
-import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.viarzilin.hospital.model.dao.PrescriptionDao;
 import org.viarzilin.hospital.model.entity.Prescription;
-import org.viarzilin.hospital.model.service.PrescriptionsService;
+import org.viarzilin.hospital.model.service.PrescriptionService;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-public class PrescriptionsServiceImpl implements PrescriptionsService {
+import java.util.List;
+
+@Service
+public class PrescriptionServiceImpl implements PrescriptionService {
   private PrescriptionDao prescriptionDao;
 
-  public void setPrescriptionDao(PrescriptionDao prescriptionDao) {
-    this.prescriptionDao = prescriptionDao;
+  public void setPrescriptionDao(PrescriptionDao bookDao) {
+    this.prescriptionDao = bookDao;
   }
-
 
   @Override
   @Transactional
@@ -34,14 +37,13 @@ public class PrescriptionsServiceImpl implements PrescriptionsService {
 
   @Override
   @Transactional
-  public Prescription getPrescById(Integer id) {
-    return this.prescriptionDao.getPrescById(id);
+  public Prescription getPrescriptionById(Integer id) {
+    return this.prescriptionDao.getPrescriptionById(id);
   }
 
   @Override
   @Transactional
-  public List<Prescription> getAllPresc() {
-    return this.prescriptionDao.getAllPresc();
+  public List<Prescription> listPrescriptions() {
+    return this.prescriptionDao.listPrescriptions();
   }
-
 }

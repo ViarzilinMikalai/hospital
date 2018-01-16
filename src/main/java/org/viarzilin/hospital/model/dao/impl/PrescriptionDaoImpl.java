@@ -1,74 +1,73 @@
 package org.viarzilin.hospital.model.dao.impl;
 
-
+import org.viarzilin.hospital.model.dao.PrescriptionDao;
+import org.viarzilin.hospital.model.entity.Prescription;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import java.util.List;
 
-import org.viarzilin.hospital.model.dao.PrescriptionDao;
-import org.viarzilin.hospital.model.entity.Prescription;
+import java.util.List;
 
 @Repository
 public class PrescriptionDaoImpl implements PrescriptionDao {
-
-  private static final Logger lOGGER = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
+  private static final Logger logger = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
 
   @Autowired
   private SessionFactory sessionFactory;
-
-  protected Session getSession() {
-    return sessionFactory.getCurrentSession();
-  }
 
   public void setSessionFactory(SessionFactory sessionFactory) {
     this.sessionFactory = sessionFactory;
   }
 
+  protected Session getSession() {
+    return sessionFactory.getCurrentSession();
+  }
 
   @Override
   public void addPrescription(Prescription prescription) {
     getSession().persist(prescription);
-    lOGGER.info("Prescription successfully saved:" + prescription);
-
+    logger.info("Prescription successfully saved. Prescription details: " + prescription);
   }
 
   @Override
   public void updatePrescription(Prescription prescription) {
     getSession().update(prescription);
-    lOGGER.info("Prescription successfully updated" + prescription);
-
+    logger.info("Prescription successfully update. Prescription details: " + prescription);
   }
 
   @Override
   public void removePrescription(Integer id) {
-    Prescription prescription = (Prescription) getSession().load(Prescription.class, id);
-    if (prescription !=null){
-      getSession().delete(prescription);
-      lOGGER.info("Prescription successfully deleted" + prescription);
-    }
 
+    Prescription prescription = (Prescription) getSession().load(Prescription.class, id);
+
+    if(prescription !=null){
+      getSession().delete(prescription);
+    }
+    logger.info("Prescription successfully removed. Prescription details: " + prescription);
   }
 
   @Override
-  public Prescription getPrescById(Integer id) {
-    Prescription prescription = (Prescription)getSession().load(Prescription.class, id);
-    lOGGER.info("Prescription successfully loaded"  + prescription);
+  public Prescription getPrescriptionById(Integer id) {
+
+    Prescription prescription = (Prescription) getSession().load(Prescription.class, id);
+    logger.info("Prescription successfully loaded. Prescription details: " + prescription);
+
     return prescription;
   }
 
   @Override
-  public List<Prescription> getAllPresc() {
+  @SuppressWarnings("unchecked")
+  public List<Prescription> listPrescriptions() {
+
     List<Prescription> prescriptionList = getSession().createQuery("from Prescription").list();
 
-    for(Prescription prescription: prescriptionList){
-      lOGGER.info("Prescription list: " + prescription);
+    for(Prescription prescription : prescriptionList){
+      logger.info("Prescription list: " + prescription);
     }
 
     return prescriptionList;
   }
-  
 }

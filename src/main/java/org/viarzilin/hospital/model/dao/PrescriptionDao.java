@@ -10,9 +10,8 @@ public interface PrescriptionDao {
 
   public void removePrescription(Integer id);
 
-  public Prescription getPrescById(Integer id);
+  public Prescription getPrescriptionById(Integer id);
 
-  List<Prescription> getAllPresc();
-
-
+  public List<Prescription> listPrescriptions();
 }
+

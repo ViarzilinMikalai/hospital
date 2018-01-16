@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vernik
-  Date: 12.01.2018
-  Time: 12:38
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
@@ -13,7 +6,7 @@
 
 <html>
 <head>
-    <title>PrescriptionData</title>
+    <title>BookData</title>
 
     <style type="text/css">
         .tg {
@@ -56,15 +49,14 @@
 
 </head>
 <body>
-<h1>Prescriptions Details</h1>
+<h1>Prescription Details</h1>
 
 <table class="tg">
     <tr>
         <th width="80">ID</th>
-        <th width="120">Prescription name</th>
-        <th width="120">Prescription type</th>
+        <th width="120">NamePrescription</th>
+        <th width="120">TypePrescription</th>
         <th width="120">Description</th>
-
     </tr>
     <tr>
         <td>${prescription.id}</td>
