@@ -27,11 +27,11 @@ public class Patient {
   @Column(name = "BIRTH_DATE")
   private Date birthDate;
 
-  @Column(name = "ADRESS", nullable = false, length = 45)
+  @Column(name = "ADRESS",  length = 45)
   private String adress;
 
   @Temporal(TemporalType.DATE)
-  @Column(name = "CREATE_DATE", nullable = false, updatable = false)
+  @Column(name = "CREATE_DATE",  updatable = false)
   private Date createDate;
 
   @Temporal(TemporalType.DATE)
@@ -53,12 +53,12 @@ public class Patient {
   /**
    * Getters and Setters
    */
-  public int getIdPatient() {
+  public int getId() {
     return id;
   }
 
-  public void setIdPatient(int idPatient) {
-    this.id = idPatient;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getLastName() {

@@ -9,5 +9,7 @@
 <br/>
 <a href="<c:url value="/prescriptions"/>" target="_blank">Prescriptions list</a>
 <br/>
+<a href="<c:url value="/patients"/>" target="_blank">Patients list</a>
+<br/>
 </body>
 </html>
