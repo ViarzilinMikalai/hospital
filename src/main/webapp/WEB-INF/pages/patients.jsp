@@ -72,8 +72,8 @@
                 <td><a href="/patientdata/${patient.id}" target="_blank">${patient.lastName}</a></td>
                 <td>${patient.firstName}</td>
                 <td>${patient.surName}</td>
-                <td><a href="<c:url value='/edit/${patient.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/remove/${patient.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/patients/edit/${patient.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/patients/remove/${patient.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

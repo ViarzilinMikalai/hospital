@@ -54,13 +54,13 @@
   </bean>
 
   <!--PatientDao and PatientService beans-->
-  <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
-   <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
- </bean>
+   <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
+     <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+   </bean>
 
- <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
-   <property name="patientDao" ref="patientDao"/>
- </bean>
+   <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
+     <property name="patientDao" ref="patientDao"/>
+   </bean>
 
  <context:component-scan base-package="org.viarzilin.hospital"/>
 

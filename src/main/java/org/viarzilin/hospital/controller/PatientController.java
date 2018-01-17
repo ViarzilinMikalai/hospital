@@ -40,14 +40,14 @@ public class PatientController {
     return "redirect:/patients";
   }
 
-  @RequestMapping("/remove/{id}")
+  @RequestMapping("/patients/remove/{id}")
   public String removePatient(@PathVariable("id") int id){
     this.patientService.removePatient(id);
 
     return "redirect:/patients";
   }
 
-  @RequestMapping("edit/{id}")
+  @RequestMapping("/patients/edit/{id}")
   public String editPatient(@PathVariable("id") int id, Model model){
     model.addAttribute("patient", this.patientService.getPatientById(id));
     model.addAttribute("listPatients", this.patientService.listPatients());
