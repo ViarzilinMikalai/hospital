@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public class PrescriptionDaoImpl implements PrescriptionDao {
-  private static final Logger logger = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
 
   @Autowired
   private SessionFactory sessionFactory;
@@ -29,13 +29,13 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
   @Override
   public void addPrescription(Prescription prescription) {
     getSession().persist(prescription);
-    logger.info("Prescription successfully saved. Prescription details: " + prescription);
+    LOGGER.info("Prescription successfully saved. Prescription details: " + prescription);
   }
 
   @Override
   public void updatePrescription(Prescription prescription) {
     getSession().update(prescription);
-    logger.info("Prescription successfully update. Prescription details: " + prescription);
+    LOGGER.info("Prescription successfully update. Prescription details: " + prescription);
   }
 
   @Override
@@ -46,14 +46,14 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
     if(prescription !=null){
       getSession().delete(prescription);
     }
-    logger.info("Prescription successfully removed. Prescription details: " + prescription);
+    LOGGER.info("Prescription successfully removed. Prescription details: " + prescription);
   }
 
   @Override
   public Prescription getPrescriptionById(Integer id) {
 
     Prescription prescription = (Prescription) getSession().load(Prescription.class, id);
-    logger.info("Prescription successfully loaded. Prescription details: " + prescription);
+    LOGGER.info("Prescription successfully loaded. Prescription details: " + prescription);
 
     return prescription;
   }
@@ -65,7 +65,7 @@ public class PrescriptionDaoImpl implements PrescriptionDao {
     List<Prescription> prescriptionList = getSession().createQuery("from Prescription").list();
 
     for(Prescription prescription : prescriptionList){
-      logger.info("Prescription list: " + prescription);
+      LOGGER.info("Prescription list: " + prescription);
     }
 
     return prescriptionList;
