@@ -12,7 +12,7 @@ public class Patient {
   @Id
   @Column(name = "ID_PATIENT")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int idPatient;
+  private int id;
 
   @Column(name = "LASTNAME", nullable = false, length = 20)
   private String lastName;
@@ -41,9 +41,10 @@ public class Patient {
   /**
    * One-to-many relationship Patient to Reception
    */
+  /**
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "patient", orphanRemoval = true)
   private List<Reception> receptions;
-
+*/
 
   public Patient(){
 
@@ -53,11 +54,11 @@ public class Patient {
    * Getters and Setters
    */
   public int getIdPatient() {
-    return idPatient;
+    return id;
   }
 
   public void setIdPatient(int idPatient) {
-    this.idPatient = idPatient;
+    this.id = idPatient;
   }
 
   public String getLastName() {
@@ -115,7 +116,7 @@ public class Patient {
   public void setUpdateDate(Date updateDate) {
     this.updateDate = updateDate;
   }
-
+/**
   public List<Reception> getReceptions() {
     return receptions;
   }
@@ -123,11 +124,11 @@ public class Patient {
   public void setReceptions(List<Reception> receptions) {
     this.receptions = receptions;
   }
-
+*/
   @Override
   public String toString() {
     return "Patient{" +
-            "idPatient=" + idPatient +
+            "idPatient=" + id +
             ", lastName='" + lastName + '\'' +
             ", firstName='" + firstName + '\'' +
             ", surName='" + surName + '\'' +

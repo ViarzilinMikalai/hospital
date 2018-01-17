@@ -14,355 +14,356 @@
     <schema id="7" parent="1" name="mysql"/>
     <schema id="8" parent="1" name="performance_schema"/>
     <schema id="9" parent="1" name="bookstore"/>
-    <table id="10" parent="4" name="auth"/>
-    <table id="11" parent="4" name="patient"/>
-    <table id="12" parent="4" name="presc_executor"/>
-    <table id="13" parent="4" name="prescription"/>
-    <table id="14" parent="4" name="reception"/>
-    <table id="15" parent="4" name="reception_prescription"/>
-    <table id="16" parent="4" name="staff"/>
-    <table id="17" parent="4" name="test"/>
-    <column id="18" parent="10" name="ID_AUTH">
+    <schema id="10" parent="1" name="eshop"/>
+    <table id="11" parent="4" name="auth"/>
+    <table id="12" parent="4" name="patient"/>
+    <table id="13" parent="4" name="presc_executor"/>
+    <table id="14" parent="4" name="prescription"/>
+    <table id="15" parent="4" name="reception"/>
+    <table id="16" parent="4" name="reception_prescription"/>
+    <table id="17" parent="4" name="staff"/>
+    <table id="18" parent="4" name="test"/>
+    <column id="19" parent="11" name="ID_AUTH">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="19" parent="10" name="STAFF_ID">
+    <column id="20" parent="11" name="STAFF_ID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="20" parent="10" name="LOGIN">
+    <column id="21" parent="11" name="LOGIN">
       <Position>3</Position>
       <DataType>varchar(16)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="10" name="PASSWORD">
+    <column id="22" parent="11" name="PASSWORD">
       <Position>4</Position>
       <DataType>varchar(16)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="10" name="EMAIL">
+    <column id="23" parent="11" name="EMAIL">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="10" name="ISACTIVE">
+    <column id="24" parent="11" name="ISACTIVE">
       <Position>6</Position>
       <DataType>bit(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
     </column>
-    <index id="24" parent="10" name="email_UNIQUE">
+    <index id="25" parent="11" name="email_UNIQUE">
       <ColNames>EMAIL</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="25" parent="10" name="id_auth_UNIQUE">
+    <index id="26" parent="11" name="id_auth_UNIQUE">
       <ColNames>STAFF_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="26" parent="10" name="LOGIN_UNIQUE">
+    <index id="27" parent="11" name="LOGIN_UNIQUE">
       <ColNames>LOGIN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="27" parent="10" name="PRIMARY">
+    <key id="28" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_AUTH</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="28" parent="10" name="id_auth_UNIQUE">
+    <key id="29" parent="11" name="id_auth_UNIQUE">
       <ColNames>STAFF_ID</ColNames>
       <UnderlyingIndexName>id_auth_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="29" parent="10" name="LOGIN_UNIQUE">
+    <key id="30" parent="11" name="LOGIN_UNIQUE">
       <ColNames>LOGIN</ColNames>
       <UnderlyingIndexName>LOGIN_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="30" parent="10" name="email_UNIQUE">
+    <key id="31" parent="11" name="email_UNIQUE">
       <ColNames>EMAIL</ColNames>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="31" parent="10" name="AUTH_ID_PK">
+    <foreign-key id="32" parent="11" name="AUTH_ID_PK">
       <ColNames>STAFF_ID</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>staff</RefTableName>
       <RefColNames>ID_SATFF</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="32" parent="11" name="ID_PATIENT">
+    <column id="33" parent="12" name="ID_PATIENT">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="33" parent="11" name="LASTNAME">
+    <column id="34" parent="12" name="LASTNAME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="11" name="FIRSTNAME">
+    <column id="35" parent="12" name="FIRSTNAME">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="11" name="SURNAME">
+    <column id="36" parent="12" name="SURNAME">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="36" parent="11" name="BIRTH_DATE">
+    <column id="37" parent="12" name="BIRTH_DATE">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="37" parent="11" name="ADRESS">
+    <column id="38" parent="12" name="ADRESS">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="11" name="CREATE_DATE">
+    <column id="39" parent="12" name="CREATE_DATE">
       <Position>7</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="39" parent="11" name="UPDATE_DATE">
+    <column id="40" parent="12" name="UPDATE_DATE">
       <Position>8</Position>
       <DataType>date|0</DataType>
     </column>
-    <key id="40" parent="11" name="PRIMARY">
+    <key id="41" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_PATIENT</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="41" parent="12" name="IDPATIENT_PRESCRIPTION">
+    <column id="42" parent="13" name="IDPATIENT_PRESCRIPTION">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="42" parent="12" name="ID_STAFF">
+    <column id="43" parent="13" name="ID_STAFF">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="43" parent="12" name="id_patient_prescription_fk_idx">
+    <index id="44" parent="13" name="id_patient_prescription_fk_idx">
       <ColNames>IDPATIENT_PRESCRIPTION</ColNames>
     </index>
-    <index id="44" parent="12" name="id_staff_fk_idx">
+    <index id="45" parent="13" name="id_staff_fk_idx">
       <ColNames>ID_STAFF</ColNames>
     </index>
-    <foreign-key id="45" parent="12" name="id_patient_prescription_fk">
+    <foreign-key id="46" parent="13" name="id_patient_prescription_fk">
       <ColNames>IDPATIENT_PRESCRIPTION</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>reception_prescription</RefTableName>
       <RefColNames>ID_REC_PRESC</RefColNames>
     </foreign-key>
-    <foreign-key id="46" parent="12" name="id_staff_fk">
+    <foreign-key id="47" parent="13" name="id_staff_fk">
       <ColNames>ID_STAFF</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>staff</RefTableName>
       <RefColNames>ID_SATFF</RefColNames>
     </foreign-key>
-    <column id="47" parent="13" name="ID_PRESCRIPTION">
+    <column id="48" parent="14" name="ID_PRESCRIPTION">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="48" parent="13" name="NAME_PRESCRIPTION">
+    <column id="49" parent="14" name="NAME_PRESCRIPTION">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="49" parent="13" name="TYPE_PRESCRIPTION">
+    <column id="50" parent="14" name="TYPE_PRESCRIPTION">
       <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="13" name="DESCRIPTION">
+    <column id="51" parent="14" name="DESCRIPTION">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <key id="51" parent="13" name="PRIMARY">
+    <key id="52" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_PRESCRIPTION</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="52" parent="14" name="ID_RESEPTION">
+    <column id="53" parent="15" name="ID_RESEPTION">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="53" parent="14" name="PATIENT_ID">
+    <column id="54" parent="15" name="PATIENT_ID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="54" parent="14" name="RECEPTION_DATE">
+    <column id="55" parent="15" name="RECEPTION_DATE">
       <Position>3</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="14" name="PRELIMINARY_DIAGNOSIS">
+    <column id="56" parent="15" name="PRELIMINARY_DIAGNOSIS">
       <Position>4</Position>
       <DataType>varchar(60)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="14" name="ID_STAFF">
+    <column id="57" parent="15" name="ID_STAFF">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="57" parent="14" name="DISCHARGE_DATE">
+    <column id="58" parent="15" name="DISCHARGE_DATE">
       <Position>6</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="58" parent="14" name="FINAL_DIAGNOSIS">
+    <column id="59" parent="15" name="FINAL_DIAGNOSIS">
       <Position>7</Position>
       <DataType>varchar(60)|0</DataType>
     </column>
-    <column id="59" parent="14" name="IS_DISCHARGE">
+    <column id="60" parent="15" name="IS_DISCHARGE">
       <Position>8</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <index id="60" parent="14" name="patient_fk_idx">
+    <index id="61" parent="15" name="patient_fk_idx">
       <ColNames>PATIENT_ID</ColNames>
     </index>
-    <index id="61" parent="14" name="staff_fk_idx">
+    <index id="62" parent="15" name="staff_fk_idx">
       <ColNames>ID_STAFF</ColNames>
     </index>
-    <key id="62" parent="14" name="PRIMARY">
+    <key id="63" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_RESEPTION</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="63" parent="14" name="patient_fk">
+    <foreign-key id="64" parent="15" name="patient_fk">
       <ColNames>PATIENT_ID</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>ID_PATIENT</RefColNames>
     </foreign-key>
-    <foreign-key id="64" parent="14" name="staff_fk">
+    <foreign-key id="65" parent="15" name="staff_fk">
       <ColNames>ID_STAFF</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>staff</RefTableName>
       <RefColNames>ID_SATFF</RefColNames>
     </foreign-key>
-    <column id="65" parent="15" name="ID_REC_PRESC">
+    <column id="66" parent="16" name="ID_REC_PRESC">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="66" parent="15" name="ID_PRESCRIPTION">
+    <column id="67" parent="16" name="ID_PRESCRIPTION">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="15" name="ID_RECEPTION">
+    <column id="68" parent="16" name="ID_RECEPTION">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="15" name="ISCANCELL">
+    <column id="69" parent="16" name="ISCANCELL">
       <Position>4</Position>
       <DataType>bit(1)|0</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="69" parent="15" name="PRESCRIPTION_DATE">
+    <column id="70" parent="16" name="PRESCRIPTION_DATE">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="70" parent="15" name="idpatient_prescription_UNIQUE">
+    <index id="71" parent="16" name="idpatient_prescription_UNIQUE">
       <ColNames>ID_REC_PRESC</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="71" parent="15" name="id_prescription_fk_idx">
+    <index id="72" parent="16" name="id_prescription_fk_idx">
       <ColNames>ID_PRESCRIPTION</ColNames>
     </index>
-    <index id="72" parent="15" name="id_receptiont_fk_idx">
+    <index id="73" parent="16" name="id_receptiont_fk_idx">
       <ColNames>ID_RECEPTION</ColNames>
     </index>
-    <key id="73" parent="15" name="PRIMARY">
+    <key id="74" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_REC_PRESC</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="74" parent="15" name="idpatient_prescription_UNIQUE">
+    <key id="75" parent="16" name="idpatient_prescription_UNIQUE">
       <ColNames>ID_REC_PRESC</ColNames>
       <UnderlyingIndexName>idpatient_prescription_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="75" parent="15" name="id_prescription_fk">
+    <foreign-key id="76" parent="16" name="id_prescription_fk">
       <ColNames>ID_PRESCRIPTION</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>prescription</RefTableName>
       <RefColNames>ID_PRESCRIPTION</RefColNames>
     </foreign-key>
-    <foreign-key id="76" parent="15" name="id_reception_fk">
+    <foreign-key id="77" parent="16" name="id_reception_fk">
       <ColNames>ID_RECEPTION</ColNames>
       <RefSchemaName>hospital</RefSchemaName>
       <RefTableName>reception</RefTableName>
       <RefColNames>ID_RESEPTION</RefColNames>
     </foreign-key>
-    <column id="77" parent="16" name="ID_SATFF">
+    <column id="78" parent="17" name="ID_SATFF">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="78" parent="16" name="LASTNAME">
+    <column id="79" parent="17" name="LASTNAME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="16" name="FIRSTNAME">
+    <column id="80" parent="17" name="FIRSTNAME">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="16" name="SURNAME">
+    <column id="81" parent="17" name="SURNAME">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="81" parent="16" name="TYPE_STAFF">
+    <column id="82" parent="17" name="TYPE_STAFF">
       <Position>5</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="82" parent="16" name="CREATE_DATE">
+    <column id="83" parent="17" name="CREATE_DATE">
       <Position>6</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="83" parent="16" name="UPDATE_DATE">
+    <column id="84" parent="17" name="UPDATE_DATE">
       <Position>7</Position>
       <DataType>date|0</DataType>
     </column>
-    <index id="84" parent="16" name="id_staff_UNIQUE">
+    <index id="85" parent="17" name="id_staff_UNIQUE">
       <ColNames>ID_SATFF</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="85" parent="16" name="PRIMARY">
+    <key id="86" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID_SATFF</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="86" parent="16" name="id_staff_UNIQUE">
+    <key id="87" parent="17" name="id_staff_UNIQUE">
       <ColNames>ID_SATFF</ColNames>
       <UnderlyingIndexName>id_staff_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="87" parent="17" name="ID">
+    <column id="88" parent="18" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="88" parent="17" name="NAME">
+    <column id="89" parent="18" name="NAME">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="89" parent="17" name="PRIMARY">
+    <key id="90" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
