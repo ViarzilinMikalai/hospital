@@ -30,6 +30,7 @@
     <property name="annotatedClasses">
       <list>
         <value>org.viarzilin.hospital.model.entity.Prescription</value>
+        <value>org.viarzilin.hospital.model.entity.Patient</value>
       </list>
     </property>
 
@@ -54,22 +55,22 @@
 
   <!--PatientDao and PatientService beans-->
   <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
-    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-  </bean>
+   <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+ </bean>
 
-  <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
-    <property name="patientDao" ref="patientDao"/>
-  </bean>
+ <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
+   <property name="patientDao" ref="patientDao"/>
+ </bean>
 
-  <context:component-scan base-package="org.viarzilin.hospital"/>
+ <context:component-scan base-package="org.viarzilin.hospital"/>
 
-  <tx:annotation-driven transaction-manager="transactionManager"/>
+ <tx:annotation-driven transaction-manager="transactionManager"/>
 
-  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-  </bean>
+ <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+   <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+ </bean>
 
-  <mvc:default-servlet-handler/>
-  <mvc:annotation-driven/>
+ <mvc:default-servlet-handler/>
+ <mvc:annotation-driven/>
 
 </beans>

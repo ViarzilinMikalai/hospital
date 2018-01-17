@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>BookData</title>
+    <title>PatientData</title>
 
     <style type="text/css">
         .tg {
@@ -49,7 +49,7 @@
 
 </head>
 <body>
-<h1>Prescription Details</h1>
+<h1>Patient Details</h1>
 
 <table class="tg">
     <tr>
@@ -59,10 +59,10 @@
         <th width="120">Surname</th>
     </tr>
     <tr>
-        <td>${prescription.id}</td>
-        <td>${prescription.lastName}</td>
-        <td>${prescription.firstName}</td>
-        <td>${prescription.surName}</td>
+        <td>${patient.id}</td>
+        <td>${patient.lastName}</td>
+        <td>${patient.firstName}</td>
+        <td>${patient.surName}</td>
     </tr>
 </table>
 </body>

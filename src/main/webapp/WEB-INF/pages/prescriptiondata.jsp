@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>BookData</title>
+    <title>PrescriptionData</title>
 
     <style type="text/css">
         .tg {
