@@ -13,8 +13,8 @@ import java.util.List;
 public class PrescriptionServiceImpl implements PrescriptionService {
   private PrescriptionDao prescriptionDao;
 
-  public void setPrescriptionDao(PrescriptionDao bookDao) {
-    this.prescriptionDao = bookDao;
+  public void setPrescriptionDao(PrescriptionDao prescriptionDao) {
+    this.prescriptionDao = prescriptionDao;
   }
 
   @Override
