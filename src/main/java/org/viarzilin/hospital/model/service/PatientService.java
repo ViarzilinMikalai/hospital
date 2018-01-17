@@ -10,7 +10,7 @@ public interface PatientService {
 
   public void removePatient(Integer id);
 
-  public Patient getPrescriptionById(Integer id);
+  public Patient getPatientById(Integer id);
 
   public List<Patient> listPatients();
 
