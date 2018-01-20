@@ -1,6 +1,7 @@
 package org.viarzilin.hospital.model.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import org.viarzilin.hospital.model.entity.enumerated.UserRole;
 import javax.validation.constraints.Size;
 
@@ -17,11 +18,11 @@ public class Auth {
   @Column(name = "LOGIN", unique = true, nullable = false, length = 16)
   private String login;
 
-  @Size(min = 6, max = 24, message = "Very short password")
+ @Size(min = 6, max = 24, message = "Very short password")
   @Column(name = "PASSWORD", nullable = false, length = 16)
   private String password;
 
-
+  @Email
   @Column(name = "EMAIL",unique = true, nullable = false, length = 20)
   private String email;
 
