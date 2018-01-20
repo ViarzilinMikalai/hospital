@@ -1,11 +1,11 @@
 package org.viarzilin.hospital.model.entity.enumerated;
 
-public enum TypeStaff {
+public enum UserRole {
   ADMIN,
   DOCTOR,
   NURSE;
 
-  TypeStaff (){
+  UserRole(){
 
   }
 }

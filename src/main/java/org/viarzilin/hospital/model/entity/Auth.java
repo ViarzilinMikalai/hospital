@@ -1,6 +1,8 @@
 package org.viarzilin.hospital.model.entity;
 
 import javax.persistence.*;
+import org.viarzilin.hospital.model.entity.enumerated.UserRole;
+import javax.validation.constraints.Size;
 
 
 @Table(name = "auth")
@@ -15,8 +17,10 @@ public class Auth {
   @Column(name = "LOGIN", unique = true, nullable = false, length = 16)
   private String login;
 
+  @Size(min = 6, max = 24, message = "Very short password")
   @Column(name = "PASSWORD", nullable = false, length = 16)
   private String password;
+
 
   @Column(name = "EMAIL",unique = true, nullable = false, length = 20)
   private String email;
@@ -24,27 +28,31 @@ public class Auth {
   @Column(name="ISACTIVE")
   private boolean isActive;
 
+  @Column(name = "USER_ROLE")
+  @Enumerated(EnumType.STRING)
+  private UserRole role;
+
 
   /**
-   * Authentication of this staff
+   * User of this authentication
    */
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name="STAFF_ID", unique = true, nullable = false, updatable = false)
-  private Staff staff;
+  @OneToOne(optional = false, mappedBy = "auth")
+  private User user;
 
 
   public Auth(){
 
   }
+
   /**
    * Getters and Setters
    */
-  public int getIdAuth() {
+  public int getId() {
     return id;
   }
 
-  public void setIdAuth(int idAuth) {
-    this.id = idAuth;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getLogin() {
@@ -79,22 +87,32 @@ public class Auth {
     isActive = active;
   }
 
-  public Staff getStaff() {
-    return staff;
+  public UserRole getRole() {
+    return role;
   }
 
-  public void setStaff(Staff staff) {
-    this.staff = staff;
+  public void setRole(UserRole role) {
+    this.role = role;
   }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
 
   @Override
   public String toString() {
     return "Auth{" +
-            "idAuth=" + id +
-            ", login='" + login + '\'' +
-            ", password='" + password + '\'' +
-            ", email='" + email + '\'' +
-            ", isActive=" + isActive +
-            '}';
+        "id=" + id +
+        ", login='" + login + '\'' +
+        ", password='" + password + '\'' +
+        ", email='" + email + '\'' +
+        ", isActive=" + isActive +
+        ", role=" + role +
+        '}';
   }
 }

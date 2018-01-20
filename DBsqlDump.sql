@@ -24,16 +24,14 @@ DROP TABLE IF EXISTS `auth`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth` (
   `ID_AUTH` int(11) NOT NULL AUTO_INCREMENT,
-  `STAFF_ID` int(11) DEFAULT NULL,
-  `LOGIN` varchar(16) NOT NULL,
-  `PASSWORD` varchar(16) NOT NULL,
-  `EMAIL` varchar(20) NOT NULL,
+  `USERNAME` varchar(255) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `USER_ROLE` varchar(45) NOT NULL DEFAULT 'NURSE',
   `ISACTIVE` bit(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`ID_AUTH`),
   UNIQUE KEY `email_UNIQUE` (`EMAIL`),
-  UNIQUE KEY `LOGIN_UNIQUE` (`LOGIN`),
-  UNIQUE KEY `id_auth_UNIQUE` (`STAFF_ID`),
-  CONSTRAINT `AUTH_ID_PK` FOREIGN KEY (`STAFF_ID`) REFERENCES `staff` (`ID_SATFF`) ON DELETE NO ACTION ON UPDATE CASCADE
+  UNIQUE KEY `LOGIN_UNIQUE` (`USERNAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,15 +53,15 @@ DROP TABLE IF EXISTS `patient`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `patient` (
   `ID_PATIENT` int(11) NOT NULL AUTO_INCREMENT,
-  `LASTNAME` varchar(20) NOT NULL,
-  `FIRSTNAME` varchar(20) NOT NULL,
-  `SURNAME` varchar(20) DEFAULT NULL,
-  `BIRTH_DATE` date NOT NULL,
-  `ADRESS` varchar(45) NOT NULL,
-  `CREATE_DATE` date NOT NULL,
-  `UPDATE_DATE` date DEFAULT NULL,
+  `LASTNAME` varchar(255) NOT NULL,
+  `FIRSTNAME` varchar(255) NOT NULL,
+  `SURNAME` varchar(255) DEFAULT NULL,
+  `BIRTH_DATE` date DEFAULT NULL,
+  `ADRESS` varchar(255) DEFAULT NULL,
+  `CREATE_DATE` datetime(6) DEFAULT NULL,
+  `UPDATE_DATE` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`ID_PATIENT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,6 +70,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
+INSERT INTO `patient` VALUES (2,'erwer','werwer','werwer',NULL,'ooo','2018-01-20 00:00:00.000000',NULL),(3,'werwer2','werwer2','werwer2',NULL,'asdasdasd',NULL,NULL),(4,'erwer','werwer','werwerwer',NULL,'sdfsdfsdfsdf',NULL,NULL),(5,'qqqqqq','wwwww','eeeee',NULL,'rrrrrrrrrr&#1082;',NULL,NULL),(9,'rrrwerwer','rrr','rrr',NULL,'rrr','2018-01-20 10:42:39.017000','2018-01-20 10:42:46.983000');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,11 +83,11 @@ DROP TABLE IF EXISTS `presc_executor`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `presc_executor` (
   `IDPATIENT_PRESCRIPTION` int(11) NOT NULL,
-  `ID_STAFF` int(11) NOT NULL,
+  `ID_USER` int(11) NOT NULL,
   KEY `id_patient_prescription_fk_idx` (`IDPATIENT_PRESCRIPTION`),
-  KEY `id_staff_fk_idx` (`ID_STAFF`),
+  KEY `id_staff_fk_idx` (`ID_USER`),
   CONSTRAINT `id_patient_prescription_fk` FOREIGN KEY (`IDPATIENT_PRESCRIPTION`) REFERENCES `reception_prescription` (`ID_REC_PRESC`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `id_staff_fk` FOREIGN KEY (`ID_STAFF`) REFERENCES `staff` (`ID_SATFF`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `id_staff_fk` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,11 +109,11 @@ DROP TABLE IF EXISTS `prescription`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `prescription` (
   `ID_PRESCRIPTION` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME_PRESCRIPTION` varchar(20) NOT NULL,
+  `NAME_PRESCRIPTION` varchar(255) NOT NULL,
   `TYPE_PRESCRIPTION` varchar(10) NOT NULL,
-  `DESCRIPTION` varchar(100) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID_PRESCRIPTION`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,6 +122,7 @@ CREATE TABLE `prescription` (
 
 LOCK TABLES `prescription` WRITE;
 /*!40000 ALTER TABLE `prescription` DISABLE KEYS */;
+INSERT INTO `prescription` VALUES (1,'Bla bla','MEDICAMENT','bla bla bla'),(2,'Bla bla2','MEDICAMENT','PROCEDURE'),(3,'sdf sf sd fsd f','PROCEDURE','sdf sdf sdf sdf sdf '),(4,'rrrrr','OPERATION','ttttt'),(6,'yyy','MEDICAMENT','yyyy'),(7,'ertert','MEDICAMENT','ertertertert'),(8,'werwer','PROCEDURE','werwerwer');
 /*!40000 ALTER TABLE `prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,16 +137,16 @@ CREATE TABLE `reception` (
   `ID_RESEPTION` int(11) NOT NULL AUTO_INCREMENT,
   `PATIENT_ID` int(11) NOT NULL,
   `RECEPTION_DATE` date NOT NULL,
-  `PRELIMINARY_DIAGNOSIS` varchar(60) NOT NULL,
-  `ID_STAFF` int(11) NOT NULL,
+  `PRELIMINARY_DIAGNOSIS` varchar(255) NOT NULL,
+  `ID_USER` int(11) NOT NULL,
   `DISCHARGE_DATE` date DEFAULT NULL,
-  `FINAL_DIAGNOSIS` varchar(60) DEFAULT NULL,
+  `FINAL_DIAGNOSIS` varchar(255) DEFAULT NULL,
   `IS_DISCHARGE` bit(1) DEFAULT b'0',
   PRIMARY KEY (`ID_RESEPTION`),
   KEY `patient_fk_idx` (`PATIENT_ID`),
-  KEY `staff_fk_idx` (`ID_STAFF`),
+  KEY `staff_fk_idx` (`ID_USER`),
   CONSTRAINT `patient_fk` FOREIGN KEY (`PATIENT_ID`) REFERENCES `patient` (`ID_PATIENT`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `staff_fk` FOREIGN KEY (`ID_STAFF`) REFERENCES `staff` (`ID_SATFF`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `staff_fk` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,55 +191,33 @@ LOCK TABLES `reception_prescription` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `staff`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `staff`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `staff` (
-  `ID_SATFF` int(11) NOT NULL AUTO_INCREMENT,
-  `LASTNAME` varchar(20) NOT NULL,
-  `FIRSTNAME` varchar(20) NOT NULL,
-  `SURNAME` varchar(20) DEFAULT NULL,
-  `TYPE_STAFF` varchar(10) NOT NULL,
-  `CREATE_DATE` date NOT NULL,
-  `UPDATE_DATE` date DEFAULT NULL,
-  PRIMARY KEY (`ID_SATFF`),
-  UNIQUE KEY `id_staff_UNIQUE` (`ID_SATFF`)
+CREATE TABLE `user` (
+  `ID_USER` int(11) NOT NULL AUTO_INCREMENT,
+  `LASTNAME` varchar(45) NOT NULL,
+  `FIRSTNAME` varchar(45) NOT NULL,
+  `SURNAME` varchar(45) DEFAULT NULL,
+  `CREATEDATE` datetime(6) NOT NULL,
+  `UPDATEDATE` datetime(6) DEFAULT NULL,
+  `ID_AUTH` int(11) NOT NULL,
+  PRIMARY KEY (`ID_USER`),
+  UNIQUE KEY `ID_AUTH_UNIQUE` (`ID_AUTH`),
+  CONSTRAINT `AUTH_ID_FK` FOREIGN KEY (`ID_AUTH`) REFERENCES `auth` (`ID_AUTH`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `staff`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `staff` WRITE;
-/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `test`
---
-
-DROP TABLE IF EXISTS `test`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `test` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `test`
---
-
-LOCK TABLES `test` WRITE;
-/*!40000 ALTER TABLE `test` DISABLE KEYS */;
-/*!40000 ALTER TABLE `test` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -251,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-03 12:13:15
+-- Dump completed on 2018-01-20 12:40:21

@@ -42,13 +42,13 @@ public class ReceptionPrescription {
 
 
   /**
-   * Many-to-many relationship ReceptionPrescription to Staff
+   * Many-to-many relationship ReceptionPrescription to User
    */
   @ManyToMany
   @JoinTable(name = "PRESC_EXECUTOR",
           joinColumns = @JoinColumn(name = "IDPATIENT_PRESCRIPTION", referencedColumnName = "ID_RES_PRESC"),
           inverseJoinColumns = @JoinColumn(name = "ID_STAFF", referencedColumnName = "ID_STAFF"))
-  private List<Staff> staffList;
+  private List<User> userList;
 
 
   /**
@@ -94,12 +94,12 @@ public class ReceptionPrescription {
     this.prescriptions = prescriptions;
   }
 
-  public List<Staff> getStaffList() {
-    return staffList;
+  public List<User> getUserList() {
+    return userList;
   }
 
-  public void setStaffList(List<Staff> staffList) {
-    this.staffList = staffList;
+  public void setUserList(List<User> userList) {
+    this.userList = userList;
   }
 
 

@@ -45,11 +45,11 @@ public class Reception {
 
 
   /**
-   * Many-to-one relationship Staff to Reception
+   * Many-to-one relationship User to Reception
    */
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "ID_STAFF")
-  private Staff staff;
+  private User user;
 
 
   /**
@@ -118,12 +118,12 @@ public class Reception {
     this.patient = patient;
   }
 
-  public Staff getStaff() {
-    return staff;
+  public User getUser() {
+    return user;
   }
 
-  public void setStaff(Staff staff) {
-    this.staff = staff;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   public List<ReceptionPrescription> getReceptionPrescriptions() {
