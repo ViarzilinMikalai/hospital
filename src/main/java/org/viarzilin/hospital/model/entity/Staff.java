@@ -15,7 +15,7 @@ public class Staff {
     @Id
     @Column(name = "ID_STAFF")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idStaff;
+    private int id;
 
     @Column(name = "LASTNAME", nullable = false, length = 20)
     private String lastName;
@@ -67,11 +67,11 @@ public class Staff {
      * Getters and Setters
      */
     public int getIdStaff() {
-        return idStaff;
+        return id;
     }
 
     public void setIdStaff(int idStaff) {
-        this.idStaff = idStaff;
+        this.id = idStaff;
     }
 
     public String getLastName() {
@@ -149,7 +149,7 @@ public class Staff {
     @Override
     public String toString() {
         return "Staff{" +
-                "idStaff=" + idStaff +
+                "idStaff=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", surName='" + surName + '\'' +

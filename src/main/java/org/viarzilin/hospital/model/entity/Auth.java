@@ -10,7 +10,7 @@ public class Auth {
   @Id
   @Column(name = "ID_AUTH")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int idAuth;
+  private int id;
 
   @Column(name = "LOGIN", unique = true, nullable = false, length = 16)
   private String login;
@@ -40,11 +40,11 @@ public class Auth {
    * Getters and Setters
    */
   public int getIdAuth() {
-    return idAuth;
+    return id;
   }
 
   public void setIdAuth(int idAuth) {
-    this.idAuth = idAuth;
+    this.id = idAuth;
   }
 
   public String getLogin() {
@@ -90,7 +90,7 @@ public class Auth {
   @Override
   public String toString() {
     return "Auth{" +
-            "idAuth=" + idAuth +
+            "idAuth=" + id +
             ", login='" + login + '\'' +
             ", password='" + password + '\'' +
             ", email='" + email + '\'' +

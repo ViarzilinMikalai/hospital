@@ -1,6 +1,7 @@
 
 package org.viarzilin.hospital.model.dao.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,12 +30,14 @@ public class PatientDaoImpl implements PatientDao{
 
   @Override
   public void addPatient(Patient patient) {
+    patient.setCreateDate(new java.util.Date());
     getSession().persist(patient);
     LOGGER.info("Patient successfully saved. Patient details: " + patient);
   }
 
   @Override
   public void updatePatient(Patient patient) {
+    patient.setUpdateDate(new java.util.Date());
     getSession().update(patient);
     LOGGER.info("Patient successfully update. Patient details: " + patient);
   }

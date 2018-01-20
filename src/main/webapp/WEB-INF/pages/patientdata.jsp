@@ -57,12 +57,18 @@
         <th width="120">Lastname</th>
         <th width="120">Firstname</th>
         <th width="120">Surname</th>
+        <th width="120">Adress</th>
+        <th width="120">Create date</th>
+        <th width="120">Update date</th>
     </tr>
     <tr>
         <td>${patient.id}</td>
         <td>${patient.lastName}</td>
         <td>${patient.firstName}</td>
         <td>${patient.surName}</td>
+        <td>${patient.adress}</td>
+        <td>${patient.createDate}</td>
+        <td>${patient.updateDate}</td>
     </tr>
 </table>
 </body>

@@ -1,13 +1,18 @@
 package org.viarzilin.hospital.model.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Table(name = "Patient")
 @Entity
 public class Patient {
-
+  //public static final String FIELD_UPDATE_DATE = "updateDate";
 
   @Id
   @Column(name = "ID_PATIENT")
@@ -23,20 +28,23 @@ public class Patient {
   @Column(name = "SURNAME", length = 20)
   private String surName;
 
-  @Temporal(TemporalType.DATE)
+
   @Column(name = "BIRTH_DATE")
-  private Date birthDate;
+  @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+  @DateTimeFormat(iso = ISO.DATE)
+  private DateTime birthDate;
 
   @Column(name = "ADRESS",  length = 45)
   private String adress;
 
-  @Temporal(TemporalType.DATE)
+  @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "CREATE_DATE",  updatable = false)
   private Date createDate;
 
-  @Temporal(TemporalType.DATE)
+  @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "UPDATE_DATE")
   private Date updateDate;
+
 
   /**
    * One-to-many relationship Patient to Reception
@@ -85,11 +93,11 @@ public class Patient {
     this.surName = surName;
   }
 
-  public java.util.Date getBirthDate() {
+  public DateTime getBirthDate() {
     return birthDate;
   }
 
-  public void setBirthDate(Date birthDate) {
+  public void setBirthDate(DateTime birthDate) {
     this.birthDate = birthDate;
   }
 
@@ -101,7 +109,7 @@ public class Patient {
     this.adress = adress;
   }
 
-  public java.util.Date getCreateDate() {
+  public Date getCreateDate() {
     return createDate;
   }
 
@@ -109,14 +117,15 @@ public class Patient {
     this.createDate = createDate;
   }
 
-  public java.util.Date getUpdateDate() {
+  public Date getUpdateDate() {
     return updateDate;
   }
 
   public void setUpdateDate(Date updateDate) {
     this.updateDate = updateDate;
   }
-/**
+
+  /**
   public List<Reception> getReceptions() {
     return receptions;
   }
@@ -125,17 +134,18 @@ public class Patient {
     this.receptions = receptions;
   }
 */
+
   @Override
   public String toString() {
     return "Patient{" +
-            "idPatient=" + id +
-            ", lastName='" + lastName + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", surName='" + surName + '\'' +
-            ", birthDate=" + birthDate +
-            ", adress='" + adress + '\'' +
-            ", createDate=" + createDate +
-            ", updateDate=" + updateDate +
-            '}';
+        "id=" + id +
+        ", lastName='" + lastName + '\'' +
+        ", firstName='" + firstName + '\'' +
+        ", surName='" + surName + '\'' +
+        ", birthDate=" + birthDate +
+        ", adress='" + adress + '\'' +
+        ", createDate=" + createDate +
+        ", updateDate=" + updateDate +
+        '}';
   }
 }

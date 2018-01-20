@@ -63,6 +63,10 @@
             <th width="120">Lastname</th>
             <th width="120">Firstname</th>
             <th width="120">Surname</th>
+            <th width="120">Birth Date</th>
+            <th width="120">Adress</th>
+            <th width="120">Create date</th>
+            <th width="120">Update date</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
@@ -72,6 +76,10 @@
                 <td><a href="/patientdata/${patient.id}" target="_blank">${patient.lastName}</a></td>
                 <td>${patient.firstName}</td>
                 <td>${patient.surName}</td>
+                <td>${patient.birthDate}</td>
+                <td>${patient.adress}</td>
+                <td>${patient.createDate}</td>
+                <td>${patient.updateDate}</td>
                 <td><a href="<c:url value='/patients/edit/${patient.id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/patients/remove/${patient.id}'/>">Delete</a></td>
             </tr>
@@ -128,6 +136,17 @@
                 <form:input path="surName"/>
             </td>
         </tr>
+        <tr>
+            <td>
+                <form:label path="adress">
+                    <spring:message text="Adress"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="adress"/>
+            </td>
+        </tr>
+
         <tr>
             <td colspan="2">
                 <c:if test="${!empty patient.lastName}">
