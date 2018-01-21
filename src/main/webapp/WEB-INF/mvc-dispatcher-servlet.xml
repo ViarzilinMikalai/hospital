@@ -29,6 +29,7 @@
     <property name="dataSource" ref="dataSource"/>
     <property name="annotatedClasses">
       <list>
+        <value>org.viarzilin.hospital.model.entity.Auth</value>
         <value>org.viarzilin.hospital.model.entity.Prescription</value>
         <value>org.viarzilin.hospital.model.entity.Patient</value>
       </list>
@@ -44,7 +45,17 @@
 
   </bean>
 
-  <!--PrescriptionDao and PrescriptionService beans-->
+
+    <!--AuthDao and authService beans-->
+    <bean id="authDao" class="org.viarzilin.hospital.model.dao.impl.AuthDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="authService" class="org.viarzilin.hospital.model.service.impl.AuthServiceImpl">
+        <property name="authDao" ref="authDao"/>
+    </bean>
+
+    <!--PrescriptionDao and PrescriptionService beans-->
   <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.impl.PrescriptionDaoImpl">
     <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
   </bean>
