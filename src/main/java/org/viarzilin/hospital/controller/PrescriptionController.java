@@ -40,14 +40,14 @@ public class PrescriptionController {
     return "redirect:/prescriptions";
   }
 
-  @RequestMapping("/remove/{id}")
+  @RequestMapping("/prescriptions/remove/{id}")
   public String removePrescription(@PathVariable("id") int id){
     this.prescriptionService.removePrescription(id);
 
     return "redirect:/prescriptions";
   }
 
-  @RequestMapping("edit/{id}")
+  @RequestMapping("/prescriptions/edit/{id}")
   public String editPrescription(@PathVariable("id") int id, Model model){
     model.addAttribute("prescription", this.prescriptionService.getPrescriptionById(id));
     model.addAttribute("listPrescriptions", this.prescriptionService.listPrescriptions());

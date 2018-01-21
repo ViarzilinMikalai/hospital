@@ -55,23 +55,25 @@
         <property name="authDao" ref="authDao"/>
     </bean>
 
+
+
+    <!--PatientDao and PatientService beans-->
+    <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
+        <property name="patientDao" ref="patientDao"/>
+    </bean>
+
     <!--PrescriptionDao and PrescriptionService beans-->
-  <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.impl.PrescriptionDaoImpl">
-    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-  </bean>
+    <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.impl.PrescriptionDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
 
-  <bean id="prescriptionService" class="org.viarzilin.hospital.model.service.impl.PrescriptionServiceImpl">
-    <property name="prescriptionDao" ref="prescriptionDao"/>
-  </bean>
-
-  <!--PatientDao and PatientService beans-->
-   <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
-     <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-   </bean>
-
-   <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
-     <property name="patientDao" ref="patientDao"/>
-   </bean>
+    <bean id="prescriptionService" class="org.viarzilin.hospital.model.service.impl.PrescriptionServiceImpl">
+        <property name="prescriptionDao" ref="prescriptionDao"/>
+    </bean>
 
  <context:component-scan base-package="org.viarzilin.hospital"/>
 

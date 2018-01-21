@@ -54,21 +54,19 @@
 <table class="tg">
     <tr>
         <th width="80">ID</th>
-        <th width="120">Login</th>
+        <th width="120">Username</th>
         <th width="120">Password</th>
         <th width="120">Email</th>
-        <th width="120">Is active</th>
         <th width="120">User role</th>
+        <th width="120">Is active</th>
     </tr>
     <tr>
         <td>${auth.id}</td>
-        <td>${auth.login}</td>
+        <td>${auth.username}</td>
         <td>${auth.password}</td>
         <td>${auth.email}</td>
-        <td>${auth.active ? "Active" : "Not active"}</td>
         <td>${auth.role}</td>
-        <td><a href="<c:url value='/edit/${auth.id}'/>">Edit</a></td>
-        <td><a href="<c:url value='/remove/${auth.id}'/>">Delete</a></td>
+        <td>${auth.active ? "Active" : "Not active"}</td>
     </tr>
 </table>
 </body>

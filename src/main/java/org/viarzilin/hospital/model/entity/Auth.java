@@ -10,110 +10,110 @@ import javax.validation.constraints.Size;
 @Entity
 public class Auth {
 
-  @Id
-  @Column(name = "ID_AUTH")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    @Id
+    @Column(name = "ID_AUTH")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  @Column(name = "LOGIN", unique = true, nullable = false, length = 16)
-  private String login;
+    @Column(name = "USERNAME", unique = true, nullable = false, length = 16)
+    private String username;
 
- @Size(min = 6, max = 24, message = "Very short password")
-  @Column(name = "PASSWORD", nullable = false, length = 16)
-  private String password;
+    @Size(min = 6, max = 24, message = "Very short password")
+    @Column(name = "PASSWORD", nullable = false, length = 16)
+    private String password;
 
-  @Email
-  @Column(name = "EMAIL",unique = true, nullable = false, length = 20)
-  private String email;
+    @Email
+    @Column(name = "EMAIL",unique = true, nullable = false, length = 20)
+    private String email;
 
-  @Column(name="ISACTIVE")
-  private boolean isActive;
+    @Column(name="ISACTIVE")
+    private boolean isActive;
 
-  @Column(name = "USER_ROLE")
-  @Enumerated(EnumType.STRING)
-  private UserRole role;
-
-
-  /**
-   * User of this authentication
-   */
-  @OneToOne(optional = false, mappedBy = "auth")
-  private User user;
+    @Column(name = "USER_ROLE")
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
 
-  public Auth(){
+    /**
+    * User of this authentication
+    */
+    /**
+    @OneToOne(optional = false, mappedBy = "auth")
+    private User user;
+    */
 
-  }
+    public Auth(){
 
-  /**
-   * Getters and Setters
-   */
-  public int getId() {
+    }
+
+    /**
+    * Getters and Setters
+    */
+    public int getId() {
     return id;
-  }
+    }
 
-  public void setId(int id) {
+    public void setId(int id) {
     this.id = id;
-  }
+    }
 
-  public String getLogin() {
-    return login;
-  }
+    public String getUsername() {
+        return username;
+    }
 
-  public void setLogin(String login) {
-    this.login = login;
-  }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-  public String getPassword() {
+    public String getPassword() {
     return password;
-  }
+    }
 
-  public void setPassword(String password) {
+    public void setPassword(String password) {
     this.password = password;
-  }
+    }
 
-  public String getEmail() {
+    public String getEmail() {
     return email;
-  }
+    }
 
-  public void setEmail(String email) {
+    public void setEmail(String email) {
     this.email = email;
-  }
+    }
 
-  public boolean isActive() {
+    public boolean isActive() {
     return isActive;
-  }
+    }
 
-  public void setActive(boolean active) {
+    public void setActive(boolean active) {
     isActive = active;
-  }
+    }
 
-  public UserRole getRole() {
+    public UserRole getRole() {
     return role;
-  }
+    }
 
-  public void setRole(UserRole role) {
+    public void setRole(UserRole role) {
     this.role = role;
-  }
-
-  public User getUser() {
+    }
+    /**
+    public User getUser() {
     return user;
-  }
+    }
 
-  public void setUser(User user) {
+    public void setUser(User user) {
     this.user = user;
-  }
+    }
+    */
 
-
-  @Override
-  public String toString() {
-    return "Auth{" +
-        "id=" + id +
-        ", login='" + login + '\'' +
-        ", password='" + password + '\'' +
-        ", email='" + email + '\'' +
-        ", isActive=" + isActive +
-        ", role=" + role +
-        '}';
-  }
+    @Override
+    public String toString() {
+        return "Auth{" +
+                "id=" + id +
+                ", login='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }

@@ -13,6 +13,7 @@ import org.viarzilin.hospital.model.service.PatientService;
 
 @Controller
 public class PatientController {
+
   private PatientService patientService;
 
   @Autowired(required = true)

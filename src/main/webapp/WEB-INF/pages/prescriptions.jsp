@@ -72,8 +72,8 @@
                 <td><a href="/prescriptiondata/${prescription.id}" target="_blank">${prescription.namePrescription}</a></td>
                 <td>${prescription.typePrescription}</td>
                 <td>${prescription.description}</td>
-                <td><a href="<c:url value='/edit/${prescription.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/remove/${prescription.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/prescriptions/edit/${prescription.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/prescriptions/remove/${prescription.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
