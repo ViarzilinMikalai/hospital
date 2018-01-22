@@ -37,10 +37,10 @@ public class Auth {
     /**
     * User of this authentication
     */
-    /**
+
     @OneToOne(optional = false, mappedBy = "auth")
     private User user;
-    */
+
 
     public Auth(){
 
@@ -96,7 +96,7 @@ public class Auth {
     public void setRole(UserRole role) {
     this.role = role;
     }
-    /**
+
     public User getUser() {
     return user;
     }
@@ -104,7 +104,6 @@ public class Auth {
     public void setUser(User user) {
     this.user = user;
     }
-    */
 
     @Override
     public String toString() {
