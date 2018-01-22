@@ -33,31 +33,34 @@ public class Reception {
   private String finalDiagnosis;
 
   @Column(name = "IS_DISCHARGE")
-  private boolean isDischrge;
+  private boolean isDischarge;
 
 
   /**
    * Many-to-one relationship Patient to Reception
    */
+  /**
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "PATIENT_ID")
   private Patient patient;
-
+*/
 
   /**
    * Many-to-one relationship User to Reception
    */
+  /**
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "ID_STAFF")
   private User user;
-
+*/
 
   /**
    * One_to_many relationship Reception to ReceptionPrescription
    */
+  /**
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "receptions", orphanRemoval = true)
   private List<ReceptionPrescription> receptionPrescriptions;
-
+*/
 
   /**
    * Getters and Setters
@@ -102,14 +105,14 @@ public class Reception {
     this.finalDiagnosis = finalDiagnosis;
   }
 
-  public boolean isDischrge() {
-    return isDischrge;
+  public boolean isDischarge() {
+    return isDischarge;
   }
 
-  public void setDischrge(boolean dischrge) {
-    isDischrge = dischrge;
+  public void setDischarge(boolean dischrge) {
+    isDischarge = dischrge;
   }
-
+/**
   public Patient getPatient() {
     return patient;
   }
@@ -133,7 +136,7 @@ public class Reception {
   public void setReceptionPrescriptions(List<ReceptionPrescription> receptionPrescriptions) {
     this.receptionPrescriptions = receptionPrescriptions;
   }
-
+ */
   @Override
   public String toString() {
     return "Reception{" +
@@ -142,7 +145,7 @@ public class Reception {
             ", preliminaryDiagnosis='" + preliminaryDiagnosis + '\'' +
             ", dischargeDate=" + dischargeDate +
             ", finalDiagnosis='" + finalDiagnosis + '\'' +
-            ", isDischrge=" + isDischrge +
+            ", isDischrge=" + isDischarge +
             '}';
   }
 }
