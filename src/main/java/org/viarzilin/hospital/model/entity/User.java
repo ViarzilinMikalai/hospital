@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 
-@Table(name = "staff")
+@Table(name = "user")
 @Entity
 public class User {
 
@@ -23,22 +23,23 @@ public class User {
     @Column(name = "SURNAME", nullable = false, length = 20)
     private String surName;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATE_DATE", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATEDATE", nullable = false, updatable = false)
     private Date createDate;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "UPDATE_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "UPDATEDATE")
     private Date updateDate;
 
 
     /**
     * Authentication of this user
     */
+    /**
     @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="ID_AUTH", unique = true, nullable = false, updatable = false)
     private Auth auth;
-
+*/
     /**
     * One_to_many relationship User to Reception
     */
@@ -108,7 +109,7 @@ public class User {
   public void setUpdateDate(Date updateDate) {
     this.updateDate = updateDate;
   }
-
+/**
   public Auth getAuth() {
     return auth;
   }
@@ -116,7 +117,7 @@ public class User {
   public void setAuth(Auth auth) {
     this.auth = auth;
   }
-
+*/
   @Override
   public String toString() {
     return "User{" +

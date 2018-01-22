@@ -12,5 +12,7 @@
 <a href="<c:url value="/patients"/>" target="_blank">Patients list</a>
 <br/>
 <a href="<c:url value="/authes"/>" target="_blank">Authes list</a>
+<br/>
+<a href="<c:url value="/users"/>" target="_blank">Users list</a>
 </body>
 </html>

@@ -32,6 +32,7 @@
         <value>org.viarzilin.hospital.model.entity.Auth</value>
         <value>org.viarzilin.hospital.model.entity.Prescription</value>
         <value>org.viarzilin.hospital.model.entity.Patient</value>
+        <value>org.viarzilin.hospital.model.entity.User</value>
       </list>
     </property>
 
@@ -55,7 +56,14 @@
         <property name="authDao" ref="authDao"/>
     </bean>
 
+  <!--UserDao and userService beans-->
+  <bean id="userDao" class="org.viarzilin.hospital.model.dao.impl.UserDaoImpl">
+    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+  </bean>
 
+  <bean id="userService" class="org.viarzilin.hospital.model.service.impl.UserServiceImpl">
+    <property name="userDao" ref="userDao"/>
+  </bean>
 
     <!--PatientDao and PatientService beans-->
     <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
