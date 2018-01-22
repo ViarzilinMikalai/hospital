@@ -32,6 +32,7 @@
         <value>org.viarzilin.hospital.model.entity.Auth</value>
         <value>org.viarzilin.hospital.model.entity.Prescription</value>
         <value>org.viarzilin.hospital.model.entity.Patient</value>
+        <value>org.viarzilin.hospital.model.entity.Reception</value>
         <value>org.viarzilin.hospital.model.entity.User</value>
       </list>
     </property>
@@ -56,14 +57,14 @@
         <property name="authDao" ref="authDao"/>
     </bean>
 
-  <!--UserDao and userService beans-->
-  <bean id="userDao" class="org.viarzilin.hospital.model.dao.impl.UserDaoImpl">
+    <!--UserDao and userService beans-->
+    <bean id="userDao" class="org.viarzilin.hospital.model.dao.impl.UserDaoImpl">
     <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-  </bean>
+    </bean>
 
-  <bean id="userService" class="org.viarzilin.hospital.model.service.impl.UserServiceImpl">
+    <bean id="userService" class="org.viarzilin.hospital.model.service.impl.UserServiceImpl">
     <property name="userDao" ref="userDao"/>
-  </bean>
+    </bean>
 
     <!--PatientDao and PatientService beans-->
     <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
@@ -81,6 +82,15 @@
 
     <bean id="prescriptionService" class="org.viarzilin.hospital.model.service.impl.PrescriptionServiceImpl">
         <property name="prescriptionDao" ref="prescriptionDao"/>
+    </bean>
+
+    <!--ReceptionDao and ReceptionService beans-->
+    <bean id="receptionDao" class="org.viarzilin.hospital.model.dao.impl.ReceptionDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <bean id="receptionService" class="org.viarzilin.hospital.model.service.impl.ReceptionServiceImpl">
+        <property name="receptionDao" ref="receptionDao"/>
     </bean>
 
  <context:component-scan base-package="org.viarzilin.hospital"/>

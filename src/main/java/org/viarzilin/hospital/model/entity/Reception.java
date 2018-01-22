@@ -12,9 +12,9 @@ public class Reception {
 
 
   @Id
-  @Column(name = "ID-RESEPTION")
+  @Column(name = "ID_RESEPTION")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int idReception;
+  private int id;
 
   @Temporal(TemporalType.DATE)
   @Column(name = "RECEPTION_DATE", nullable = false)
@@ -22,8 +22,6 @@ public class Reception {
 
   @Column(name = "PRELIMINARY_DIAGNOSIS", nullable = false, length = 60)
   private String preliminaryDiagnosis;
-
-  //private int idStaff;
 
   @Temporal(TemporalType.DATE)
   @Column(name = "DISCHARGE_DATE")
@@ -65,12 +63,12 @@ public class Reception {
   /**
    * Getters and Setters
    */
-  public int getIdReception() {
-    return idReception;
+  public int getId() {
+    return id;
   }
 
-  public void setIdReception(int idReception) {
-    this.idReception = idReception;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public java.util.Date getReceptionDate() {
@@ -109,10 +107,11 @@ public class Reception {
     return isDischarge;
   }
 
-  public void setDischarge(boolean dischrge) {
-    isDischarge = dischrge;
+  public void setDischarge(boolean discharge) {
+    isDischarge = discharge;
   }
-/**
+
+  /**
   public Patient getPatient() {
     return patient;
   }
@@ -140,7 +139,7 @@ public class Reception {
   @Override
   public String toString() {
     return "Reception{" +
-            "idReception=" + idReception +
+            "idReception=" + id +
             ", receptionDate=" + receptionDate +
             ", preliminaryDiagnosis='" + preliminaryDiagnosis + '\'' +
             ", dischargeDate=" + dischargeDate +
