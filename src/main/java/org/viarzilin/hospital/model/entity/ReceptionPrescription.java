@@ -11,11 +11,7 @@ public class ReceptionPrescription {
   @Id
   @Column(name = "ID_RES_PRESC")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int idRecPrescr;
-
-
-  //private int idPrescription;
-  //private int idReception;
+  private int id;
 
   @Column(name = "ISCANCELL")
   private boolean isCancell;
@@ -54,12 +50,12 @@ public class ReceptionPrescription {
   /**
    * Getters and Setters
    */
-  public int getIdRecPrescr() {
-    return idRecPrescr;
+  public int getId() {
+    return id;
   }
 
-  public void setIdRecPrescr(int idRecPrescr) {
-    this.idRecPrescr = idRecPrescr;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public boolean isCancell() {
@@ -106,7 +102,7 @@ public class ReceptionPrescription {
   @Override
   public String toString() {
     return "ReceptionPrescription{" +
-            "idRecPrescr=" + idRecPrescr +
+            "id=" + id +
             ", isCancell=" + isCancell +
             ", prescriptionDate=" + prescriptionDate +
             '}';
