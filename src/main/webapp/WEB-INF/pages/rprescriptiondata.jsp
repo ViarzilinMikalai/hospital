@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>ReceptionData</title>
+    <title>Patient prescription Data</title>
 
     <style type="text/css">
         .tg {
@@ -49,24 +49,20 @@
 
 </head>
 <body>
-<h1>Reception Details</h1>
+<h1>Patient prescription Details</h1>
 
 <table class="tg">
     <tr>
         <th width="80">ID</th>
-        <th width="120">Preliminary diagnosis</th>
-        <th width="120">Reception date</th>
-        <th width="120">IsDischarge</th>
-        <th width="120">Final diagnosis</th>
-        <th width="120">Discharge date</th>
+        <th width="120">Prescription date</th>
+        <th width="120">Cancelled</th>
+        <th width="120">test</th>
     </tr>
     <tr>
-        <td>${reception.id}</td>
-        <td>${reception.preliminaryDiagnosis}</td>
-        <td>${reception.receptionDate}</td>
-        <td>${reception.discharge}</td>
-        <td>${reception.finalDiagnosis}</td>
-        <td>${reception.dischargeDate}</td>
+        <td>${rprescription.id}</td>
+        <td>${rprescription.rprescriptionDate}</td>
+        <td>${rprescription.cancell}</td>
+        <td>${rprescription.test}</td>
     </tr>
 </table>
 </body>

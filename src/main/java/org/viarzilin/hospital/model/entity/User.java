@@ -49,11 +49,11 @@ public class User {
 */
 
     /**
-    * Many-to-many relationship ReceptionPrescription to User
+    * Many-to-many relationship Rprescription to User
     */
     /**
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "staffList")
-    private List<ReceptionPrescription> receptionPrescriptionList;
+    private List<Rprescription> receptionPrescriptionList;
 */
     public User() {
 

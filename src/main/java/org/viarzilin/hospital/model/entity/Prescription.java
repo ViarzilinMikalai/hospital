@@ -26,10 +26,10 @@ public class Prescription {
 
 
     /**
-    * One_to_many relationship Prescription to ReceptionPrescription
+    * One_to_many relationship Prescription to Rprescription
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prescriptions", orphanRemoval = true)
-     private List<ReceptionPrescription> receptionPrescriptions;
+     private List<Rprescription> receptionPrescriptions;
      */
     /**
      * Getters and Setters
@@ -67,11 +67,11 @@ public class Prescription {
         this.description = description;
     }
 /**
-    public List<ReceptionPrescription> getReceptionPrescriptions() {
+    public List<Rprescription> getReceptionPrescriptions() {
         return receptionPrescriptions;
     }
 
-    public void setReceptionPrescriptions(List<ReceptionPrescription> receptionPrescriptions) {
+    public void setReceptionPrescriptions(List<Rprescription> receptionPrescriptions) {
         this.receptionPrescriptions = receptionPrescriptions;
     }
 */

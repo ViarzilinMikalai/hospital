@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 
-@Table(name = "reception_pescription")
+@Table(name = "reception_prescription")
 @Entity
-public class ReceptionPrescription {
+public class Rprescription {
 
   @Id
-  @Column(name = "ID_RES_PRESC")
+  @Column(name = "ID_REC_PRESC")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
@@ -18,34 +18,40 @@ public class ReceptionPrescription {
 
   @Temporal(TemporalType.DATE)
   @Column(name = "PRESCRIPTION_DATE")
-  private Date prescriptionDate;
+  private Date rprescriptionDate;
+
+  @Column(name = "TEST")
+  private String test;
 
 
   /**
-   * Many-to-one relationship Reception to ReceptionPrescription
+   * Many-to-one relationship Reception to Rprescription
    */
+  /**
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "ID_RECEPTION")
   private Reception receptions;
-
+*/
 
   /**
-   * Many-to-one relationship ReceptionPrescription to Prescription
+   * Many-to-one relationship Rprescription to Prescription
    */
+  /**
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "ID_PRESCRIPTION")
   private Prescription prescriptions;
-
+*/
 
   /**
-   * Many-to-many relationship ReceptionPrescription to User
+   * Many-to-many relationship Rprescription to User
    */
+  /**
   @ManyToMany
   @JoinTable(name = "PRESC_EXECUTOR",
           joinColumns = @JoinColumn(name = "IDPATIENT_PRESCRIPTION", referencedColumnName = "ID_RES_PRESC"),
           inverseJoinColumns = @JoinColumn(name = "ID_STAFF", referencedColumnName = "ID_STAFF"))
   private List<User> userList;
-
+*/
 
   /**
    * Getters and Setters
@@ -66,14 +72,23 @@ public class ReceptionPrescription {
     isCancell = cancell;
   }
 
-  public java.util.Date getPrescriptionDate() {
-    return prescriptionDate;
+  public Date getRprescriptionDate() {
+    return rprescriptionDate;
   }
 
-  public void setPrescriptionDate(Date prescriptionDate) {
-    this.prescriptionDate = prescriptionDate;
+  public void setRprescriptionDate(Date rprescriptionDate) {
+    this.rprescriptionDate = rprescriptionDate;
   }
 
+  public String getTest() {
+    return test;
+  }
+
+  public void setTest(String test) {
+    this.test = test;
+  }
+
+  /**
   public Reception getReceptions() {
     return receptions;
   }
@@ -97,14 +112,14 @@ public class ReceptionPrescription {
   public void setUserList(List<User> userList) {
     this.userList = userList;
   }
-
-
+*/
   @Override
   public String toString() {
-    return "ReceptionPrescription{" +
-            "id=" + id +
-            ", isCancell=" + isCancell +
-            ", prescriptionDate=" + prescriptionDate +
-            '}';
+    return "Rprescription{" +
+        "id=" + id +
+        ", isCancell=" + isCancell +
+        ", rprescriptionDate=" + rprescriptionDate +
+        ", test='" + test + '\'' +
+        '}';
   }
 }

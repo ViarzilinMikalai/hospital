@@ -4,8 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-
 @Table(name = "reception")
 @Entity
 public class Reception {
@@ -53,11 +51,11 @@ public class Reception {
 */
 
   /**
-   * One_to_many relationship Reception to ReceptionPrescription
+   * One_to_many relationship Reception to Rprescription
    */
   /**
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "receptions", orphanRemoval = true)
-  private List<ReceptionPrescription> receptionPrescriptions;
+  private List<Rprescription> rprescriptions;
 */
 
   /**
@@ -128,11 +126,11 @@ public class Reception {
     this.user = user;
   }
 
-  public List<ReceptionPrescription> getReceptionPrescriptions() {
+  public List<Rprescription> getReceptionPrescriptions() {
     return receptionPrescriptions;
   }
 
-  public void setReceptionPrescriptions(List<ReceptionPrescription> receptionPrescriptions) {
+  public void setReceptionPrescriptions(List<Rprescription> receptionPrescriptions) {
     this.receptionPrescriptions = receptionPrescriptions;
   }
  */
