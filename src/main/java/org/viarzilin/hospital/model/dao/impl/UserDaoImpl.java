@@ -10,11 +10,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.UserDao;
+import org.viarzilin.hospital.model.entity.Auth;
 import org.viarzilin.hospital.model.entity.User;
+import org.viarzilin.hospital.model.service.AuthService;
 
 @Repository
 public class UserDaoImpl implements UserDao{
   private static final Logger LOGGER = LoggerFactory.getLogger(UserDaoImpl.class);
+
+  //@Autowired
+  //AuthService authService;
 
   @Autowired
   SessionFactory sessionFactory;
@@ -31,6 +36,8 @@ public class UserDaoImpl implements UserDao{
   @Override
   public void addUser(User user) {
     user.setCreateDate(new java.util.Date());
+    //Auth auth = authService.getAuthById(user.getAuth().getId());
+    //user.setAuth(auth);
     getSession().persist(user);
     LOGGER.info("User successfully saved. User details: " + user);
   }

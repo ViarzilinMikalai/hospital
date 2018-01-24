@@ -65,6 +65,11 @@
             <th width="120">Surname</th>
             <th width="120">Create date</th>
             <th width="120">Update date</th>
+            <th width="120">Username</th>
+            <th width="120">Password</th>
+            <th width="120">Email</th>
+            <th width="120">Role</th>
+            <th width="120">IsActive</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
@@ -76,6 +81,14 @@
                 <td>${user.surName}</td>
                 <td>${user.createDate}</td>
                 <td>${user.updateDate}</td>
+
+                <td>${user.auth.username}</td>
+                <td>${user.auth.password}</td>
+                <td>${user.auth.email}</td>
+                <td>${user.auth.role}</td>
+                <td>${user.auth.active ? "Active" : "Not active"}</td>
+
+
                 <td><a href="<c:url value='/users/edit/${user.id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/users/remove/${user.id}'/>">Delete</a></td>
             </tr>
@@ -132,6 +145,81 @@
                 <form:input path="surName"/>
             </td>
         </tr>
+
+
+
+
+        <tr hidden="hidden">
+            <td>
+                <form:label path="auth.id">
+                    <spring:message text="Id"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="auth.id"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="auth.username">
+                    <spring:message text="Username"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="auth.username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="auth.password">
+                    <spring:message text="Password"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="auth.password"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="auth.email">
+                    <spring:message text="Email"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="auth.email"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="auth.role">
+                    <spring:message text="User role"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="auth.role">
+                    <form:option value="DOCTOR">doctor</form:option>
+                    <form:option value="NURSE">nurse</form:option>
+                    <form:option value="ADMIN">administrator</form:option>
+                </form:select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="auth.active">
+                    <spring:message text="User active"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="auth.active">
+                    <form:option value="true">Active</form:option>
+                    <form:option value="false">Not active</form:option>
+                </form:select>
+            </td>
+        </tr>
+
+
+
         <tr>
             <td colspan="2">
                 <c:if test="${!empty user.lastName}">

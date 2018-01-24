@@ -15,7 +15,7 @@ public class Auth {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "USERNAME", unique = true, nullable = false, length = 16)
+    @Column(name = "USERNAME", updatable = false, unique = true, nullable = false, length = 16)
     private String username;
 
     @Size(min = 6, max = 24, message = "Very short password")
