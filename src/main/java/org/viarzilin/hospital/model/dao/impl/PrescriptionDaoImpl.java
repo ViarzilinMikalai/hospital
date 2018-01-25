@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.dao.impl;
 
 import org.viarzilin.hospital.model.dao.PrescriptionDao;
-import org.viarzilin.hospital.model.domain.Prescription;
+import org.viarzilin.hospital.model.entity.Prescription;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;

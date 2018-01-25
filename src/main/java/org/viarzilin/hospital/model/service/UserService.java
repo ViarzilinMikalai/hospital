@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.service;
 
 import java.util.List;
-import org.viarzilin.hospital.model.domain.User;
+import org.viarzilin.hospital.model.entity.User;
 
 public interface UserService {
 

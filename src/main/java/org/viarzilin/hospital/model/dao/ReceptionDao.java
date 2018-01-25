@@ -1,6 +1,6 @@
 package org.viarzilin.hospital.model.dao;
 
-import org.viarzilin.hospital.model.domain.Reception;
+import org.viarzilin.hospital.model.entity.Reception;
 
 import java.util.List;
 

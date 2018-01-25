@@ -5,12 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.viarzilin.hospital.model.dao.RprescriptionDao;
-import org.viarzilin.hospital.model.domain.Rprescription;
+import org.viarzilin.hospital.model.entity.Rprescription;
 import org.viarzilin.hospital.model.service.RprescriptionService;
 
 @Service
 public class RprescriptionServiceImpl implements RprescriptionService {
-
     @Autowired
     private RprescriptionDao rprescriptionDao;
 

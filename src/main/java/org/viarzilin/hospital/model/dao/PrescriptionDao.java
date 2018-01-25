@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.dao;
 
 import java.util.List;
-import org.viarzilin.hospital.model.domain.Prescription;
+import org.viarzilin.hospital.model.entity.Prescription;
 
 public interface PrescriptionDao {
   public void addPrescription(Prescription prescription);

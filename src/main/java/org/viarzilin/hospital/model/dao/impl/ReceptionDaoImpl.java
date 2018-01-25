@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.ReceptionDao;
-import org.viarzilin.hospital.model.domain.Reception;
+import org.viarzilin.hospital.model.entity.Reception;
 
 import java.util.List;
 

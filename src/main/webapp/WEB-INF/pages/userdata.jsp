@@ -59,14 +59,24 @@
         <th width="120">Surname</th>
         <th width="120">Create date</th>
         <th width="120">Update date</th>
+        <th width="120">Username</th>
+        <th width="120">Password</th>
+        <th width="120">Email</th>
+        <th width="120">Role</th>
+        <th width="120">IsActive</th>
     </tr>
     <tr>
         <td>${user.id}</td>
-        <td>${user.lastName}</td>
+        <td><a href="/userdata/${user.id}" target="_blank">${user.lastName}</a></td>
         <td>${user.firstName}</td>
         <td>${user.surName}</td>
         <td>${user.createDate}</td>
         <td>${user.updateDate}</td>
+        <td>${user.auth.username}</td>
+        <td>${user.auth.password}</td>
+        <td>${user.auth.email}</td>
+        <td>${user.auth.role}</td>
+        <td>${user.auth.active ? "Active" : "Not active"}</td>
     </tr>
 </table>
 </body>

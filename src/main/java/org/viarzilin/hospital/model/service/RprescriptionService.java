@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.service;
 
 
-import org.viarzilin.hospital.model.domain.Rprescription;
+import org.viarzilin.hospital.model.entity.Rprescription;
 
 import java.util.List;
 
