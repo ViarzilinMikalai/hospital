@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.model.entity.enumerated;
+package org.viarzilin.hospital.model.domain.enumerated;
 
 public enum UserRole {
   ADMIN,

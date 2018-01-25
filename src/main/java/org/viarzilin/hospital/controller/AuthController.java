@@ -1,23 +1,21 @@
 package org.viarzilin.hospital.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.viarzilin.hospital.model.entity.Auth;
+import org.viarzilin.hospital.model.domain.Auth;
 import org.viarzilin.hospital.model.service.AuthService;
 
 @Controller
 public class AuthController {
 
+    @Autowired(required = true)
     private AuthService authService;
 
-    @Autowired(required = true)
-    @Qualifier(value = "authService")
     public void setAuthService(AuthService authService) {
         this.authService = authService;
     }

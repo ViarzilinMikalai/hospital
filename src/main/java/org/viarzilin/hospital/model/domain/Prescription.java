@@ -1,8 +1,7 @@
-package org.viarzilin.hospital.model.entity;
+package org.viarzilin.hospital.model.domain;
 
-import org.viarzilin.hospital.model.entity.enumerated.TypePrescription;
+import org.viarzilin.hospital.model.domain.enumerated.TypePrescription;
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity

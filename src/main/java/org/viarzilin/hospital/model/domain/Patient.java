@@ -1,8 +1,6 @@
-package org.viarzilin.hospital.model.entity;
+package org.viarzilin.hospital.model.domain;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;

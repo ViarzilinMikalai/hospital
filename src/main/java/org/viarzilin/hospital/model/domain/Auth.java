@@ -1,8 +1,8 @@
-package org.viarzilin.hospital.model.entity;
+package org.viarzilin.hospital.model.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import org.viarzilin.hospital.model.entity.enumerated.UserRole;
+import org.viarzilin.hospital.model.domain.enumerated.UserRole;
 import javax.validation.constraints.Size;
 
 
@@ -27,7 +27,7 @@ public class Auth {
     private String email;
 
     @Column(name="ISACTIVE")
-    private boolean isActive;
+    private boolean isActive = true;
 
     @Column(name = "USER_ROLE")
     @Enumerated(EnumType.STRING)

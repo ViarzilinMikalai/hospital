@@ -29,12 +29,12 @@
     <property name="dataSource" ref="dataSource"/>
     <property name="annotatedClasses">
       <list>
-        <value>org.viarzilin.hospital.model.entity.Auth</value>
-        <value>org.viarzilin.hospital.model.entity.Prescription</value>
-        <value>org.viarzilin.hospital.model.entity.Patient</value>
-        <value>org.viarzilin.hospital.model.entity.Reception</value>
-        <value>org.viarzilin.hospital.model.entity.User</value>
-        <value>org.viarzilin.hospital.model.entity.Rprescription</value>
+        <value>org.viarzilin.hospital.model.domain.Auth</value>
+        <value>org.viarzilin.hospital.model.domain.Prescription</value>
+        <value>org.viarzilin.hospital.model.domain.Patient</value>
+        <value>org.viarzilin.hospital.model.domain.Reception</value>
+        <value>org.viarzilin.hospital.model.domain.User</value>
+        <value>org.viarzilin.hospital.model.domain.Rprescription</value>
       </list>
     </property>
 
@@ -49,69 +49,13 @@
   </bean>
 
 
-    <!--AuthDao and authService beans-->
-    <bean id="authDao" class="org.viarzilin.hospital.model.dao.impl.AuthDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
+  <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="authService" class="org.viarzilin.hospital.model.service.impl.AuthServiceImpl">
-        <property name="authDao" ref="authDao"/>
-    </bean>
-
-    <!--UserDao and userService beans-->
-    <bean id="userDao" class="org.viarzilin.hospital.model.dao.impl.UserDaoImpl">
-    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="userService" class="org.viarzilin.hospital.model.service.impl.UserServiceImpl">
-    <property name="userDao" ref="userDao"/>
-    </bean>
-
-    <!--PatientDao and PatientService beans-->
-    <bean id="patientDao" class="org.viarzilin.hospital.model.dao.impl.PatientDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="patientService" class="org.viarzilin.hospital.model.service.impl.PatientServiceImpl">
-        <property name="patientDao" ref="patientDao"/>
-    </bean>
-
-    <!--PrescriptionDao and PrescriptionService beans-->
-    <bean id="prescriptionDao" class="org.viarzilin.hospital.model.dao.impl.PrescriptionDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="prescriptionService" class="org.viarzilin.hospital.model.service.impl.PrescriptionServiceImpl">
-        <property name="prescriptionDao" ref="prescriptionDao"/>
-    </bean>
-
-    <!--ReceptionDao and ReceptionService beans-->
-    <bean id="receptionDao" class="org.viarzilin.hospital.model.dao.impl.ReceptionDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="receptionService" class="org.viarzilin.hospital.model.service.impl.ReceptionServiceImpl">
-        <property name="receptionDao" ref="receptionDao"/>
-    </bean>
-
-    <!--RprescriptionDao and RprescriptionService beans-->
-    <bean id="rprescriptionDao" class="org.viarzilin.hospital.model.dao.impl.RprescriptionDaoImpl">
-      <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
-
-    <bean id="rprescriptionService" class="org.viarzilin.hospital.model.service.impl.RprescriptionServiceImpl">
-      <property name="rprescriptionDao" ref="rprescriptionDao"/>
-    </bean>
-
- <context:component-scan base-package="org.viarzilin.hospital"/>
-
- <tx:annotation-driven transaction-manager="transactionManager"/>
-
- <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+  <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
    <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
- </bean>
+  </bean>
 
- <mvc:default-servlet-handler/>
- <mvc:annotation-driven/>
+  <mvc:default-servlet-handler/>
+  <mvc:annotation-driven/>
 
 </beans>

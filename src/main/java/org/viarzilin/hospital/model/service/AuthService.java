@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.service;
 
 import java.util.List;
-import org.viarzilin.hospital.model.entity.Auth;
+import org.viarzilin.hospital.model.domain.Auth;
 
 public interface AuthService {
 

@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.dao;
 
 import java.util.List;
-import org.viarzilin.hospital.model.entity.User;
+import org.viarzilin.hospital.model.domain.User;
 
 public interface UserDao {
   public void addUser(User user);

@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.model.entity;
+package org.viarzilin.hospital.model.domain;
 
 import java.util.Date;
 import javax.persistence.*;

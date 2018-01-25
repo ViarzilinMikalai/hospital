@@ -1,8 +1,7 @@
-package org.viarzilin.hospital.model.entity;
+package org.viarzilin.hospital.model.domain;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Table(name = "reception")
 @Entity

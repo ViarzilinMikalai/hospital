@@ -1,8 +1,9 @@
 package org.viarzilin.hospital.model.service.impl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.viarzilin.hospital.model.dao.PrescriptionDao;
-import org.viarzilin.hospital.model.entity.Prescription;
+import org.viarzilin.hospital.model.domain.Prescription;
 import org.viarzilin.hospital.model.service.PrescriptionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Service
 public class PrescriptionServiceImpl implements PrescriptionService {
+  @Autowired
   private PrescriptionDao prescriptionDao;
 
   public void setPrescriptionDao(PrescriptionDao prescriptionDao) {

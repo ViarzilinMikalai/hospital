@@ -1,7 +1,6 @@
 
 package org.viarzilin.hospital.model.dao.impl;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,16 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.UserDao;
-import org.viarzilin.hospital.model.entity.Auth;
-import org.viarzilin.hospital.model.entity.User;
-import org.viarzilin.hospital.model.service.AuthService;
+import org.viarzilin.hospital.model.domain.User;
 
 @Repository
 public class UserDaoImpl implements UserDao{
   private static final Logger LOGGER = LoggerFactory.getLogger(UserDaoImpl.class);
-
-  //@Autowired
-  //AuthService authService;
 
   @Autowired
   SessionFactory sessionFactory;

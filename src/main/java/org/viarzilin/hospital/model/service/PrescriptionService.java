@@ -1,6 +1,6 @@
 package org.viarzilin.hospital.model.service;
 
-import org.viarzilin.hospital.model.entity.Prescription;
+import org.viarzilin.hospital.model.domain.Prescription;
 
 import java.util.List;
 
