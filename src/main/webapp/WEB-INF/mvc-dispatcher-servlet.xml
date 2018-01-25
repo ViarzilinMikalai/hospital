@@ -29,12 +29,12 @@
     <property name="dataSource" ref="dataSource"/>
     <property name="annotatedClasses">
       <list>
-        <value>org.viarzilin.hospital.model.entity.Auth</value>
-        <value>org.viarzilin.hospital.model.entity.Prescription</value>
-        <value>org.viarzilin.hospital.model.entity.Patient</value>
-        <value>org.viarzilin.hospital.model.entity.Reception</value>
-        <value>org.viarzilin.hospital.model.entity.User</value>
-        <value>org.viarzilin.hospital.model.entity.Rprescription</value>
+        <value>org.viarzilin.hospital.model.domain.Auth</value>
+        <value>org.viarzilin.hospital.model.domain.Prescription</value>
+        <value>org.viarzilin.hospital.model.domain.Patient</value>
+        <value>org.viarzilin.hospital.model.domain.Reception</value>
+        <value>org.viarzilin.hospital.model.domain.User</value>
+        <value>org.viarzilin.hospital.model.domain.Rprescription</value>
       </list>
     </property>
 

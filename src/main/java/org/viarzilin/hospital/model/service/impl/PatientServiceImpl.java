@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.viarzilin.hospital.model.dao.PatientDao;
-import org.viarzilin.hospital.model.entity.Patient;
+import org.viarzilin.hospital.model.domain.Patient;
 import org.viarzilin.hospital.model.service.PatientService;
 
 @Service

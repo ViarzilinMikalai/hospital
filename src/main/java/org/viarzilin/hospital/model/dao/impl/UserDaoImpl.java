@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.UserDao;
-import org.viarzilin.hospital.model.entity.User;
+import org.viarzilin.hospital.model.domain.User;
 import org.viarzilin.hospital.model.service.AuthService;
 
 @Repository

@@ -1,7 +1,6 @@
 
 package org.viarzilin.hospital.model.dao.impl;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.PatientDao;
-import org.viarzilin.hospital.model.entity.Patient;
+import org.viarzilin.hospital.model.domain.Patient;
 
 @Repository
 public class PatientDaoImpl implements PatientDao{

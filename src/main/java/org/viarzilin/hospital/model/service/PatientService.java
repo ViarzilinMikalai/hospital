@@ -1,7 +1,7 @@
 package org.viarzilin.hospital.model.service;
 
 import java.util.List;
-import org.viarzilin.hospital.model.entity.Patient;
+import org.viarzilin.hospital.model.domain.Patient;
 
 public interface PatientService {
   public void addPatient(Patient patient);
