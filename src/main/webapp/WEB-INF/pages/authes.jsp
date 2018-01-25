@@ -140,9 +140,9 @@
             </td>
             <td>
                 <form:select path="role">
-                    <form:option value="DOCTOR">doctor</form:option>
-                    <form:option value="NURSE">nurse</form:option>
-                    <form:option value="ADMIN">administrator</form:option>
+                    <form:option value="ROLE_DOCTOR">doctor</form:option>
+                    <form:option value="ROLE_NURSE">nurse</form:option>
+                    <form:option value="ROLE_ADMIN">administrator</form:option>
                 </form:select>
             </td>
         </tr>
