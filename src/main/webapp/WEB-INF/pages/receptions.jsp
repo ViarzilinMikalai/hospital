@@ -87,7 +87,7 @@
 <h1>Add a Reception</h1>
 
 <c:url var="addAction" value="/receptions/add"/>
-<form:form action="${addAction}" commandName="reception">
+<form:form action="${addAction}" modelAttribute="reception">
     <table>
         <c:if test="${!empty reception.preliminaryDiagnosis}">
             <tr>

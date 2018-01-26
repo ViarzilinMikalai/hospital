@@ -2,10 +2,7 @@ package org.viarzilin.hospital.model.domain;
 
 import java.util.Date;
 import javax.persistence.*;
-import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 
 @Table(name = "Patient")
 @Entity
@@ -28,9 +25,8 @@ public class Patient {
 
 
   @Column(name = "BIRTH_DATE")
-  @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-  @DateTimeFormat(iso = ISO.DATE)
-  private DateTime birthDate;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date birthDate;
 
   @Column(name = "ADRESS",  length = 45)
   private String adress;
@@ -91,11 +87,11 @@ public class Patient {
     this.surName = surName;
   }
 
-  public DateTime getBirthDate() {
+  public Date getBirthDate() {
     return birthDate;
   }
 
-  public void setBirthDate(DateTime birthDate) {
+  public void setBirthDate(Date birthDate) {
     this.birthDate = birthDate;
   }
 

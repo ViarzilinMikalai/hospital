@@ -83,7 +83,7 @@
 <h1>Add a Prescription</h1>
 
 <c:url var="addAction" value="/prescriptions/add"/>
-<form:form action="${addAction}" commandName="prescription">
+<form:form action="${addAction}" modelAttribute="prescription">
     <table>
         <c:if test="${!empty prescription.namePrescription}">
             <tr>

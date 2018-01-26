@@ -83,7 +83,7 @@
 <h1>Add a Reception</h1>
 
 <c:url var="addAction" value="/rprescriptions/add"/>
-<form:form action="${addAction}" commandName="rprescription">
+<form:form action="${addAction}" modelAttribute="rprescription">
     <table>
         <c:if test="${!empty rprescription.test}">
             <tr>

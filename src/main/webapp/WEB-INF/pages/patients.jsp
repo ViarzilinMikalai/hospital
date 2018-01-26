@@ -91,7 +91,7 @@
 <h1>Add a Patient</h1>
 
 <c:url var="addAction" value="/patients/add"/>
-<form:form action="${addAction}" commandName="patient">
+<form:form action="${addAction}" modelAttribute="patient">
     <table>
         <c:if test="${!empty patient.lastName}">
             <tr>

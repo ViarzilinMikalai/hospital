@@ -87,7 +87,7 @@
 <h1>Add a Auth</h1>
 
 <c:url var="addAction" value="/authes/add"/>
-<form:form action="${addAction}" commandName="auth">
+<form:form action="${addAction}" modelAttribute="auth">
     <table>
         <c:if test="${!empty auth.username}">
             <tr>

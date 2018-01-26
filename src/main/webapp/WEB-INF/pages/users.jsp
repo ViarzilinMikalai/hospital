@@ -100,7 +100,7 @@
 <h1>Add a User</h1>
 
 <c:url var="addAction" value="/users/add"/>
-<form:form action="${addAction}" commandName="user">
+<form:form action="${addAction}" modelAttribute="user">
     <table>
         <c:if test="${!empty user.lastName}">
             <tr>
