@@ -13,7 +13,7 @@
 <br/>
 <a href="<c:url value="/authes"/>" target="_blank">Authes list</a>
 <br/>
-<a href="<c:url value="/users"/>" target="_blank">Users list</a>
+<a href="<c:url value="/admin/users"/>" target="_blank">Users list</a>
 <br/>
 <a href="<c:url value="/receptions"/>" target="_blank">Receptions list</a>
 <br/>

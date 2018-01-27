@@ -67,7 +67,7 @@
     </tr>
     <tr>
         <td>${user.id}</td>
-        <td><a href="/userdata/${user.id}" target="_blank">${user.lastName}</a></td>
+        <td>${user.lastName}</td>
         <td>${user.firstName}</td>
         <td>${user.surName}</td>
         <td>${user.createDate}</td>

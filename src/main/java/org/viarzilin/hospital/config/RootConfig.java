@@ -26,6 +26,8 @@ public class RootConfig {
     @Autowired
     private Environment environment;
 
+    private static final String UTF8 = "UTF-8";
+
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();

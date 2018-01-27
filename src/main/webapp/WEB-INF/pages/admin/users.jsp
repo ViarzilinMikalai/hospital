@@ -47,7 +47,7 @@
     </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="../../../index.jsp">Back to main menu</a>
 
 <br/>
 <br/>
@@ -76,7 +76,7 @@
         <c:forEach items="${listUsers}" var="user">
             <tr>
                 <td>${user.id}</td>
-                <td><a href="/userdata/${user.id}" target="_blank">${user.lastName}</a></td>
+                <td><a href="/admin/userdata/${user.id}" target="_blank">${user.lastName}</a></td>
                 <td>${user.firstName}</td>
                 <td>${user.surName}</td>
                 <td>${user.createDate}</td>
@@ -89,8 +89,8 @@
                 <td>${user.auth.active ? "Active" : "Not active"}</td>
 
 
-                <td><a href="<c:url value='/users/edit/${user.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/users/remove/${user.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/admin/users/edit/${user.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/admin/users/remove/${user.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
@@ -99,7 +99,7 @@
 
 <h1>Add a User</h1>
 
-<c:url var="addAction" value="/users/add"/>
+<c:url var="addAction" value="/admin/users/add"/>
 <form:form action="${addAction}" modelAttribute="user">
     <table>
         <c:if test="${!empty user.lastName}">
