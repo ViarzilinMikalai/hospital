@@ -63,7 +63,7 @@ public class RootConfig {
     }
 /**
     @Bean
-    public UserDetailsService getUserDetailsService(){
+    public UserDetailsServiceImpl getUserDetailsService(){
         return new UserDetailsServiceImpl();
     }
 

@@ -2,6 +2,7 @@
 package org.viarzilin.hospital.model.dao.impl;
 
 import java.util.List;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import org.viarzilin.hospital.model.dao.UserDao;
 import org.viarzilin.hospital.model.domain.User;
 import org.viarzilin.hospital.model.service.AuthService;
+
+
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -61,6 +64,18 @@ public class UserDaoImpl implements UserDao{
 
     User user = (User) getSession().load(User.class, id);
     LOGGER.info("User successfully loaded. User details: " + user);
+
+    return user;
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public User getUserByUsername(String username) {
+
+    Query query = getSession().createQuery("from User where auth.username = :username");
+    query.setParameter("username", username);
+    User user = (User)  query.uniqueResult();
+    LOGGER.info("Userdetails successfully loaded. User details: " + user);
 
     return user;
   }

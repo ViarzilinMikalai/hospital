@@ -5,13 +5,15 @@ import org.viarzilin.hospital.model.domain.User;
 
 public interface UserService {
 
-  public void addUser(User user);
+  void addUser(User user);
 
-  public void updateUser (User user);
+  void updateUser (User user);
 
-  public void removeUser (Integer id);
+  void removeUser (Integer id);
 
-  public User getUserById (Integer id);
+  User getUserById (Integer id);
 
-  public List<User> listUsers();
+  User getUserByUsername(String username);
+
+  List<User> listUsers();
 }
