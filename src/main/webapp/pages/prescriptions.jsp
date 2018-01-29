@@ -5,7 +5,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>Receptions Page</title>
+    <title>Prescriptions Page</title>
 
     <style type="text/css">
         .tg {
@@ -47,49 +47,45 @@
     </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="../index.jsp">Back to main menu</a>
 
 <br/>
 <br/>
 
-<h1>Reception List</h1>
+<h1>Prescription List</h1>
 
 
 
-<c:if test="${!empty listReceptions}">
+<c:if test="${!empty listPrescriptions}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
-            <th width="120">Preliminary diagnosis</th>
-            <th width="120">Reception date</th>
-            <th width="120">IsDischarge</th>
-            <th width="120">Final diagnosis</th>
-            <th width="120">Discharge date</th>
+            <th width="120">NamePrescription</th>
+            <th width="120">TypePrescription</th>
+            <th width="120">Description</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${listReceptions}" var="reception">
+        <c:forEach items="${listPrescriptions}" var="prescription">
             <tr>
-                <td>${reception.id}</td>
-                <td><a href="/receptiondata/${reception.id}" target="_blank">${reception.preliminaryDiagnosis}</a></td>
-                <td>${reception.receptionDate}</td>
-                <td>${reception.discharge}</td>
-                <td>${reception.finalDiagnosis}</td>
-                <td>${reception.dischargeDate}</td>
-                <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
+                <td>${prescription.id}</td>
+                <td><a href="/prescriptiondata/${prescription.id}" target="_blank">${prescription.namePrescription}</a></td>
+                <td>${prescription.typePrescription}</td>
+                <td>${prescription.description}</td>
+                <td><a href="<c:url value='/prescriptions/edit/${prescription.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/prescriptions/remove/${prescription.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
 
 
-<h1>Add a Reception</h1>
+<h1>Add a Prescription</h1>
 
-<c:url var="addAction" value="/receptions/add"/>
-<form:form action="${addAction}" modelAttribute="reception">
+<c:url var="addAction" value="/prescriptions/add"/>
+<form:form action="${addAction}" modelAttribute="prescription">
     <table>
-        <c:if test="${!empty reception.preliminaryDiagnosis}">
+        <c:if test="${!empty prescription.namePrescription}">
             <tr>
                 <td>
                     <form:label path="id">
@@ -104,46 +100,47 @@
         </c:if>
         <tr>
             <td>
-                <form:label path="preliminaryDiagnosis">
-                    <spring:message text="PreliminaryDiagnosis"/>
+                <form:label path="namePrescription">
+                    <spring:message text="NamePrescription"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="preliminaryDiagnosis"/>
+                <form:input path="namePrescription"/>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="discharge">
-                    <spring:message text="Patient discharge"/>
+                <form:label path="typePrescription">
+                    <spring:message text="TypePrescription"/>
                 </form:label>
             </td>
             <td>
-                <form:select path="discharge">
-                    <form:option value="true">Discharge</form:option>
-                    <form:option value="false">Not discharge</form:option>
+                <form:select path="typePrescription">
+                    <form:option value="MEDICAMENT">medicament</form:option>
+                    <form:option value="PROCEDURE">procedure</form:option>
+                    <form:option value="OPERATION">operation</form:option>
                 </form:select>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="finalDiagnosis">
-                    <spring:message text="FinalDiagnosis"/>
+                <form:label path="description">
+                    <spring:message text="Description"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="finalDiagnosis"/>
+                <form:input path="description"/>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <c:if test="${!empty reception.preliminaryDiagnosis}">
+                <c:if test="${!empty prescription.namePrescription}">
                     <input type="submit"
-                           value="<spring:message text="Edit Reception"/>"/>
+                           value="<spring:message text="Edit Prescription"/>"/>
                 </c:if>
-                <c:if test="${empty reception.preliminaryDiagnosis}">
+                <c:if test="${empty prescription.namePrescription}">
                     <input type="submit"
-                           value="<spring:message text="Add Reception"/>"/>
+                           value="<spring:message text="Add Prescription"/>"/>
                 </c:if>
             </td>
         </tr>

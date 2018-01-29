@@ -5,7 +5,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>Patients Page</title>
+    <title>Authes Page</title>
 
     <style type="text/css">
         .tg {
@@ -47,53 +47,49 @@
     </style>
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="../index.jsp">Back to main menu</a>
 
 <br/>
 <br/>
 
-<h1>Patient List</h1>
+<h1>Auth List</h1>
 
 
 
-<c:if test="${!empty listPatients}">
+<c:if test="${!empty listAuthes}">
     <table class="tg">
         <tr>
             <th width="80">ID</th>
-            <th width="120">Lastname</th>
-            <th width="120">Firstname</th>
-            <th width="120">Surname</th>
-            <th width="120">Birth Date</th>
-            <th width="120">Adress</th>
-            <th width="120">Create date</th>
-            <th width="120">Update date</th>
+            <th width="120">Username</th>
+            <th width="120">Password</th>
+            <th width="120">Email</th>
+            <th width="120">User role</th>
+            <th width="120">Is active</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
-        <c:forEach items="${listPatients}" var="patient">
+        <c:forEach items="${listAuthes}" var="auth">
             <tr>
-                <td>${patient.id}</td>
-                <td><a href="/patientdata/${patient.id}" target="_blank">${patient.lastName}</a></td>
-                <td>${patient.firstName}</td>
-                <td>${patient.surName}</td>
-                <td>${patient.birthDate}</td>
-                <td>${patient.adress}</td>
-                <td>${patient.createDate}</td>
-                <td>${patient.updateDate}</td>
-                <td><a href="<c:url value='/patients/edit/${patient.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/patients/remove/${patient.id}'/>">Delete</a></td>
+                <td>${auth.id}</td>
+                <td><a href="/authdata/${auth.id}" target="_blank">${auth.username}</a></td>
+                <td>${auth.password}</td>
+                <td>${auth.email}</td>
+                <td>${auth.role}</td>
+                <td>${auth.active ? "Active" : "Not active"}</td>
+                <td><a href="<c:url value='/authes/edit/${auth.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/authes/remove/${auth.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
 
 
-<h1>Add a Patient</h1>
+<h1>Add a Auth</h1>
 
-<c:url var="addAction" value="/patients/add"/>
-<form:form action="${addAction}" modelAttribute="patient">
+<c:url var="addAction" value="/authes/add"/>
+<form:form action="${addAction}" modelAttribute="auth">
     <table>
-        <c:if test="${!empty patient.lastName}">
+        <c:if test="${!empty auth.username}">
             <tr>
                 <td>
                     <form:label path="id">
@@ -108,54 +104,70 @@
         </c:if>
         <tr>
             <td>
-                <form:label path="lastName">
-                    <spring:message text="Lastname"/>
+                <form:label path="username">
+                    <spring:message text="Username"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="lastName"/>
+                <form:input path="username"/>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="firstName">
-                    <spring:message text="Firstname"/>
+                <form:label path="password">
+                    <spring:message text="Password"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="firstName"/>
+                <form:input path="password"/>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="surName">
-                    <spring:message text="SurName"/>
+                <form:label path="email">
+                    <spring:message text="Email"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="surName"/>
+                <form:input path="email"/>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="adress">
-                    <spring:message text="Adress"/>
+                <form:label path="role">
+                    <spring:message text="User role"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="adress"/>
+                <form:select path="role">
+                    <form:option value="ROLE_DOCTOR">doctor</form:option>
+                    <form:option value="ROLE_NURSE">nurse</form:option>
+                    <form:option value="ROLE_ADMIN">administrator</form:option>
+                </form:select>
             </td>
         </tr>
-
+        <tr>
+            <td>
+                <form:label path="active">
+                    <spring:message text="User active"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="active">
+                    <form:option value="true">Active</form:option>
+                    <form:option value="false">Not active</form:option>
+                </form:select>
+            </td>
+        </tr>
         <tr>
             <td colspan="2">
-                <c:if test="${!empty patient.lastName}">
+                <c:if test="${!empty auth.username}">
                     <input type="submit"
-                           value="<spring:message text="Edit Patient"/>"/>
+                           value="<spring:message text="Edit Auth"/>"/>
                 </c:if>
-                <c:if test="${empty patient.lastName}">
+                <c:if test="${empty auth.username}">
                     <input type="submit"
-                           value="<spring:message text="Add Patient"/>"/>
+                           value="<spring:message text="Add Auth"/>"/>
                 </c:if>
             </td>
         </tr>

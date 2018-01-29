@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
+import org.viarzilin.hospital.model.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableTransactionManagement
@@ -61,15 +62,15 @@ public class RootConfig {
         txManager.setSessionFactory(s);
         return txManager;
     }
-/**
+
     @Bean
     public UserDetailsServiceImpl getUserDetailsService(){
         return new UserDetailsServiceImpl();
     }
-
+/**
     @Bean
     public ShaPasswordEncoder getShaPasswordEncoder(){
         return new ShaPasswordEncoder();
     }
-    */
+*/
 }
