@@ -1,13 +1,13 @@
 package org.viarzilin.hospital.model.domain;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 
 @Table(name = "Patient")
 @Entity
 public class Patient {
-  //public static final String FIELD_UPDATE_DATE = "updateDate";
 
   @Id
   @Column(name = "ID_PATIENT")
@@ -43,10 +43,9 @@ public class Patient {
   /**
    * One-to-many relationship Patient to Reception
    */
-  /**
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "patient", orphanRemoval = true)
-  private List<Reception> receptions;
-*/
+  private List<Reception> reception;
+
 
   public Patient(){
 
@@ -119,15 +118,14 @@ public class Patient {
     this.updateDate = updateDate;
   }
 
-  /**
   public List<Reception> getReceptions() {
-    return receptions;
+    return reception;
   }
 
   public void setReceptions(List<Reception> receptions) {
-    this.receptions = receptions;
+    this.reception = receptions;
   }
-*/
+
 
   @Override
   public String toString() {

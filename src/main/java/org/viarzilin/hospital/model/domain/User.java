@@ -35,10 +35,10 @@ public class User {
     /**
     * Authentication of this user
     */
-
     @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="ID_AUTH", unique = true, nullable = false, updatable = false)
     private Auth auth;
+
 
     /**
     * One_to_many relationship User to Reception

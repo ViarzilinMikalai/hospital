@@ -60,6 +60,7 @@
     <table class="tg">
         <tr>
             <th width="80">ID</th>
+            <th width="120">Patient lastname</th>
             <th width="120">Preliminary diagnosis</th>
             <th width="120">Reception date</th>
             <th width="120">IsDischarge</th>
@@ -71,6 +72,7 @@
         <c:forEach items="${listReceptions}" var="reception">
             <tr>
                 <td>${reception.id}</td>
+                <td>${reception.patient.lastName}<br>${reception.patient.firstName}<br>${reception.patient.surName}</td>
                 <td><a href="/receptiondata/${reception.id}" target="_blank">${reception.preliminaryDiagnosis}</a></td>
                 <td>${reception.receptionDate}</td>
                 <td>${reception.discharge}</td>

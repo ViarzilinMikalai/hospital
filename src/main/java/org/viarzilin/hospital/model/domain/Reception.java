@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 public class Reception {
 
-
   @Id
   @Column(name = "ID_RESEPTION")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +33,10 @@ public class Reception {
   /**
    * Many-to-one relationship Patient to Reception
    */
-  /**
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "PATIENT_ID")
+  @JoinColumn(name = "PATIENT_ID", nullable = false, updatable = false)
   private Patient patient;
-*/
+
 
   /**
    * Many-to-one relationship User to Reception
@@ -108,7 +106,7 @@ public class Reception {
     isDischarge = discharge;
   }
 
-  /**
+
   public Patient getPatient() {
     return patient;
   }
@@ -116,7 +114,7 @@ public class Reception {
   public void setPatient(Patient patient) {
     this.patient = patient;
   }
-
+  /**
   public User getUser() {
     return user;
   }
