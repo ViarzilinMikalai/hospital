@@ -2,6 +2,7 @@ package org.viarzilin.hospital.model.domain;
 
 import org.viarzilin.hospital.model.domain.enumerated.TypePrescription;
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -26,14 +27,14 @@ public class Prescription {
 
     /**
     * One_to_many relationship Prescription to Rprescription
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prescriptions", orphanRemoval = true)
-     private List<Rprescription> receptionPrescriptions;
      */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prescription", orphanRemoval = true)
+    private List<Rprescription> receptionPrescription;
+
+
     /**
      * Getters and Setters
      */
-
     public int getId() {
         return id;
     }
@@ -65,15 +66,15 @@ public class Prescription {
     public void setDescription(String description) {
         this.description = description;
     }
-/**
-    public List<Rprescription> getReceptionPrescriptions() {
-        return receptionPrescriptions;
+
+    public List<Rprescription> getReceptionPrescription() {
+        return receptionPrescription;
     }
 
-    public void setReceptionPrescriptions(List<Rprescription> receptionPrescriptions) {
-        this.receptionPrescriptions = receptionPrescriptions;
+    public void setReceptionPrescription(List<Rprescription> receptionPrescription) {
+        this.receptionPrescription = receptionPrescription;
     }
-*/
+
     @Override
     public String toString() {
         return "Prescription{" +

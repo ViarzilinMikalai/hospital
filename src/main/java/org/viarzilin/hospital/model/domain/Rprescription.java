@@ -26,20 +26,18 @@ public class Rprescription {
   /**
    * Many-to-one relationship Reception to Rprescription
    */
-  /**
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "ID_RECEPTION")
-  private Reception receptions;
-*/
+//  @ManyToOne(fetch = FetchType.EAGER)
+//  @JoinColumn(name = "ID_RECEPTION", nullable = false, updatable = false)
+//  private Reception reception;
+
 
   /**
    * Many-to-one relationship Rprescription to Prescription
    */
-  /**
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "ID_PRESCRIPTION")
-  private Prescription prescriptions;
-*/
+  @JoinColumn(name = "ID_PRESCRIPTION", nullable = false, updatable = false)
+  private Prescription prescription;
+
 
   /**
    * Many-to-many relationship Rprescription to User
@@ -87,23 +85,22 @@ public class Rprescription {
     this.test = test;
   }
 
-  /**
-  public Reception getReceptions() {
-    return receptions;
+  public Prescription getPrescription() {
+    return prescription;
   }
 
-  public void setReceptions(Reception receptions) {
-    this.receptions = receptions;
+  public void setPrescription(Prescription prescription) {
+    this.prescription = prescription;
   }
 
-  public Prescription getPrescriptions() {
-    return prescriptions;
-  }
-
-  public void setPrescriptions(Prescription prescriptions) {
-    this.prescriptions = prescriptions;
-  }
-
+//  public Reception getReception() {
+//    return reception;
+//  }
+//
+//  public void setReception(Reception reception) {
+//    this.reception = reception;
+//  }
+    /**
   public List<User> getUserList() {
     return userList;
   }
@@ -112,6 +109,7 @@ public class Rprescription {
     this.userList = userList;
   }
 */
+
   @Override
   public String toString() {
     return "Rprescription{" +

@@ -61,8 +61,6 @@
         <th width="120">IsDischarge</th>
         <th width="120">Final diagnosis</th>
         <th width="120">Discharge date</th>
-        <th width="60">Edit</th>
-        <th width="60">Delete</th>
     </tr>
     <tr>
         <td>${reception.id}</td>

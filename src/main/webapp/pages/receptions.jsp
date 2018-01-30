@@ -81,6 +81,8 @@
                 <td>${reception.discharge}</td>
                 <td>${reception.finalDiagnosis}</td>
                 <td>${reception.dischargeDate}</td>
+                <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

@@ -2,6 +2,7 @@ package org.viarzilin.hospital.model.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "reception")
 @Entity
@@ -44,14 +45,12 @@ public class Reception {
   @JoinColumn(name = "ID_USER", nullable = false, updatable = false)
   private User user;
 
-
   /**
    * One_to_many relationship Reception to Rprescription
    */
-  /**
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "receptions", orphanRemoval = true)
-  private List<Rprescription> rprescriptions;
-*/
+//  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "reception", orphanRemoval = true)
+//  private List<Rprescription> rprescription;
+
 
   /**
    * Getters and Setters
@@ -119,15 +118,15 @@ public class Reception {
   public void setUser(User user) {
     this.user = user;
   }
-  /**
-  public List<Rprescription> getReceptionPrescriptions() {
-    return receptionPrescriptions;
-  }
 
-  public void setReceptionPrescriptions(List<Rprescription> receptionPrescriptions) {
-    this.receptionPrescriptions = receptionPrescriptions;
-  }
- */
+//  public List<Rprescription> getRprescription() {
+//    return rprescription;
+//  }
+//
+//  public void setRprescription(List<Rprescription> rprescription) {
+//    this.rprescription = rprescription;
+//  }
+
   @Override
   public String toString() {
     return "Reception{" +

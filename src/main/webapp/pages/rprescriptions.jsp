@@ -52,7 +52,7 @@
 <br/>
 <br/>
 
-<h1>Reception List</h1>
+<h1>Prescription of Patient List</h1>
 
 
 
@@ -60,6 +60,8 @@
     <table class="tg">
         <tr>
             <th width="80">ID</th>
+            <th width="120">Patient lastname<br>firstname<br>surname</th>
+            <th width="120">Prescription name</th>
             <th width="120">Prescription date</th>
             <th width="120">Cancelled</th>
             <th width="120">Test</th>
@@ -69,6 +71,10 @@
         <c:forEach items="${listRprescriptions}" var="rprescription">
             <tr>
                 <td>${rprescription.id}</td>
+                <td>${rprescription.reception.patient.lastName}<br>
+                        ${rprescription.reception.patient.firstName}<br>
+                        ${rprescription.reception.patient.surName}</td>
+                <td>${rprescription.prescription.namePrescription}</td>
                 <td><a href="/rprescriptiondata/${rprescription.id}" target="_blank">${rprescription.rprescriptionDate}</a></td>
                 <td>${rprescription.cancell}</td>
                 <td>${rprescription.test}</td>
@@ -80,7 +86,7 @@
 </c:if>
 
 
-<h1>Add a Reception</h1>
+<h1>Add a Patient prescription</h1>
 
 <c:url var="addAction" value="/rprescriptions/add"/>
 <form:form action="${addAction}" modelAttribute="rprescription">
