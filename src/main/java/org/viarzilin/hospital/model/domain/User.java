@@ -1,6 +1,7 @@
 package org.viarzilin.hospital.model.domain;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 
@@ -43,10 +44,9 @@ public class User {
     /**
     * One_to_many relationship User to Reception
     */
-    /**
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "patient", orphanRemoval = true)
-    private List<Reception> receptions;
-*/
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
+    private List<Reception> reception;
+
 
     /**
     * Many-to-many relationship Rprescription to User
@@ -116,6 +116,14 @@ public class User {
 
   public void setAuth(Auth auth) {
     this.auth = auth;
+  }
+
+  public List<Reception> getReception() {
+    return reception;
+  }
+
+  public void setReception(List<Reception> reception) {
+    this.reception = reception;
   }
 
   @Override

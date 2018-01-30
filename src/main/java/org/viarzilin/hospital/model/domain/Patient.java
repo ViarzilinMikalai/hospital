@@ -118,11 +118,11 @@ public class Patient {
     this.updateDate = updateDate;
   }
 
-  public List<Reception> getReceptions() {
+  public List<Reception> getReception() {
     return reception;
   }
 
-  public void setReceptions(List<Reception> receptions) {
+  public void setReception(List<Reception> receptions) {
     this.reception = receptions;
   }
 

@@ -54,14 +54,20 @@
 <table class="tg">
     <tr>
         <th width="80">ID</th>
+        <th width="120">Patient lastname<br>firstname<br>surname</th>
+        <th width="120">Doctor lastname<br>firstname<br>surname</th>
         <th width="120">Preliminary diagnosis</th>
         <th width="120">Reception date</th>
         <th width="120">IsDischarge</th>
         <th width="120">Final diagnosis</th>
         <th width="120">Discharge date</th>
+        <th width="60">Edit</th>
+        <th width="60">Delete</th>
     </tr>
     <tr>
         <td>${reception.id}</td>
+        <td>${reception.patient.lastName}<br>${reception.patient.firstName}<br>${reception.patient.surName}</td>
+        <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
         <td>${reception.preliminaryDiagnosis}</td>
         <td>${reception.receptionDate}</td>
         <td>${reception.discharge}</td>

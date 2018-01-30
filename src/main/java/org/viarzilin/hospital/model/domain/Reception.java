@@ -37,15 +37,13 @@ public class Reception {
   @JoinColumn(name = "PATIENT_ID", nullable = false, updatable = false)
   private Patient patient;
 
-
   /**
    * Many-to-one relationship User to Reception
    */
-  /**
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "ID_STAFF")
+  @JoinColumn(name = "ID_USER", nullable = false, updatable = false)
   private User user;
-*/
+
 
   /**
    * One_to_many relationship Reception to Rprescription
@@ -106,7 +104,6 @@ public class Reception {
     isDischarge = discharge;
   }
 
-
   public Patient getPatient() {
     return patient;
   }
@@ -114,7 +111,7 @@ public class Reception {
   public void setPatient(Patient patient) {
     this.patient = patient;
   }
-  /**
+
   public User getUser() {
     return user;
   }
@@ -122,7 +119,7 @@ public class Reception {
   public void setUser(User user) {
     this.user = user;
   }
-
+  /**
   public List<Rprescription> getReceptionPrescriptions() {
     return receptionPrescriptions;
   }

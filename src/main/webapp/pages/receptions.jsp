@@ -60,7 +60,8 @@
     <table class="tg">
         <tr>
             <th width="80">ID</th>
-            <th width="120">Patient lastname</th>
+            <th width="120">Patient lastname<br>firstname<br>surname</th>
+            <th width="120">Doctor lastname<br>firstname<br>surname</th>
             <th width="120">Preliminary diagnosis</th>
             <th width="120">Reception date</th>
             <th width="120">IsDischarge</th>
@@ -72,14 +73,14 @@
         <c:forEach items="${listReceptions}" var="reception">
             <tr>
                 <td>${reception.id}</td>
-                <td>${reception.patient.lastName}<br>${reception.patient.firstName}<br>${reception.patient.surName}</td>
-                <td><a href="/receptiondata/${reception.id}" target="_blank">${reception.preliminaryDiagnosis}</a></td>
+                <td><a href="/receptiondata/${reception.id}" target="_blank">${reception.patient.lastName}
+                    <br>${reception.patient.firstName}<br>${reception.patient.surName}</a></td>
+                <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
+                <td>${reception.preliminaryDiagnosis}</td>
                 <td>${reception.receptionDate}</td>
                 <td>${reception.discharge}</td>
                 <td>${reception.finalDiagnosis}</td>
                 <td>${reception.dischargeDate}</td>
-                <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
