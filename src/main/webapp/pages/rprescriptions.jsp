@@ -71,15 +71,15 @@
         <c:forEach items="${listRprescriptions}" var="rprescription">
             <tr>
                 <td>${rprescription.id}</td>
-                <td>${rprescription.receptions.patient.lastName}<br>
+                <td><a href="/rprescriptiondata/${rprescription.id}" target="_blank">${rprescription.receptions.patient.lastName}<br>
                         ${rprescription.receptions.patient.firstName}<br>
-                        ${rprescription.receptions.patient.surName}</td>
+                        ${rprescription.receptions.patient.surName}</a></td>
                 <td>${rprescription.user.lastName}<br>
                         ${rprescription.user.firstName}<br>
                         ${rprescription.user.surName}<br>
                         ${rprescription.user.auth.role}</td>
                 <td>${rprescription.prescription.namePrescription}</td>
-                <td><a href="/rprescriptiondata/${rprescription.id}" target="_blank">${rprescription.rprescriptionDate}</a></td>
+                <td>${rprescription.rprescriptionDate}</td>
                 <td>${rprescription.cancell}</td>
                 <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>

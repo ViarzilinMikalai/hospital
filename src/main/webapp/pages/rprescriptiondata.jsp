@@ -54,11 +54,22 @@
 <table class="tg">
     <tr>
         <th width="80">ID</th>
+        <th width="120">Patient lastname<br>firstname<br>surname</th>
+        <th width="120">Doctor lastname<br>firstname<br>surname</th>
+        <th width="120">Prescription name</th>
         <th width="120">Prescription date</th>
         <th width="120">Cancelled</th>
     </tr>
     <tr>
         <td>${rprescription.id}</td>
+        <td>${rprescription.receptions.patient.lastName}<br>
+            ${rprescription.receptions.patient.firstName}<br>
+            ${rprescription.receptions.patient.surName}</td>
+        <td>${rprescription.user.lastName}<br>
+            ${rprescription.user.firstName}<br>
+            ${rprescription.user.surName}<br>
+            ${rprescription.user.auth.role}</td>
+        <td>${rprescription.prescription.namePrescription}</td>
         <td>${rprescription.rprescriptionDate}</td>
         <td>${rprescription.cancell}</td>
     </tr>
