@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
@@ -46,6 +47,10 @@
         }
     </style>
 </head>
+<header class="header">
+    <strong>You are logged in as <sec:authentication property="principal.username"/></strong>
+    <strong><a href="<c:url value="/logout"/>">Logout</a></strong>
+</header>
 <body>
 <a href="../../index.jsp">Back to main menu</a>
 
