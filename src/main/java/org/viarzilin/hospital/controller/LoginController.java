@@ -39,7 +39,7 @@ public class LoginController {
 
       switch (user.getAuthorities().toArray()[0].toString()) {
         case "ROLE_ADMIN":
-          page = "admin/users";
+          page = "admin/**";
           break;
         case "ROLE_CUSTOMER":
           page = "customer/customer";

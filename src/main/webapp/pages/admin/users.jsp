@@ -48,7 +48,7 @@
     </style>
 </head>
 <header class="header">
-    <strong>You are logged in as <sec:authentication property="principal.username"/></strong>
+    <strong>You're logged as <sec:authentication property="principal.username"/></strong><br>
     <strong><a href="<c:url value="/logout"/>">Logout</a></strong>
 </header>
 <body>
