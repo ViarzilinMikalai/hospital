@@ -48,8 +48,8 @@ public class Reception {
   /**
    * One_to_many relationship Reception to Rprescription
    */
-//  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "reception", orphanRemoval = true)
-//  private List<Rprescription> rprescription;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "receptions", orphanRemoval = true)
+  private List<Rprescription> rprescription;
 
 
   /**
@@ -119,13 +119,13 @@ public class Reception {
     this.user = user;
   }
 
-//  public List<Rprescription> getRprescription() {
-//    return rprescription;
-//  }
-//
-//  public void setRprescription(List<Rprescription> rprescription) {
-//    this.rprescription = rprescription;
-//  }
+  public List<Rprescription> getRprescription() {
+    return rprescription;
+  }
+
+  public void setRprescription(List<Rprescription> rprescription) {
+    this.rprescription = rprescription;
+  }
 
   @Override
   public String toString() {

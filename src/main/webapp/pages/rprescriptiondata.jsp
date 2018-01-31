@@ -56,13 +56,11 @@
         <th width="80">ID</th>
         <th width="120">Prescription date</th>
         <th width="120">Cancelled</th>
-        <th width="120">test</th>
     </tr>
     <tr>
         <td>${rprescription.id}</td>
         <td>${rprescription.rprescriptionDate}</td>
         <td>${rprescription.cancell}</td>
-        <td>${rprescription.test}</td>
     </tr>
 </table>
 </body>

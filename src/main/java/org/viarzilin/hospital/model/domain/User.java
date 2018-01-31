@@ -44,11 +44,26 @@ public class User {
     /**
     * One_to_many relationship User to Reception
     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
+    private List<Reception> receptions;
+
+
+  /**
+   * One_to_many relationship User to Rprescription
+   */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
-    private List<Reception> reception;
+    private List<Rprescription> rprescription;
 
+  public List<Rprescription> getRprescription() {
+    return rprescription;
+  }
 
-    /**
+  public void setRprescription(
+      List<Rprescription> rprescription) {
+    this.rprescription = rprescription;
+  }
+
+/**
     * Many-to-many relationship Rprescription to User
     */
     /**
@@ -118,12 +133,12 @@ public class User {
     this.auth = auth;
   }
 
-  public List<Reception> getReception() {
-    return reception;
+  public List<Reception> getReceptions() {
+    return receptions;
   }
 
-  public void setReception(List<Reception> reception) {
-    this.reception = reception;
+  public void setReceptions(List<Reception> receptions) {
+    this.receptions = receptions;
   }
 
   @Override

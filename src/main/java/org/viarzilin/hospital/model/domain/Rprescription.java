@@ -19,16 +19,28 @@ public class Rprescription {
   @Column(name = "PRESCRIPTION_DATE")
   private Date rprescriptionDate;
 
-  @Column(name = "TEST")
-  private String test;
-
 
   /**
    * Many-to-one relationship Reception to Rprescription
    */
-//  @ManyToOne(fetch = FetchType.EAGER)
-//  @JoinColumn(name = "ID_RECEPTION", nullable = false, updatable = false)
-//  private Reception reception;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "ID_RECEPTION", nullable = false, updatable = false)
+  private Reception receptions;
+
+  /**
+   * Many-to-one relationship User to Rprescription
+   */
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "ID_USER", nullable = false, updatable = false)
+  private User user;
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 
 
   /**
@@ -77,14 +89,6 @@ public class Rprescription {
     this.rprescriptionDate = rprescriptionDate;
   }
 
-  public String getTest() {
-    return test;
-  }
-
-  public void setTest(String test) {
-    this.test = test;
-  }
-
   public Prescription getPrescription() {
     return prescription;
   }
@@ -93,13 +97,13 @@ public class Rprescription {
     this.prescription = prescription;
   }
 
-//  public Reception getReception() {
-//    return reception;
-//  }
-//
-//  public void setReception(Reception reception) {
-//    this.reception = reception;
-//  }
+  public Reception getReceptions() {
+    return receptions;
+  }
+
+  public void setReceptions(Reception receptions) {
+    this.receptions = receptions;
+  }
     /**
   public List<User> getUserList() {
     return userList;
@@ -116,7 +120,6 @@ public class Rprescription {
         "id=" + id +
         ", isCancell=" + isCancell +
         ", rprescriptionDate=" + rprescriptionDate +
-        ", test='" + test + '\'' +
         '}';
   }
 }
