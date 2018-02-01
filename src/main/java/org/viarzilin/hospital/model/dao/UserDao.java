@@ -4,16 +4,18 @@ import java.util.List;
 import org.viarzilin.hospital.model.domain.User;
 
 public interface UserDao {
-  public void addUser(User user);
+  void addUser(User user);
 
-  public void updateUser(User user);
+  void updateUser(User user);
 
-  public void removeUser(Integer id);
+  void removeUser(Integer id);
 
-  public User getUserById(Integer id);
+  User getUserById(Integer id);
 
-  public User getUserByUsername(String username);
+  User getUserByUsername(String username);
 
-  public List<User> listUsers();
+  List<User> listUsers();
+
+  List<User> listUsersByRoleDoctor();
 
 }

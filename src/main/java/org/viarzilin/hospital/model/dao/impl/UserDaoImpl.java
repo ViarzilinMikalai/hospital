@@ -17,6 +17,7 @@ import org.viarzilin.hospital.model.service.AuthService;
 
 @Repository
 public class UserDaoImpl implements UserDao{
+
   private static final Logger LOGGER = LoggerFactory.getLogger(UserDaoImpl.class);
 
   @Autowired
@@ -25,14 +26,9 @@ public class UserDaoImpl implements UserDao{
   @Autowired
   SessionFactory sessionFactory;
 
-  public void setSessionFactory(SessionFactory sessionFactory) {
-    this.sessionFactory = sessionFactory;
-  }
-
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
   }
-
 
   @Override
   public void addUser(User user) {
@@ -84,7 +80,7 @@ public class UserDaoImpl implements UserDao{
   @SuppressWarnings("unchecked")
   public List<User> listUsers() {
 
-    List<User> userList = getSession().createQuery("from User").list();
+    List<User> userList = getSession().createQuery("from User ORDER BY lastname ASC").list();
 
     for(User user : userList){
       LOGGER.info("User list: " + user);
@@ -92,4 +88,16 @@ public class UserDaoImpl implements UserDao{
 
     return userList;
   }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public List<User> listUsersByRoleDoctor() {
+    List<User> doctorList = getSession().createQuery("from User where auth.isActive='1' "
+        + "and auth.role='ROLE_DOCTOR' ORDER BY lastname ASC").list();
+    for(User user : doctorList){
+      LOGGER.info("Doctor list: " + user);
+    }
+    return doctorList;
+  }
+
 }

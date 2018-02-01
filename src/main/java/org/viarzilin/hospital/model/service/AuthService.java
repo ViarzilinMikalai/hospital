@@ -5,13 +5,13 @@ import org.viarzilin.hospital.model.domain.Auth;
 
 public interface AuthService {
 
-  public void addAuth(Auth auth);
+  void addAuth(Auth auth);
 
-  public void updateAuth(Auth auth);
+  void updateAuth(Auth auth);
 
-  public void removeAuth(Integer id);
+  void removeAuth(Integer id);
 
-  public Auth getAuthById(Integer id);
+  Auth getAuthById(Integer id);
 
-  public List<Auth> listAuthes();
+  List<Auth> listAuthes();
 }

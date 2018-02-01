@@ -16,9 +16,9 @@ public class ReceptionController {
     @Autowired(required = true)
     private ReceptionService receptionService;
 
-    public void setReceptionService(ReceptionService receptionService) {
-        this.receptionService = receptionService;
-    }
+//    public void setReceptionService(ReceptionService receptionService) {
+//        this.receptionService = receptionService;
+//    }
 
     @RequestMapping(value = "receptions", method = RequestMethod.GET)
     public String listReceptions(Model model){

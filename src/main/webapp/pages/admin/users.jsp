@@ -4,63 +4,21 @@
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Users Page</title>
 
     <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
+        <%@include file="/css/style.css"%>
     </style>
 </head>
-<header class="header">
-    <strong>You're logged as <sec:authentication property="principal.username"/></strong><br>
-    <strong><a href="<c:url value="/logout"/>">Logout</a></strong>
-</header>
 <body>
+<%@include file="/pageFragments/header.html"%>
+<br>
 <a href="../../index.jsp">Back to main menu</a>
 
-<br/>
-<br/>
-
 <h1>User List</h1>
-
-
-
 <c:if test="${!empty listUsers}">
     <table class="tg">
         <tr>
@@ -239,5 +197,6 @@
         </tr>
     </table>
 </form:form>
+<%@include file="/pageFragments/footer.html"%>
 </body>
 </html>

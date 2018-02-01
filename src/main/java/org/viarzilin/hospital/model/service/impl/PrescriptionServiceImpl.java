@@ -11,40 +11,33 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class PrescriptionServiceImpl implements PrescriptionService {
+
   @Autowired
   private PrescriptionDao prescriptionDao;
 
-  public void setPrescriptionDao(PrescriptionDao prescriptionDao) {
-    this.prescriptionDao = prescriptionDao;
-  }
-
   @Override
-  @Transactional
   public void addPrescription(Prescription prescription) {
     this.prescriptionDao.addPrescription(prescription);
   }
 
   @Override
-  @Transactional
   public void updatePrescription(Prescription prescription) {
     this.prescriptionDao.updatePrescription(prescription);
   }
 
   @Override
-  @Transactional
   public void removePrescription(Integer id) {
     this.prescriptionDao.removePrescription(id);
   }
 
   @Override
-  @Transactional
   public Prescription getPrescriptionById(Integer id) {
     return this.prescriptionDao.getPrescriptionById(id);
   }
 
   @Override
-  @Transactional
   public List<Prescription> listPrescriptions() {
     return this.prescriptionDao.listPrescriptions();
   }

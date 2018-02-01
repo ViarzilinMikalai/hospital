@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.controller;
+package org.viarzilin.hospital.controller.general;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,19 +16,16 @@ public class PatientController {
   @Autowired(required = true)
   private PatientService patientService;
 
-  public void setPatientService(PatientService patientService) {
-    this.patientService = patientService;
-  }
 
-  @RequestMapping(value = "patients", method = RequestMethod.GET)
+  @RequestMapping(value = "general/patients", method = RequestMethod.GET)
   public String listPatients(Model model){
     model.addAttribute("patient", new Patient());
     model.addAttribute("listPatients", this.patientService.listPatients());
 
-    return "patients";
+    return "general/patients";
   }
 
-  @RequestMapping(value = "/patients/add", method = RequestMethod.POST)
+  @RequestMapping(value = "/general/patients/add", method = RequestMethod.POST)
   public String addPatient(@ModelAttribute("patient") Patient patient){
     if(patient.getId() == 0){
       this.patientService.addPatient(patient);
@@ -36,29 +33,28 @@ public class PatientController {
       this.patientService.updatePatient(patient);
     }
 
-    return "redirect:/patients";
+    return "redirect:/general/patients";
   }
 
-  @RequestMapping("/patients/remove/{id}")
+  @RequestMapping("/general/patients/remove/{id}")
   public String removePatient(@PathVariable("id") int id){
     this.patientService.removePatient(id);
 
-    return "redirect:/patients";
+    return "redirect:/general/patients";
   }
 
-  @RequestMapping("/patients/edit/{id}")
+  @RequestMapping("/general/patients/edit/{id}")
   public String editPatient(@PathVariable("id") int id, Model model){
     model.addAttribute("patient", this.patientService.getPatientById(id));
     model.addAttribute("listPatients", this.patientService.listPatients());
 
-    return "patients";
+    return "general/patients";
   }
 
-  @RequestMapping("patientdata/{id}")
-  public String patientData(@PathVariable("id") int id, Model model){
-    model.addAttribute("patient", this.patientService.getPatientById(id));
-
-    return "patientdata";
-  }
-
+//  @RequestMapping("patientdata/{id}")
+//  public String patientData(@PathVariable("id") int id, Model model){
+//    model.addAttribute("patient", this.patientService.getPatientById(id));
+//
+//    return "patientdata";
+//  }
 }

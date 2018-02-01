@@ -9,47 +9,43 @@ import org.viarzilin.hospital.model.domain.User;
 import org.viarzilin.hospital.model.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
   @Autowired
   UserDao userDao;
 
-  //public void setUserDao(UserDao userDao) {
-  //  this.userDao = userDao;
-  //}
-
   @Override
-  @Transactional
   public void addUser(User user) {
     this.userDao.addUser(user);
   }
 
   @Override
-  @Transactional
   public void updateUser(User user) {
     this.userDao.updateUser(user);
   }
 
   @Override
-  @Transactional
   public void removeUser(Integer id) {
     this.userDao.removeUser(id);
   }
 
   @Override
-  @Transactional
   public User getUserById(Integer id) {
     return this.userDao.getUserById(id);
   }
 
   @Override
-  @Transactional
   public User getUserByUsername(String username) {
     return this.userDao.getUserByUsername(username);
   }
 
   @Override
-  @Transactional
   public List<User> listUsers() {
     return this.userDao.listUsers();
+  }
+
+  @Override
+  public List<User> listUsersByRoleDoctor() {
+    return this.userDao.listUsersByRoleDoctor();
   }
 }

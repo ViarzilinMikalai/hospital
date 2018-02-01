@@ -4,14 +4,14 @@ import java.util.List;
 import org.viarzilin.hospital.model.domain.Patient;
 
 public interface PatientService {
-  public void addPatient(Patient patient);
+  void addPatient(Patient patient);
 
-  public void updatePatient(Patient patient);
+  void updatePatient(Patient patient);
 
-  public void removePatient(Integer id);
+  void removePatient(Integer id);
 
-  public Patient getPatientById(Integer id);
+  Patient getPatientById(Integer id);
 
-  public List<Patient> listPatients();
+  List<Patient> listPatients();
 
 }

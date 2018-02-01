@@ -5,13 +5,16 @@ import org.viarzilin.hospital.model.domain.Reception;
 import java.util.List;
 
 public interface ReceptionService {
-    public void addReception (Reception reception);
+    void addReception (Reception reception);
 
-    public void updateReception (Reception reception);
+    void updateReception (Reception reception);
 
-    public void removeReception (Integer id);
+    void removeReception (Integer id);
 
-    public Reception getReceptionById (Integer id);
+    Reception getReceptionById (Integer id);
 
-    public List<Reception> listReceptions();
+    List<Reception> listReceptions();
+
+    List<Reception> listHospitalizedReceptions();
+
 }

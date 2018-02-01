@@ -13,14 +13,11 @@ import java.util.List;
 
 @Repository
 public class RprescriptionDaoImpl implements RprescriptionDao {
+
   private static final Logger LOGGER = LoggerFactory.getLogger(RprescriptionDaoImpl.class);
 
   @Autowired
   private SessionFactory sessionFactory;
-
-  public void setSessionFactory(SessionFactory sessionFactory) {
-    this.sessionFactory = sessionFactory;
-  }
 
   protected Session getSession() {
     return sessionFactory.getCurrentSession();

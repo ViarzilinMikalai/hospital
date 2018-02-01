@@ -13,14 +13,11 @@ import java.util.List;
 
 @Repository
 public class ReceptionDaoImpl implements ReceptionDao {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ReceptionDaoImpl.class);
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(ReceptionDaoImpl.class);
 
     @Autowired
     SessionFactory sessionFactory;
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     protected Session getSession() {
         return sessionFactory.getCurrentSession();
@@ -70,5 +67,18 @@ public class ReceptionDaoImpl implements ReceptionDao {
         }
 
         return receptionList;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Reception> listHospitalizedReceptions() {
+      List<Reception> hospitalizedReceptionList = getSession().createQuery("from Reception "
+          + "where isDischarge='false'").list();
+
+      for(Reception reception : hospitalizedReceptionList){
+        LOGGER.info("HospitalizedReception list: " + reception);
+      }
+
+      return hospitalizedReceptionList;
     }
 }

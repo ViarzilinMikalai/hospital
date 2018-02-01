@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.controller;
+package org.viarzilin.hospital.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,6 @@ public class UserController {
 
   @Autowired(required = true)
   private UserService userService;
-
-  public void setUserService(UserService userService) {
-    this.userService = userService;
-  }
 
   @RequestMapping(value = "admin/users", method = RequestMethod.GET)
   public String listUsers(Model model){

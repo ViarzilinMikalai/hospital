@@ -9,42 +9,39 @@ import org.viarzilin.hospital.model.domain.Reception;
 import org.viarzilin.hospital.model.service.ReceptionService;
 
 @Service
+@Transactional
 public class ReceptionServiceImpl implements ReceptionService {
+
     @Autowired
     ReceptionDao receptionDao;
 
-    public void setReceptionDao(ReceptionDao receptionDao) {
-        this.receptionDao = receptionDao;
-    }
-
     @Override
-    @Transactional
     public void addReception(Reception reception) {
         this.receptionDao.addReception(reception);
     }
 
     @Override
-    @Transactional
     public void updateReception(Reception reception) {
         this.receptionDao.updateReception(reception);
     }
 
     @Override
-    @Transactional
     public void removeReception(Integer id) {
         this.receptionDao.removeReception(id);
     }
 
     @Override
-    @Transactional
     public Reception getReceptionById(Integer id) {
         return this.receptionDao.getReceptionById(id);
     }
 
     @Override
-    @Transactional
     public List<Reception> listReceptions() {
         return this.receptionDao.listReceptions();
     }
 
+    @Override
+    public List<Reception> listHospitalizedReceptions() {
+        return this.receptionDao.listHospitalizedReceptions();
+    }
 }

@@ -19,14 +19,9 @@ public class AuthDaoImpl implements AuthDao {
   @Autowired
   SessionFactory sessionFactory;
 
-  public void setSessionFactory(SessionFactory sessionFactory) {
-    this.sessionFactory = sessionFactory;
-  }
-
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
   }
-
 
   @Override
   public void addAuth(Auth auth) {

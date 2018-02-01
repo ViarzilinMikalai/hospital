@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.controller;
+package org.viarzilin.hospital.controller.doctor;
 
 import org.viarzilin.hospital.model.domain.Prescription;
 import org.viarzilin.hospital.model.service.PrescriptionService;
@@ -12,22 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PrescriptionController {
+
   @Autowired(required = true)
   private PrescriptionService prescriptionService;
 
-  public void setPrescriptionService(PrescriptionService prescriptionService) {
-    this.prescriptionService = prescriptionService;
-  }
 
-  @RequestMapping(value = "prescriptions", method = RequestMethod.GET)
+  @RequestMapping(value = "doctor/prescriptions", method = RequestMethod.GET)
   public String listPrescriptions(Model model){
     model.addAttribute("prescription", new Prescription());
     model.addAttribute("listPrescriptions", this.prescriptionService.listPrescriptions());
 
-    return "prescriptions";
+    return "doctor/prescriptions";
   }
 
-  @RequestMapping(value = "/prescriptions/add", method = RequestMethod.POST)
+
+  @RequestMapping(value = "/doctor/prescriptions/add", method = RequestMethod.POST)
   public String addPrescription(@ModelAttribute("prescription") Prescription prescription){
     if(prescription.getId() == 0){
       this.prescriptionService.addPrescription(prescription);
@@ -35,28 +34,23 @@ public class PrescriptionController {
       this.prescriptionService.updatePrescription(prescription);
     }
 
-    return "redirect:/prescriptions";
+    return "redirect:/doctor/prescriptions";
   }
 
-  @RequestMapping("/prescriptions/remove/{id}")
+
+  @RequestMapping("/doctor/prescriptions/remove/{id}")
   public String removePrescription(@PathVariable("id") int id){
     this.prescriptionService.removePrescription(id);
 
-    return "redirect:/prescriptions";
+    return "redirect:/doctor/prescriptions";
   }
 
-  @RequestMapping("/prescriptions/edit/{id}")
+
+  @RequestMapping("/doctor/prescriptions/edit/{id}")
   public String editPrescription(@PathVariable("id") int id, Model model){
     model.addAttribute("prescription", this.prescriptionService.getPrescriptionById(id));
     model.addAttribute("listPrescriptions", this.prescriptionService.listPrescriptions());
 
-    return "prescriptions";
-  }
-
-  @RequestMapping("prescriptiondata/{id}")
-  public String prescriptionData(@PathVariable("id") int id, Model model){
-    model.addAttribute("prescription", this.prescriptionService.getPrescriptionById(id));
-
-    return "prescriptiondata";
+    return "doctor/prescriptions";
   }
 }

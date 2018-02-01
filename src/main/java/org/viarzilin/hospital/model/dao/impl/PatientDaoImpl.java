@@ -18,14 +18,9 @@ public class PatientDaoImpl implements PatientDao{
   @Autowired
   SessionFactory sessionFactory;
 
-  public void setSessionFactory(SessionFactory sessionFactory) {
-    this.sessionFactory = sessionFactory;
-  }
-
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
   }
-
 
   @Override
   public void addPatient(Patient patient) {
@@ -65,7 +60,7 @@ public class PatientDaoImpl implements PatientDao{
   @SuppressWarnings("unchecked")
   public List<Patient> listPatients() {
 
-    List<Patient> patientList = getSession().createQuery("from Patient").list();
+    List<Patient> patientList = getSession().createQuery("from Patient ORDER BY lastname ASC").list();
 
     for(Patient patient : patientList){
       LOGGER.info("Patient list: " + patient);

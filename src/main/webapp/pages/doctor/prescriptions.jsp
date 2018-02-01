@@ -2,60 +2,19 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
     <title>Prescriptions Page</title>
 
     <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
+        <%@include file="/css/style.css"%>
     </style>
 </head>
 <body>
-<a href="../index.jsp">Back to main menu</a>
-
-<br/>
-<br/>
-
+<%--<%@include file="/pageFragments/header.html"%>--%>
 <h1>Prescription List</h1>
-
-
-
 <c:if test="${!empty listPrescriptions}">
     <table class="tg">
         <tr>
@@ -69,7 +28,7 @@
         <c:forEach items="${listPrescriptions}" var="prescription">
             <tr>
                 <td>${prescription.id}</td>
-                <td><a href="/prescriptiondata/${prescription.id}" target="_blank">${prescription.namePrescription}</a></td>
+                <td>${prescription.namePrescription}</td>
                 <td>${prescription.typePrescription}</td>
                 <td>${prescription.description}</td>
                 <td><a href="<c:url value='/prescriptions/edit/${prescription.id}'/>">Edit</a></td>
@@ -82,7 +41,7 @@
 
 <h1>Add a Prescription</h1>
 
-<c:url var="addAction" value="/prescriptions/add"/>
+<c:url var="addAction" value="/doctor/prescriptions/add"/>
 <form:form action="${addAction}" modelAttribute="prescription">
     <table>
         <c:if test="${!empty prescription.namePrescription}">
@@ -146,5 +105,6 @@
         </tr>
     </table>
 </form:form>
+<%@include file="/pageFragments/footer.html"%>
 </body>
 </html>

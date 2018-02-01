@@ -13,14 +13,11 @@ import java.util.List;
 
 @Repository
 public class PrescriptionDaoImpl implements PrescriptionDao {
+
   private static final Logger LOGGER = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
 
   @Autowired
   private SessionFactory sessionFactory;
-
-  public void setSessionFactory(SessionFactory sessionFactory) {
-    this.sessionFactory = sessionFactory;
-  }
 
   protected Session getSession() {
     return sessionFactory.getCurrentSession();
