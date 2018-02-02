@@ -16,11 +16,10 @@ public class PrescriptionController {
   @Autowired(required = true)
   private PrescriptionService prescriptionService;
 
-
   @RequestMapping(value = "doctor/prescriptions", method = RequestMethod.GET)
   public String listPrescriptions(Model model){
     model.addAttribute("prescription", new Prescription());
-    model.addAttribute("listPrescriptions", this.prescriptionService.listPrescriptions());
+    model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
 
     return "doctor/prescriptions";
   }
@@ -29,9 +28,9 @@ public class PrescriptionController {
   @RequestMapping(value = "/doctor/prescriptions/add", method = RequestMethod.POST)
   public String addPrescription(@ModelAttribute("prescription") Prescription prescription){
     if(prescription.getId() == 0){
-      this.prescriptionService.addPrescription(prescription);
+      prescriptionService.addPrescription(prescription);
     }else {
-      this.prescriptionService.updatePrescription(prescription);
+      prescriptionService.updatePrescription(prescription);
     }
 
     return "redirect:/doctor/prescriptions";
@@ -40,7 +39,7 @@ public class PrescriptionController {
 
   @RequestMapping("/doctor/prescriptions/remove/{id}")
   public String removePrescription(@PathVariable("id") int id){
-    this.prescriptionService.removePrescription(id);
+    prescriptionService.removePrescription(id);
 
     return "redirect:/doctor/prescriptions";
   }
@@ -48,8 +47,8 @@ public class PrescriptionController {
 
   @RequestMapping("/doctor/prescriptions/edit/{id}")
   public String editPrescription(@PathVariable("id") int id, Model model){
-    model.addAttribute("prescription", this.prescriptionService.getPrescriptionById(id));
-    model.addAttribute("listPrescriptions", this.prescriptionService.listPrescriptions());
+    model.addAttribute("prescription", prescriptionService.getPrescriptionById(id));
+    model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
 
     return "doctor/prescriptions";
   }

@@ -11,8 +11,8 @@
         <div class="login-container">
             <form class="form-signin" method="post" action="/login">
                 <h1>Вход</h1>
-                <input class="form-control" type="text" name="username" placeholder="Логин"/>
-                <input id="loginPass" class="form-control" type="password" name="password" placeholder="Пароль"/>
+                <input class="form-control" type="text" name="username" placeholder="Логин" autofocus required/>
+                <input id="loginPass" class="form-control" type="password" name="password" placeholder="Пароль" required/>
                 <button type="submit">Log in</button>
             </form>
         </div>

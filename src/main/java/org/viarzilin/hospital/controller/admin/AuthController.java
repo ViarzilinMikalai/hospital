@@ -16,14 +16,10 @@ public class AuthController {
     @Autowired(required = true)
     private AuthService authService;
 
-    public void setAuthService(AuthService authService) {
-        this.authService = authService;
-    }
-
     @RequestMapping(value = "authes", method = RequestMethod.GET)
     public String listAuthes(Model model){
         model.addAttribute("auth", new Auth());
-        model.addAttribute("listAuthes", this.authService.listAuthes());
+        model.addAttribute("listAuthes", authService.listAuthes());
 
         return "authes";
     }
@@ -31,9 +27,9 @@ public class AuthController {
     @RequestMapping(value = "/authes/add", method = RequestMethod.POST)
     public String addAuth(@ModelAttribute("auth") Auth auth){
         if(auth.getId() == 0){
-            this.authService.addAuth(auth);
+            authService.addAuth(auth);
         }else {
-            this.authService.updateAuth(auth);
+            authService.updateAuth(auth);
         }
 
         return "redirect:/authes";
@@ -41,22 +37,22 @@ public class AuthController {
 
     @RequestMapping("/authes/remove/{id}")
     public String removeAuth(@PathVariable("id") int id){
-        this.authService.removeAuth(id);
+        authService.removeAuth(id);
 
         return "redirect:/authes";
     }
 
     @RequestMapping("/authes/edit/{id}")
     public String editAuth(@PathVariable("id") int id, Model model){
-        model.addAttribute("auth", this.authService.getAuthById(id));
-        model.addAttribute("listAuthes", this.authService.listAuthes());
+        model.addAttribute("auth", authService.getAuthById(id));
+        model.addAttribute("listAuthes", authService.listAuthes());
 
         return "authes";
     }
 
     @RequestMapping("authdata/{id}")
     public String authData(@PathVariable("id") int id, Model model){
-        model.addAttribute("auth", this.authService.getAuthById(id));
+        model.addAttribute("auth", authService.getAuthById(id));
 
         return "authdata";
     }

@@ -13,14 +13,14 @@ public class Reception {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Temporal(TemporalType.DATE)
+  @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "RECEPTION_DATE", nullable = false)
   private Date receptionDate;
 
   @Column(name = "PRELIMINARY_DIAGNOSIS", nullable = false, length = 60)
   private String preliminaryDiagnosis;
 
-  @Temporal(TemporalType.DATE)
+  @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "DISCHARGE_DATE")
   private Date dischargeDate;
 

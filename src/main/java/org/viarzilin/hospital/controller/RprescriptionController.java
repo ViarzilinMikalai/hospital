@@ -13,17 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class RprescriptionController {
+
     @Autowired(required = true)
     private RprescriptionService rprescriptionService;
-
-    public void setRprescriptionService(RprescriptionService rprescriptionService) {
-        this.rprescriptionService = rprescriptionService;
-    }
 
     @RequestMapping(value = "rprescriptions", method = RequestMethod.GET)
     public String listRprescriptions(Model model){
         model.addAttribute("rprescription", new Rprescription());
-        model.addAttribute("listRprescriptions", this.rprescriptionService.listRprescriptions());
+        model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
 
         return "rprescriptions";
     }
@@ -31,9 +28,9 @@ public class RprescriptionController {
     @RequestMapping(value = "/rprescriptions/add", method = RequestMethod.POST)
     public String addRprescription(@ModelAttribute("rprescription") Rprescription rprescription){
         if(rprescription.getId() == 0){
-            this.rprescriptionService.addRprescription(rprescription);
+            rprescriptionService.addRprescription(rprescription);
         }else {
-            this.rprescriptionService.updateRprescription(rprescription);
+            rprescriptionService.updateRprescription(rprescription);
         }
 
         return "redirect:/rprescriptions";
@@ -41,22 +38,22 @@ public class RprescriptionController {
 
     @RequestMapping("/rprescriptions/remove/{id}")
     public String removeRprescription(@PathVariable("id") int id){
-        this.rprescriptionService.removeRprescription(id);
+        rprescriptionService.removeRprescription(id);
 
         return "redirect:/rprescriptions";
     }
 
     @RequestMapping("/rprescriptions/edit/{id}")
     public String editRprescription(@PathVariable("id") int id, Model model){
-        model.addAttribute("rprescription", this.rprescriptionService.getRprescriptionById(id));
-        model.addAttribute("listRprescriptions", this.rprescriptionService.listRprescriptions());
+        model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
+        model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
 
         return "rprescriptions";
     }
 
     @RequestMapping("rprescriptiondata/{id}")
     public String rprescriptionData(@PathVariable("id") int id, Model model){
-        model.addAttribute("rprescription", this.rprescriptionService.getRprescriptionById(id));
+        model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
 
         return "rprescriptiondata";
     }

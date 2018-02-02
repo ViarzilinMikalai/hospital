@@ -1,60 +1,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
     <title>Receptions Page</title>
 
     <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
+        <%@include file="/css/style.css"%>
     </style>
 </head>
 <body>
+<%--<%@include file="/pageFragments/header.html"%>--%>
+<br>
 <a href="../index.jsp">Back to main menu</a>
-
 <br/>
-<br/>
-
 <h1>Reception List</h1>
-
-
 
 <c:if test="${!empty listReceptions}">
     <table class="tg">
@@ -67,8 +29,6 @@
             <th width="120">IsDischarge</th>
             <th width="120">Final diagnosis</th>
             <th width="120">Discharge date</th>
-            <th width="60">Edit</th>
-            <th width="60">Delete</th>
         </tr>
         <c:forEach items="${listReceptions}" var="reception">
             <tr>
@@ -81,8 +41,6 @@
                 <td>${reception.discharge}</td>
                 <td>${reception.finalDiagnosis}</td>
                 <td>${reception.dischargeDate}</td>
-                <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
@@ -107,6 +65,27 @@
                 </td>
             </tr>
         </c:if>
+
+        <tr>
+            <td>
+                <form:label path="patient.id">
+                    <spring:message text="Patient id"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="patient.id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="user.id">
+                    <spring:message text="User id"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="user.id"/>
+            </td>
+        </tr>
         <tr>
             <td>
                 <form:label path="preliminaryDiagnosis">
@@ -154,5 +133,6 @@
         </tr>
     </table>
 </form:form>
+<%@include file="/pageFragments/footer.html"%>
 </body>
 </html>

@@ -17,4 +17,6 @@ public interface ReceptionService {
 
     List<Reception> listHospitalizedReceptions();
 
+    void dischargePatient (Reception reception);
+
 }

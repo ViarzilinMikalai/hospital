@@ -27,7 +27,7 @@ public class Auth {
     private String email;
 
     @Column(name="ISACTIVE")
-    private boolean isActive;
+    private boolean isActive=true;
 
     @Column(name = "USER_ROLE")
     @Enumerated(EnumType.STRING)

@@ -17,7 +17,7 @@ public class HospitalizedPatientsController {
   @RequestMapping(value = "nurse/hospitalized-receptions", method = RequestMethod.GET)
   public String listReceptions(Model model){
     model.addAttribute("reception", new Reception());
-    model.addAttribute("listHospitalizedReceptions", this.receptionService.listHospitalizedReceptions());
+    model.addAttribute("listHospitalizedReceptions", receptionService.listHospitalizedReceptions());
     return "nurse/hospitalized-receptions";
   }
 

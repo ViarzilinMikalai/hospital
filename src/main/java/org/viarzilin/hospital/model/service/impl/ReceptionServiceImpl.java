@@ -44,4 +44,9 @@ public class ReceptionServiceImpl implements ReceptionService {
     public List<Reception> listHospitalizedReceptions() {
         return this.receptionDao.listHospitalizedReceptions();
     }
+
+    @Override
+    public void dischargePatient(Reception reception) {
+        this.receptionDao.dischargePatient(reception);
+    }
 }

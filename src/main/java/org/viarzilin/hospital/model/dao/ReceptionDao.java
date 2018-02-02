@@ -17,4 +17,6 @@ public interface ReceptionDao {
     List<Reception>listReceptions();
 
     List<Reception>listHospitalizedReceptions();
+
+    void dischargePatient (Reception reception);
 }

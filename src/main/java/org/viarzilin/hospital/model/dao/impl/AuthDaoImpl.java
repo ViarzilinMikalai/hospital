@@ -25,7 +25,6 @@ public class AuthDaoImpl implements AuthDao {
 
   @Override
   public void addAuth(Auth auth) {
-    auth.setActive(true);
     getSession().persist(auth);
     LOGGER.info("Auth successfully saved. Auth details: " + auth);
   }

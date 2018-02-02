@@ -30,6 +30,7 @@ public class ReceptionController {
 
     @RequestMapping(value = "/receptions/add", method = RequestMethod.POST)
     public String addReception(@ModelAttribute("reception") Reception reception){
+
         if(reception.getId() == 0){
             this.receptionService.addReception(reception);
         }else {
@@ -61,4 +62,11 @@ public class ReceptionController {
         return "receptiondata";
     }
 
+    @RequestMapping(value = "/receptions/discharge", method = RequestMethod.POST)
+    public String dischargeReception(@ModelAttribute("reception") Reception reception){
+
+            this.receptionService.dischargePatient(reception);
+
+        return "redirect:/receptions";
+    }
 }

@@ -81,4 +81,13 @@ public class ReceptionDaoImpl implements ReceptionDao {
 
       return hospitalizedReceptionList;
     }
+
+  @Override
+  public void dischargePatient(Reception reception) {
+    reception.setDischargeDate(new java.util.Date());
+    reception.setDischarge(true);
+    getSession().update(reception);
+    LOGGER.info("Reception successfully update. Reception details: " + reception);
+  }
+
 }

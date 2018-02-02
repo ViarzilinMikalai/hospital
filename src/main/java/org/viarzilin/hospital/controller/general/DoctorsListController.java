@@ -17,7 +17,7 @@ public class DoctorsListController {
   @RequestMapping(value = "general/doctorslist", method = RequestMethod.GET)
   public String listUsersByRoleDoctor(Model model){
     model.addAttribute("user", new User());
-    model.addAttribute("listUsersByRoleDoctor", this.userService.listUsersByRoleDoctor());
+    model.addAttribute("listUsersByRoleDoctor", userService.listUsersByRoleDoctor());
     return "general/doctorslist";
   }
 }
