@@ -69,9 +69,9 @@
         <c:forEach items="${listRprescriptions}" var="rprescription">
             <tr>
                 <td>${rprescription.id}</td>
-                <td><a href="/rprescriptiondata/${rprescription.id}" target="_blank">${rprescription.receptions.patient.lastName}<br>
+                <td>${rprescription.receptions.patient.lastName}<br>
                         ${rprescription.receptions.patient.firstName}<br>
-                        ${rprescription.receptions.patient.surName}</a></td>
+                        ${rprescription.receptions.patient.surName}</td>
                 <td>${rprescription.user.lastName}<br>
                         ${rprescription.user.firstName}<br>
                         ${rprescription.user.surName}<br>

@@ -50,11 +50,4 @@ public class RprescriptionController {
 
         return "rprescriptions";
     }
-
-    @RequestMapping("rprescriptiondata/{id}")
-    public String rprescriptionData(@PathVariable("id") int id, Model model){
-        model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
-
-        return "rprescriptiondata";
-    }
 }
