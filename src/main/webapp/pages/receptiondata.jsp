@@ -74,26 +74,90 @@
 
 
 
+<h1>Add a Patient prescription</h1>
 
+<c:url var="addAction" value="/receptiondata/${reception.id}/addprescription"/>
+<form:form action="${addAction}" modelAttribute="rprescription">
+    <table>
+        <tr hidden="hidden">
+            <td>
+                <form:label path="id">
+                    <spring:message text="ID"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="id" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="id"/>
+            </td>
+        </tr>
+        <tr hidden="hidden">
+            <td>
+                <form:label path="receptions.id">
+                    <spring:message text="Patient"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="receptions.id" value="${id}"/>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="prescription.id">
+                    <spring:message text="Prescription"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="prescription.id">
+                    <c:forEach items="${listPrescriptions}" var="prescription">
+                        <form:option value="${prescription.id}">
+                            ${prescription.namePrescription}&nbsp;${prescription.typePrescription}
+                        </form:option>
+                    </c:forEach>
+                </form:select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="cancell">
+                    <spring:message text="Prescription cancelled"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="cancell">
+                    <form:option value="true">Cancell</form:option>
+                    <form:option value="false">Not cancell</form:option>
+                </form:select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+                    <input type="submit"
+                           value="<spring:message text="Add Patien prescription"/>"/>
+            </td>
+        </tr>
+    </table>
+</form:form>
+
+<%--Patient discharge form--%>
 <h2>Discharge patient</h2>
 <c:url var="addAction" value="/receptions/discharge"/>
 <form:form action="${addAction}" modelAttribute="reception">
     <table>
-        <c:if test="${!empty reception.preliminaryDiagnosis}">
-            <tr>
-                <td>
-                    <form:label path="id">
-                        <spring:message text="ID"/>
-                    </form:label>
-                </td>
-                <td>
-                    <form:input path="id" readonly="true" size="8" disabled="true"/>
-                    <form:hidden path="id"/>
-                </td>
-            </tr>
-        </c:if>
-
-        <tr hidden="hidden">
+        <tr  hidden="hidden">
+            <td>
+                <form:label path="id">
+                    <spring:message text="ID"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="id" readonly="true" size="8" disabled="true"/>
+                <form:hidden path="id"/>
+            </td>
+        </tr>
+         <tr hidden="hidden">
             <td>
                 <form:label path="patient.id">
                     <spring:message text="Patient id"/>
@@ -103,7 +167,7 @@
                 <form:input path="patient.id"/>
             </td>
         </tr>
-        <tr hidden="hidden">
+        <tr  hidden="hidden">
             <td>
                 <form:label path="user.id">
                     <spring:message text="User id"/>
@@ -135,11 +199,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <%--<c:if test="${!empty reception.finalDiagnosis}">--%>
-                    <input type="submit"
-                           value="<spring:message text="Discharge patient"/>"/>
-                <%--</c:if>--%>
 
+                    <input type="submit" value="<spring:message text="Discharge patient"/>"/>
             </td>
         </tr>
     </table>

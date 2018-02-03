@@ -8,45 +8,11 @@
     <title>Prescription of Patient Page</title>
 
     <style type="text/css">
-        .tg {
-            border-collapse: collapse;
-            border-spacing: 0;
-            border-color: #ccc;
-        }
-
-        .tg td {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #fff;
-        }
-
-        .tg th {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: normal;
-            padding: 10px 5px;
-            border-style: solid;
-            border-width: 1px;
-            overflow: hidden;
-            word-break: normal;
-            border-color: #ccc;
-            color: #333;
-            background-color: #f0f0f0;
-        }
-
-        .tg .tg-4eph {
-            background-color: #f9f9f9
-        }
+        <%@include file="/css/style.css"%>
     </style>
 </head>
 <body>
+<%--<%@include file="/pageFragments/header.html"%>--%>
 <a href="../index.jsp">Back to main menu</a>
 
 <br/>
@@ -105,6 +71,44 @@
                 </td>
             </tr>
         </c:if>
+
+        <tr>
+            <td>
+                <form:label path="receptions.id">
+                    <spring:message text="Patient"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="receptions.id">
+                    <c:forEach items="${listHospitalizedReceptions}" var="reception">
+                        <form:option value="${reception.id}">
+                            ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+                            ${reception.patient.surName}
+                        </form:option>
+                    </c:forEach>
+                </form:select>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <form:label path="prescription.id">
+                    <spring:message text="Prescription"/>
+                </form:label>
+            </td>
+            <td>
+                <form:select path="prescription.id">
+                    <c:forEach items="${listPrescriptions}" var="prescription">
+                        <form:option value="${prescription.id}">
+                            ${prescription.namePrescription}&nbsp;${prescription.typePrescription}
+                        </form:option>
+                    </c:forEach>
+                </form:select>
+            </td>
+        </tr>
+
+
         <tr>
             <td>
                 <form:label path="cancell">
