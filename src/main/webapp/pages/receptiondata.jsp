@@ -47,41 +47,30 @@
 
 
 
-<c:if test="${!empty listRprescriptions}">
-<table class="tg">
-    <tr>
-        <th width="80">ID</th>
-        <th width="120">Patient lastname<br>firstname<br>surname</th>
-        <th width="120">Doctor lastname<br>firstname<br>surname</th>
-        <th width="120">Prescription name</th>
-        <th width="120">Prescription date</th>
-        <th width="120">Cancelled</th>
-        <th width="60">Edit</th>
-        <th width="60">Delete</th>
-    </tr>
-    <c:forEach items="${listRprescriptions}" var="rprescription">
+<h1>Prescription of Patient List</h1>
+
+<c:if test="${!empty prescriptionsByReceptionId}">
+    <table class="tg">
         <tr>
-            <td>${rprescription.id}</td>
-            <td><a href="/rprescriptiondata/${rprescription.id}" target="_blank">${rprescription.receptions.patient.lastName}<br>
-                    ${rprescription.receptions.patient.firstName}<br>
-                    ${rprescription.receptions.patient.surName}</a></td>
-            <td>${rprescription.user.lastName}<br>
-                    ${rprescription.user.firstName}<br>
-                    ${rprescription.user.surName}<br>
-                    ${rprescription.user.auth.role}</td>
-            <td>${rprescription.prescription.namePrescription}</td>
-            <td>${rprescription.rprescriptionDate}</td>
-            <td>${rprescription.cancell}</td>
-            <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
-            <td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>
+            <th width="80">ID</th>
+            <th width="120">Prescription name</th>
+            <th width="120">Prescription date</th>
+            <th width="120">Cancelled</th>
+            <th width="60">Edit</th>
+            <th width="60">Delete</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${prescriptionsByReceptionId}" var="rprescription">
+            <tr>
+                <td>${rprescription.id}</td>
+                <td>${rprescription.prescription.namePrescription}</td>
+                <td>${rprescription.rprescriptionDate}</td>
+                <td>${rprescription.cancell}</td>
+                <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>
+            </tr>
+        </c:forEach>
+    </table>
 </c:if>
-
-
-
-
 
 
 

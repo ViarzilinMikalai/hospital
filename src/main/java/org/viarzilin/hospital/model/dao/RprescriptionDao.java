@@ -16,6 +16,6 @@ public interface RprescriptionDao {
 
     List<Rprescription> listRprescriptions();
     
-    List<Rprescription> listPrescriptionsByPatientId(Integer id);
+    List<Rprescription> listPrescriptionsByReceptionId(Integer id);
 
 }

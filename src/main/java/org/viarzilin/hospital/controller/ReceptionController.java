@@ -39,6 +39,12 @@ public class ReceptionController {
         model.addAttribute("listUsersByRoleDoctor", userService.listUsersByRoleDoctor());
         model.addAttribute("patient", new Patient());
         model.addAttribute("listPatients", patientService.listPatients());
+
+//
+//        model.addAttribute("rprescription", new Rprescription());
+//        model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
+//
+
         return "receptions";
     }
 
@@ -72,8 +78,8 @@ public class ReceptionController {
     @RequestMapping("receptiondata/{id}")
     public String receptionData(@PathVariable("id") int id, Model model){
         model.addAttribute("reception", receptionService.getReceptionById(id));
-        model.addAttribute("prescriptionsByPatientId",
-            rprescriptionService.listPrescriptionsByPatientId(id));
+        model.addAttribute("prescriptionsByReceptionId",
+            rprescriptionService.listPrescriptionsByReceptionId(id));
 
 
         return "receptiondata";

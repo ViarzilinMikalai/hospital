@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import org.viarzilin.hospital.model.service.PatientService;
+
+import org.viarzilin.hospital.model.service.ReceptionService;
 
 @Repository
 public class RprescriptionDaoImpl implements RprescriptionDao {
@@ -20,7 +21,7 @@ public class RprescriptionDaoImpl implements RprescriptionDao {
   private static final Logger LOGGER = LoggerFactory.getLogger(RprescriptionDaoImpl.class);
 
   @Autowired
-  PatientService patientService;
+  ReceptionService receptionService;
 
   @Autowired
   private SessionFactory sessionFactory;
@@ -78,8 +79,8 @@ public class RprescriptionDaoImpl implements RprescriptionDao {
 
   @Override
   @SuppressWarnings("unchecked")
-  public List<Rprescription> listPrescriptionsByPatientId(Integer id) {
-    Query query = getSession().createQuery("from Rprescriptions where patient.id = :id");
+  public List<Rprescription> listPrescriptionsByReceptionId(Integer id) {
+    Query query = getSession().createQuery("from Rprescription where receptions.id = :id");
     query.setParameter("id", id);
     List<Rprescription> patientPrescriptionsList = query.list();
 
