@@ -15,10 +15,6 @@
         <br/>
         <a href="<c:url value="/general/patients"/>" target="_blank">Patients list</a>
         <br/>
-        <a href="<c:url value="/general/doctorslist"/>" target="_blank">Doctors list</a>
-        <br/>
-        <a href="<c:url value="/authes"/>" target="_blank">Authes list</a>
-        <br/>
         <a href="<c:url value="/admin/users"/>" target="_blank">Users list</a>
         <br/>
         <a href="<c:url value="/receptions"/>" target="_blank">Receptions list</a>
