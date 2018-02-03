@@ -89,4 +89,15 @@ public class RprescriptionDaoImpl implements RprescriptionDao {
     }
     return patientPrescriptionsList;
   }
+
+
+  @Override
+  public void executeReceptionPrescriptionById(Integer id) {
+    Rprescription rprescription = (Rprescription) getSession().load(Rprescription.class, id);
+    rprescription.setExecutionDate(new java.util.Date());
+    rprescription.setExecuted(true);
+    getSession().update(rprescription);
+    LOGGER.info("Rprescription successfully execute. Reception details: " + rprescription);
+  }
+
 }

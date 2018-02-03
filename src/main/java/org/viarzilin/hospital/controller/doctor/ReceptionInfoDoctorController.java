@@ -66,4 +66,11 @@ public class ReceptionInfoDoctorController {
     return "redirect:/doctor/receptiondata/{id}";
   }
 
+
+  @RequestMapping("/doctor/receptiondata/{id}/execute/{idn}")
+  public String executeReceptionPrescriptionById(@PathVariable("idn") int idn, @PathVariable("id") int id){
+    rprescriptionService.executeReceptionPrescriptionById(idn);
+
+    return "redirect:/doctor/receptiondata/{id}";
+  }
 }

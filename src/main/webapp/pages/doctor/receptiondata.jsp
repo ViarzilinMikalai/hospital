@@ -57,14 +57,24 @@
             <th width="80">ID</th>
             <th width="120">Prescription name</th>
             <th width="120">Prescription date</th>
-            <th width="120">Cancelled</th>
+            <th width="120">Date executed</th>
+            <th width="120">Executed</th>
+            <th width="60">Execute</th>
         </tr>
         <c:forEach items="${prescriptionsByReceptionId}" var="rprescription">
             <tr>
                 <td>${rprescription.id}</td>
-                <td>${rprescription.prescription.namePrescription}</td>
+                <td>${rprescription.prescription.namePrescription}<br>
+                        ${rprescription.prescription.typePrescription}</td>
                 <td>${rprescription.rprescriptionDate}</td>
-                <td>${rprescription.cancell}</td>
+                <td>${rprescription.executionDate}</td>
+                <td>${rprescription.executed ? "Executed" : ""}</td>
+                <td>
+                    <c:if test="${!rprescription.executed}">
+                    <a href="<c:url value='/doctor/receptiondata/${reception.id}/execute/${rprescription.id}'/>">
+                            Execute</a>
+                    </c:if>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -117,16 +127,16 @@
                 </form:select>
             </td>
         </tr>
-        <tr>
+        <tr hidden="hidden">
             <td>
-                <form:label path="cancell">
-                    <spring:message text="Prescription cancelled"/>
+                <form:label path="executed">
+                    <spring:message text="Prescription executed"/>
                 </form:label>
             </td>
             <td>
-                <form:select path="cancell">
-                    <form:option value="true">Cancell</form:option>
-                    <form:option value="false">Not cancell</form:option>
+                <form:select path="executed">
+                    <form:option value="true">Execute</form:option>
+                    <form:option value="false">Not execute</form:option>
                 </form:select>
             </td>
         </tr>

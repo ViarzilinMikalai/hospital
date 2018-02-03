@@ -40,6 +40,26 @@ public class RprescriptionController {
         return "rprescriptions";
     }
 
+    @RequestMapping(value = "/rprescriptions/add", method = RequestMethod.POST)
+    public String addRprescription(@ModelAttribute("rprescription") Rprescription rprescription){
+      if(rprescription.getId() == 0){
+//        this.rprescriptionService.addRprescription(rprescription);
+      }else {
+        this.rprescriptionService.updateRprescription(rprescription);
+      }
+
+      return "redirect:/rprescriptions";
+    }
+
+    @RequestMapping("/rprescriptions/edit/{id}")
+    public String editRprescription(@PathVariable("id") int id, Model model){
+      model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
+      model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
+      model.addAttribute("listHospitalizedReceptions", receptionService.listHospitalizedReceptions());
+      model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
+      return "rprescriptions";
+    }
+
 
     @RequestMapping("/rprescriptions/remove/{id}")
     public String removeRprescription(@PathVariable("id") int id){
@@ -48,11 +68,5 @@ public class RprescriptionController {
         return "redirect:/rprescriptions";
     }
 
-    @RequestMapping("/rprescriptions/edit/{id}")
-    public String editRprescription(@PathVariable("id") int id, Model model){
-        model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
-        model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
 
-        return "rprescriptions";
-    }
 }

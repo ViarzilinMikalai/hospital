@@ -30,7 +30,7 @@ public class ReceptionInfoNurseController {
 
     model.addAttribute("reception", receptionService.getReceptionById(id));
     model.addAttribute("prescriptionsByReceptionId",
-        rprescriptionService.listPrescriptionsByReceptionId(id));
+    rprescriptionService.listPrescriptionsByReceptionId(id));
     model.addAttribute("rprescription", new Rprescription());
     model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
 
@@ -38,5 +38,12 @@ public class ReceptionInfoNurseController {
     return "nurse/receptiondata-for-nurse";
   }
 
+
+  @RequestMapping("/nurse/receptiondata-for-nurse/{id}/execute/{idn}")
+  public String executeReceptionPrescriptionById(@PathVariable("idn") int idn, @PathVariable("id") int id){
+    rprescriptionService.executeReceptionPrescriptionById(idn);
+
+    return "redirect:/nurse/receptiondata-for-nurse/{id}";
+  }
 
 }

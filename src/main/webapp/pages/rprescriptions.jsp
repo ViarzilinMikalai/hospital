@@ -28,9 +28,9 @@
             <th width="120">Doctor lastname<br>firstname<br>surname</th>
             <th width="120">Prescription name</th>
             <th width="120">Prescription date</th>
-            <th width="120">Cancelled</th>
+            <th width="120">Executed</th>
             <th width="60">Edit</th>
-            <th width="60">Delete</th>
+            <%--<th width="60">Delete</th>--%>
         </tr>
         <c:forEach items="${listRprescriptions}" var="rprescription">
             <tr>
@@ -38,15 +38,14 @@
                 <td>${rprescription.receptions.patient.lastName}<br>
                         ${rprescription.receptions.patient.firstName}<br>
                         ${rprescription.receptions.patient.surName}</td>
-                <td>${rprescription.user.lastName}<br>
-                        ${rprescription.user.firstName}<br>
-                        ${rprescription.user.surName}<br>
-                        ${rprescription.user.auth.role}</td>
+                <td>${rprescription.receptions.user.lastName}<br>
+                        ${rprescription.receptions.user.firstName}<br>
+                        ${rprescription.receptions.user.surName}<br>
                 <td>${rprescription.prescription.namePrescription}</td>
                 <td>${rprescription.rprescriptionDate}</td>
-                <td>${rprescription.cancell}</td>
+                <td>${rprescription.executed ? "Executed" : ""}</td>
                 <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>
+                <%--<td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>--%>
             </tr>
         </c:forEach>
     </table>
@@ -111,14 +110,14 @@
 
         <tr>
             <td>
-                <form:label path="cancell">
-                    <spring:message text="Prescription cancelled"/>
+                <form:label path="executed">
+                    <spring:message text="Prescription execute"/>
                 </form:label>
             </td>
             <td>
-                <form:select path="cancell">
-                    <form:option value="true">Cancell</form:option>
-                    <form:option value="false">Not cancell</form:option>
+                <form:select path="executed">
+                    <form:option value="true">Execute</form:option>
+                    <form:option value="false">Not execute</form:option>
                 </form:select>
             </td>
         </tr>

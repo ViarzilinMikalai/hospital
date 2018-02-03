@@ -5,6 +5,7 @@ import org.viarzilin.hospital.model.domain.Rprescription;
 
 import java.util.List;
 
+
 public interface RprescriptionService {
   void addRprescription (Rprescription rprescription);
 
@@ -17,5 +18,7 @@ public interface RprescriptionService {
   List<Rprescription> listRprescriptions();
 
   List<Rprescription> listPrescriptionsByReceptionId(Integer id);
+
+  void executeReceptionPrescriptionById (Integer id);
 
 }

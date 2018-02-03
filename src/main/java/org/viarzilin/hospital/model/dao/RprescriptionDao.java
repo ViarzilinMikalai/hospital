@@ -1,8 +1,9 @@
 package org.viarzilin.hospital.model.dao;
 
-import org.viarzilin.hospital.model.domain.Rprescription;
 
+import org.viarzilin.hospital.model.domain.Rprescription;
 import java.util.List;
+
 
 public interface RprescriptionDao {
 
@@ -17,5 +18,7 @@ public interface RprescriptionDao {
     List<Rprescription> listRprescriptions();
     
     List<Rprescription> listPrescriptionsByReceptionId(Integer id);
+
+    void executeReceptionPrescriptionById (Integer id);
 
 }

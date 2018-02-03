@@ -31,8 +31,8 @@
                 <td>${prescription.namePrescription}</td>
                 <td>${prescription.typePrescription}</td>
                 <td>${prescription.description}</td>
-                <td><a href="<c:url value='/prescriptions/edit/${prescription.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/prescriptions/remove/${prescription.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/doctor/prescriptions/edit/${prescription.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/doctor/prescriptions/remove/${prescription.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

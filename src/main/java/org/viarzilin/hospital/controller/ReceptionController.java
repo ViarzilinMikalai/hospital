@@ -76,26 +76,4 @@ public class ReceptionController {
         return "receptions";
     }
 
-//
-//    @RequestMapping("receptiondata/{id}")
-//    public String receptionData(@PathVariable("id") int id, Model model){
-//        model.addAttribute("reception", receptionService.getReceptionById(id));
-//        model.addAttribute("prescriptionsByReceptionId",
-//            rprescriptionService.listPrescriptionsByReceptionId(id));
-//
-//
-//        return "receptiondata";
-//    }
-
-
-
-
-//
-//    @RequestMapping(value = "/receptions/discharge", method = RequestMethod.POST)
-//    public String dischargeReception(@ModelAttribute("reception") Reception reception){
-//
-//            receptionService.dischargePatient(reception);
-//
-//        return "redirect:/receptions";
-//    }
 }

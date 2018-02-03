@@ -29,8 +29,7 @@
         <th width="120">IsDischarge</th>
         <th width="120">Final diagnosis</th>
         <th width="120">Discharge date</th>
-        <%--<th width="60">Edit</th>--%>
-        <%--<th width="60">Delete</th>--%>
+                <%--<th width="60">Delete</th>--%>
     </tr>
     <tr>
         <td>${reception.id}</td>
@@ -41,8 +40,7 @@
         <td>${reception.discharge ? "Discharged" : ""}</td>
         <td>${reception.finalDiagnosis}</td>
         <td>${reception.dischargeDate}</td>
-        <%--<td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>--%>
-        <%--<td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>--%>
+                <%--<td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>--%>
     </tr>
 </table>
 
@@ -57,14 +55,26 @@
             <th width="80">ID</th>
             <th width="120">Prescription name</th>
             <th width="120">Prescription date</th>
-            <th width="120">Cancelled</th>
+            <th width="120">Date executed</th>
+            <th width="120">Executed</th>
+            <th width="60">Execute</th>
         </tr>
         <c:forEach items="${prescriptionsByReceptionId}" var="rprescription">
             <tr>
                 <td>${rprescription.id}</td>
-                <td>${rprescription.prescription.namePrescription}</td>
+                <td>${rprescription.prescription.namePrescription}<br>
+                        ${rprescription.prescription.typePrescription}</td>
                 <td>${rprescription.rprescriptionDate}</td>
-                <td>${rprescription.cancell}</td>
+                <td>${rprescription.executionDate}</td>
+                <td>${rprescription.executed ? "Executed" : ""}</td>
+                <td>
+                  <c:if test="${!rprescription.executed}">
+                   <c:if test="${rprescription.prescription.typePrescription!='OPERATION'}">
+                    <a href="<c:url value='/nurse/receptiondata-for-nurse/${reception.id}/execute/${rprescription.id}'/>">
+                        Execute</a>
+                   </c:if>
+                  </c:if>
+                </td>
             </tr>
         </c:forEach>
     </table>

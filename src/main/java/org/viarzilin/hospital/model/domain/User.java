@@ -51,17 +51,17 @@ public class User {
   /**
    * One_to_many relationship User to Rprescription
    */
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
-    private List<Rprescription> rprescription;
-
-  public List<Rprescription> getRprescription() {
-    return rprescription;
-  }
-
-  public void setRprescription(
-      List<Rprescription> rprescription) {
-    this.rprescription = rprescription;
-  }
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
+//    private List<Rprescription> rprescription;
+//
+//  public List<Rprescription> getRprescription() {
+//    return rprescription;
+//  }
+//
+//  public void setRprescription(
+//      List<Rprescription> rprescription) {
+//    this.rprescription = rprescription;
+//  }
 
 /**
     * Many-to-many relationship Rprescription to User

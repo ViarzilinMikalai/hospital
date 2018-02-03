@@ -44,4 +44,9 @@ public class RprescriptionServiceImpl implements RprescriptionService {
     public List<Rprescription> listPrescriptionsByReceptionId(Integer id) {
         return this.rprescriptionDao.listPrescriptionsByReceptionId(id);
     }
+
+    @Override
+    public void executeReceptionPrescriptionById(Integer id) {
+        this.rprescriptionDao.executeReceptionPrescriptionById(id);
+    }
 }

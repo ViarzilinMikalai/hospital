@@ -12,12 +12,16 @@ public class Rprescription {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Column(name = "ISCANCELL")
-  private boolean isCancell;
-
   @Temporal(TemporalType.DATE)
   @Column(name = "PRESCRIPTION_DATE")
   private Date rprescriptionDate;
+
+  @Column(name = "IS_EXECUTED")
+  private boolean isExecuted;
+
+  @Temporal(TemporalType.DATE)
+  @Column(name = "EXECUTION_DATE")
+  private Date executionDate;
 
 
   /**
@@ -30,17 +34,17 @@ public class Rprescription {
   /**
    * Many-to-one relationship User to Rprescription
    */
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "ID_USER", nullable = false, updatable = false)
-  private User user;
-
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
+//  @ManyToOne(fetch = FetchType.EAGER)
+//  @JoinColumn(name = "ID_USER", nullable = false, updatable = false)
+//  private User user;
+//
+//  public User getUser() {
+//    return user;
+//  }
+//
+//  public void setUser(User user) {
+//    this.user = user;
+//  }
 
 
   /**
@@ -52,17 +56,6 @@ public class Rprescription {
 
 
   /**
-   * Many-to-many relationship Rprescription to User
-   */
-  /**
-  @ManyToMany
-  @JoinTable(name = "PRESC_EXECUTOR",
-          joinColumns = @JoinColumn(name = "IDPATIENT_PRESCRIPTION", referencedColumnName = "ID_RES_PRESC"),
-          inverseJoinColumns = @JoinColumn(name = "ID_STAFF", referencedColumnName = "ID_STAFF"))
-  private List<User> userList;
-*/
-
-  /**
    * Getters and Setters
    */
   public int getId() {
@@ -71,14 +64,6 @@ public class Rprescription {
 
   public void setId(int id) {
     this.id = id;
-  }
-
-  public boolean isCancell() {
-    return isCancell;
-  }
-
-  public void setCancell(boolean cancell) {
-    isCancell = cancell;
   }
 
   public Date getRprescriptionDate() {
@@ -104,22 +89,34 @@ public class Rprescription {
   public void setReceptions(Reception receptions) {
     this.receptions = receptions;
   }
-    /**
-  public List<User> getUserList() {
-    return userList;
+
+  public boolean isExecuted() {
+    return isExecuted;
   }
 
-  public void setUserList(List<User> userList) {
-    this.userList = userList;
+  public void setExecuted(boolean executed) {
+    isExecuted = executed;
   }
-*/
+
+  public Date getExecutionDate() {
+    return executionDate;
+  }
+
+  public void setExecutionDate(Date executionDate) {
+    this.executionDate = executionDate;
+  }
+
 
   @Override
   public String toString() {
     return "Rprescription{" +
         "id=" + id +
-        ", isCancell=" + isCancell +
         ", rprescriptionDate=" + rprescriptionDate +
+        ", isExecuted=" + isExecuted +
+        ", executionDate=" + executionDate +
+        ", receptions=" + receptions +
+//        ", user=" + user +
+        ", prescription=" + prescription +
         '}';
   }
 }
