@@ -143,7 +143,7 @@
 
 <%--Patient discharge form--%>
 <h2>Discharge patient</h2>
-<c:url var="addAction" value="/receptions/discharge"/>
+<c:url var="addAction" value="/receptiondata/${reception.id}/discharge"/>
 <form:form action="${addAction}" modelAttribute="reception">
     <table>
         <tr  hidden="hidden">

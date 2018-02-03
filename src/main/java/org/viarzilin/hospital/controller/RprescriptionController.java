@@ -40,16 +40,6 @@ public class RprescriptionController {
         return "rprescriptions";
     }
 
-//    @RequestMapping(value = "/rprescriptions/add", method = RequestMethod.POST)
-//    public String addRprescription(@ModelAttribute("rprescription") Rprescription rprescription){
-//        if(rprescription.getId() == 0){
-//            rprescriptionService.addRprescription(rprescription);
-//        }else {
-//            rprescriptionService.updateRprescription(rprescription);
-//        }
-//
-//        return "redirect:/rprescriptions";
-//    }
 
     @RequestMapping("/rprescriptions/remove/{id}")
     public String removeRprescription(@PathVariable("id") int id){

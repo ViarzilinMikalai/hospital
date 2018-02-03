@@ -59,16 +59,16 @@ public class ReceptionInfoController {
       rprescriptionService.updateRprescription(rprescription);
     }
 
-    return "redirect:/receptiondata/{id}/";
+    return "redirect:/receptiondata/{id}";
   }
 
 
-  @RequestMapping(value = "/receptions/discharge", method = RequestMethod.POST)
+  @RequestMapping(value = "/receptiondata/{id}/discharge", method = RequestMethod.POST)
   public String dischargeReception(@ModelAttribute("reception") Reception reception){
 
     receptionService.dischargePatient(reception);
 
-    return "redirect:/receptions";
+    return "redirect:/receptiondata/{id}";
   }
 
 
