@@ -69,21 +69,33 @@
         <tr>
             <td>
                 <form:label path="patient.id">
-                    <spring:message text="Patient id"/>
+                    <spring:message text="Patient"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="patient.id"/>
+                <form:select path="patient.id">
+                    <c:forEach items="${listPatients}" var="patient">
+                        <form:option value="${patient.id}">
+                            ${patient.lastName}&nbsp;${patient.firstName}&nbsp;${patient.surName}
+                        </form:option>
+                    </c:forEach>
+                </form:select>
             </td>
         </tr>
         <tr>
             <td>
                 <form:label path="user.id">
-                    <spring:message text="User id"/>
+                    <spring:message text="Doctor"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="user.id"/>
+                <form:select path="user.id">
+                    <c:forEach items="${listUsersByRoleDoctor}" var="user">
+                        <form:option value="${user.id}">
+                            ${user.lastName}&nbsp;${user.firstName}&nbsp;${user.surName}
+                        </form:option>
+                    </c:forEach>
+                </form:select>
             </td>
         </tr>
         <tr>
@@ -133,6 +145,7 @@
         </tr>
     </table>
 </form:form>
+
 <%@include file="/pageFragments/footer.html"%>
 </body>
 </html>

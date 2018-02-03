@@ -79,6 +79,13 @@
 </table>
 </c:if>
 
+
+
+
+
+
+
+
 <h2>Discharge patient</h2>
 <c:url var="addAction" value="/receptions/discharge"/>
 <form:form action="${addAction}" modelAttribute="reception">

@@ -1,5 +1,7 @@
 package org.viarzilin.hospital.model.dao.impl;
 
+
+import org.hibernate.query.Query;
 import org.viarzilin.hospital.model.dao.RprescriptionDao;
 import org.viarzilin.hospital.model.domain.Rprescription;
 import org.hibernate.Session;
@@ -10,11 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import org.viarzilin.hospital.model.service.PatientService;
 
 @Repository
 public class RprescriptionDaoImpl implements RprescriptionDao {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(RprescriptionDaoImpl.class);
+
+  @Autowired
+  PatientService patientService;
 
   @Autowired
   private SessionFactory sessionFactory;
@@ -68,5 +74,18 @@ public class RprescriptionDaoImpl implements RprescriptionDao {
     }
 
     return rprescriptionList;
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public List<Rprescription> listPrescriptionsByPatientId(Integer id) {
+    Query query = getSession().createQuery("from Rprescriptions where patient.id = :id");
+    query.setParameter("id", id);
+    List<Rprescription> patientPrescriptionsList = query.list();
+
+    for(Rprescription rprescription : patientPrescriptionsList){
+      LOGGER.info("Prescriptioins of patient: " + rprescription);
+    }
+    return patientPrescriptionsList;
   }
 }

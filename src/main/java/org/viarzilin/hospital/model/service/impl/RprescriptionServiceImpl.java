@@ -39,4 +39,9 @@ public class RprescriptionServiceImpl implements RprescriptionService {
     public List<Rprescription> listRprescriptions() {
         return this.rprescriptionDao.listRprescriptions();
     }
+
+    @Override
+    public List<Rprescription> listPrescriptionsByPatientId(Integer id) {
+        return this.rprescriptionDao.listPrescriptionsByPatientId(id);
+    }
 }
