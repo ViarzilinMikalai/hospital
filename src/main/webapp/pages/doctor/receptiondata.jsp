@@ -207,7 +207,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="finalDiagnosis"/>
+                <form:input path="finalDiagnosis"  required="required"/>
             </td>
         </tr>
         <tr>

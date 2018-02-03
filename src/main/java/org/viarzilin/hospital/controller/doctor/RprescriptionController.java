@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.controller;
+package org.viarzilin.hospital.controller.doctor;
 
 import org.viarzilin.hospital.model.domain.Rprescription;
 import org.viarzilin.hospital.model.service.PrescriptionService;

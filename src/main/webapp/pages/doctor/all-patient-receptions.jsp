@@ -14,7 +14,7 @@
 <body>
 <%--<%@include file="/pageFragments/header.html"%>--%>
 <br>
-<a href="../index.jsp">Back to main menu</a>
+<a href="../../index.jsp">Back to main menu</a>
 <br/>
 <h1>Reception List</h1>
 
@@ -30,7 +30,7 @@
             <th width="120">Final diagnosis</th>
             <th width="120">Discharge date</th>
             <th width="60">Edit</th>
-            <th width="60">Delete</th>
+            <%--<th width="60">Delete</th>--%>
         </tr>
         <c:forEach items="${listReceptions}" var="reception">
             <tr>
@@ -43,8 +43,8 @@
                 <td>${reception.discharge ? "Discharged" : ""}</td>
                 <td>${reception.finalDiagnosis}</td>
                 <td>${reception.dischargeDate}</td>
-                <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
+                <td><a href="<c:url value='/doctor/all-patient-receptions/edit/${reception.id}'/>">Edit</a></td>
+                <%--<td><a href="<c:url value='/doctor/all-patient-receptions/remove/${reception.id}'/>">Delete</a></td>--%>
             </tr>
         </c:forEach>
     </table>
@@ -53,7 +53,7 @@
 
 <h1>Add a Reception</h1>
 
-<c:url var="addAction" value="/receptions/add"/>
+<c:url var="addAction" value="/doctor/all-patient-receptions/add"/>
 <form:form action="${addAction}" modelAttribute="reception">
     <table>
         <c:if test="${!empty reception.preliminaryDiagnosis}">
@@ -112,7 +112,7 @@
                 <form:input path="preliminaryDiagnosis"/>
             </td>
         </tr>
-        <tr>
+        <tr hidden="hidden">
             <td>
                 <form:label path="discharge">
                     <spring:message text="Patient discharge"/>
@@ -125,14 +125,14 @@
                 </form:select>
             </td>
         </tr>
-        <tr>
+        <tr hidden="hidden">
             <td>
                 <form:label path="finalDiagnosis">
                     <spring:message text="FinalDiagnosis"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="finalDiagnosis" required="required"/>
+                <form:input path="finalDiagnosis"/>
             </td>
         </tr>
         <tr>

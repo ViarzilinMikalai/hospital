@@ -19,7 +19,7 @@
         <br/>
         <a href="<c:url value="/rprescriptions"/>" target="_blank">Patient prescriptions</a>
         <br/>
-        <a href="<c:url value="/receptions"/>" target="_blank">Doctors receptions list</a>
+        <a href="<c:url value="/doctor/all-patient-receptions"/>" target="_blank">Doctors receptions list</a>
         <br/>
         <a href="<c:url value="/nurse/hospitalized-receptions"/>" target="_blank">Nurse receptions list</a>
         <%@include file="/pageFragments/footer.html"%>
