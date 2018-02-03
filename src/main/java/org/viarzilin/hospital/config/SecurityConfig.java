@@ -27,6 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests().antMatchers("/login").access("permitAll()")
         .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
+        .antMatchers("/doctor/*").access("hasRole('ROLE_DOCTOR')")
+        .antMatchers("/nurse/*").access("hasRole('ROLE_NURSE')")
+        .antMatchers("/general/*").access("hasRole('ROLE_NURSE')||hasRole('ROLE_DOCTOR')")
         .and().formLogin().loginPage("/login").defaultSuccessUrl("/welcome").failureUrl("/access_denied.html")
         .and().logout().logoutUrl("/logout").logoutSuccessUrl("/login")
         .and().csrf().disable();
