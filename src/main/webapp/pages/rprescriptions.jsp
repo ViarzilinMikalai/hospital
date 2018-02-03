@@ -54,8 +54,6 @@
 
 <h1>Prescription of Patient List</h1>
 
-
-
 <c:if test="${!empty listRprescriptions}">
     <table class="tg">
         <tr>
