@@ -5,7 +5,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>UserData</title>
+    <title>Hospitalized patients</title>
     <style type="text/css">
         <%@include file="/css/style.css"%>
     </style>
@@ -32,9 +32,9 @@
             <c:forEach items="${listHospitalizedReceptions}" var="reception">
                 <tr>
                     <td>${reception.id}</td>
-                    <td><a href="/doctor/receptiondata/${reception.id}" target="_blank">
+                    <td><a href="/nurse/receptiondata-for-nurse/${reception.id}" target="_blank">
                             ${reception.patient.lastName}<br>${reception.patient.firstName}<br>
-                            ${reception.patient.surName}<a></td>
+                            ${reception.patient.surName}</a></td>
                     <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
                     <td>${reception.preliminaryDiagnosis}</td>
                     <td>${reception.receptionDate}</td>

@@ -29,8 +29,8 @@
         <th width="120">IsDischarge</th>
         <th width="120">Final diagnosis</th>
         <th width="120">Discharge date</th>
-        <th width="60">Edit</th>
-        <th width="60">Delete</th>
+        <%--<th width="60">Edit</th>--%>
+        <%--<th width="60">Delete</th>--%>
     </tr>
     <tr>
         <td>${reception.id}</td>
@@ -41,8 +41,8 @@
         <td>${reception.discharge ? "Discharged" : ""}</td>
         <td>${reception.finalDiagnosis}</td>
         <td>${reception.dischargeDate}</td>
-        <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
-        <td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>
+        <%--<td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>--%>
+        <%--<td><a href="<c:url value='/receptions/remove/${reception.id}'/>">Delete</a></td>--%>
     </tr>
 </table>
 

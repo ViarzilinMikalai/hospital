@@ -17,11 +17,11 @@
         <br/>
         <a href="<c:url value="/admin/users"/>" target="_blank">Users list</a>
         <br/>
-        <a href="<c:url value="/receptions"/>" target="_blank">Receptions list</a>
-        <br/>
         <a href="<c:url value="/rprescriptions"/>" target="_blank">Patient prescriptions</a>
         <br/>
-        <a href="<c:url value="/nurse/hospitalized-receptions"/>" target="_blank">Hospitalized receptions list</a>
+        <a href="<c:url value="/receptions"/>" target="_blank">Doctors receptions list</a>
+        <br/>
+        <a href="<c:url value="/nurse/hospitalized-receptions"/>" target="_blank">Nurse receptions list</a>
         <%@include file="/pageFragments/footer.html"%>
     </body>
 </html>
