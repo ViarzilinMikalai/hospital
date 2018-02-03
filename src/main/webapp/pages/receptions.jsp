@@ -35,12 +35,12 @@
         <c:forEach items="${listReceptions}" var="reception">
             <tr>
                 <td>${reception.id}</td>
-                <td><a href="/receptiondata/${reception.id}" target="_blank">${reception.patient.lastName}
+                <td><a href="/doctor/receptiondata/${reception.id}" target="_blank">${reception.patient.lastName}
                     <br>${reception.patient.firstName}<br>${reception.patient.surName}</a></td>
                 <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
                 <td>${reception.preliminaryDiagnosis}</td>
                 <td>${reception.receptionDate}</td>
-                <td>${reception.discharge}</td>
+                <td>${reception.discharge ? "Discharged" : ""}</td>
                 <td>${reception.finalDiagnosis}</td>
                 <td>${reception.dischargeDate}</td>
                 <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
@@ -132,7 +132,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="finalDiagnosis"/>
+                <form:input path="finalDiagnosis" required="required"/>
             </td>
         </tr>
         <tr>

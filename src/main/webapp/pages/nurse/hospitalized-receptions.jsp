@@ -32,8 +32,9 @@
             <c:forEach items="${listHospitalizedReceptions}" var="reception">
                 <tr>
                     <td>${reception.id}</td>
-                    <td>${reception.patient.lastName}
-                        <br>${reception.patient.firstName}<br>${reception.patient.surName}</td>
+                    <td><a href="/doctor/receptiondata/${reception.id}" target="_blank">
+                            ${reception.patient.lastName}<br>${reception.patient.firstName}<br>
+                            ${reception.patient.surName}<a></td>
                     <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
                     <td>${reception.preliminaryDiagnosis}</td>
                     <td>${reception.receptionDate}</td>

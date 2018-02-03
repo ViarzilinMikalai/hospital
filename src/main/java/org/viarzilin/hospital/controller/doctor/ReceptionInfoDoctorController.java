@@ -1,4 +1,4 @@
-package org.viarzilin.hospital.controller;
+package org.viarzilin.hospital.controller.doctor;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,33 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.viarzilin.hospital.model.domain.Reception;
 import org.viarzilin.hospital.model.domain.Rprescription;
-import org.viarzilin.hospital.model.service.PatientService;
 import org.viarzilin.hospital.model.service.PrescriptionService;
 import org.viarzilin.hospital.model.service.ReceptionService;
 import org.viarzilin.hospital.model.service.RprescriptionService;
-import org.viarzilin.hospital.model.service.UserService;
+
 
 
 @Controller
-public class ReceptionInfoController {
+public class ReceptionInfoDoctorController {
 
   @Autowired(required = true)
   private ReceptionService receptionService;
 
-  @Autowired
-  private UserService userService;
 
   @Autowired
   private RprescriptionService rprescriptionService;
 
-  @Autowired
-  private PatientService patientService;
 
   @Autowired
   private PrescriptionService prescriptionService;
 
 
-  @RequestMapping(value = "receptiondata/{id}", method = RequestMethod.GET)
+  @RequestMapping(value = "/doctor/receptiondata/{id}", method = RequestMethod.GET)
   public String listReceptions(@PathVariable("id") int id, Model model){
 
     model.addAttribute("reception", receptionService.getReceptionById(id));
@@ -47,11 +42,11 @@ public class ReceptionInfoController {
     model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
     model.addAttribute("listHospitalizedReceptions", receptionService.listHospitalizedReceptions());
 
-    return "receptiondata";
+    return "doctor/receptiondata";
   }
 
 
-  @RequestMapping(value = "/receptiondata/{id}/addprescription", method = RequestMethod.POST)
+  @RequestMapping(value = "/doctor/receptiondata/{id}/addprescription", method = RequestMethod.POST)
   public String addRprescription(@ModelAttribute("rprescription") Rprescription rprescription){
     if(rprescription.getId() == 0){
       rprescriptionService.addRprescription(rprescription);
@@ -59,17 +54,16 @@ public class ReceptionInfoController {
       rprescriptionService.updateRprescription(rprescription);
     }
 
-    return "redirect:/receptiondata/{id}";
+    return "redirect:/doctor/receptiondata/{id}";
   }
 
 
-  @RequestMapping(value = "/receptiondata/{id}/discharge", method = RequestMethod.POST)
+  @RequestMapping(value = "/doctor/receptiondata/{id}/discharge", method = RequestMethod.POST)
   public String dischargeReception(@ModelAttribute("reception") Reception reception){
 
     receptionService.dischargePatient(reception);
 
-    return "redirect:/receptiondata/{id}";
+    return "redirect:/doctor/receptiondata/{id}";
   }
-
 
 }

@@ -6,8 +6,8 @@
 
 <html>
 <head>
-    <title>ReceptionData</title>
-
+    <title>Patient ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+        ${reception.patient.surName}</title>
     <style type="text/css">
         <%@include file="/css/style.css"%>
     </style>
@@ -16,7 +16,8 @@
 <body>
 <%--<%@include file="/pageFragments/header.html"%>--%>
 <br>
-<h1>Reception Details</h1>
+<h1>Patient ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+    ${reception.patient.surName}</h1>
 
 <table class="tg">
     <tr>
@@ -37,7 +38,7 @@
         <td>${reception.user.lastName}<br>${reception.user.firstName}<br>${reception.user.surName}</td>
         <td>${reception.preliminaryDiagnosis}</td>
         <td>${reception.receptionDate}</td>
-        <td>${reception.discharge}</td>
+        <td>${reception.discharge ? "Discharged" : ""}</td>
         <td>${reception.finalDiagnosis}</td>
         <td>${reception.dischargeDate}</td>
         <td><a href="<c:url value='/receptions/edit/${reception.id}'/>">Edit</a></td>
@@ -47,7 +48,8 @@
 
 
 
-<h1>Prescription of Patient List</h1>
+<h2>Prescriptions of ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+    ${reception.patient.surName}</h2>
 
 <c:if test="${!empty prescriptionsByReceptionId}">
     <table class="tg">
@@ -56,8 +58,6 @@
             <th width="120">Prescription name</th>
             <th width="120">Prescription date</th>
             <th width="120">Cancelled</th>
-            <th width="60">Edit</th>
-            <th width="60">Delete</th>
         </tr>
         <c:forEach items="${prescriptionsByReceptionId}" var="rprescription">
             <tr>
@@ -65,18 +65,17 @@
                 <td>${rprescription.prescription.namePrescription}</td>
                 <td>${rprescription.rprescriptionDate}</td>
                 <td>${rprescription.cancell}</td>
-                <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
 </c:if>
 
 
+<c:if test="${!reception.discharge}">
+<h2>Add a prescription ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+    ${reception.patient.surName}</h2>
 
-<h1>Add a Patient prescription</h1>
-
-<c:url var="addAction" value="/receptiondata/${reception.id}/addprescription"/>
+<c:url var="addAction" value="/doctor/receptiondata/${reception.id}/addprescription"/>
 <form:form action="${addAction}" modelAttribute="rprescription">
     <table>
         <tr hidden="hidden">
@@ -140,10 +139,14 @@
         </tr>
     </table>
 </form:form>
+</c:if>
 
 <%--Patient discharge form--%>
-<h2>Discharge patient</h2>
-<c:url var="addAction" value="/receptiondata/${reception.id}/discharge"/>
+
+<c:if test="${!reception.discharge}">
+<h2>Discharge ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
+    ${reception.patient.surName}</h2>
+<c:url var="addAction" value="/doctor/receptiondata/${reception.id}/discharge"/>
 <form:form action="${addAction}" modelAttribute="reception">
     <table>
         <tr  hidden="hidden">
@@ -205,6 +208,7 @@
         </tr>
     </table>
 </form:form>
+</c:if>
 <%@include file="/pageFragments/footer.html"%>
 </body>
 </html>
