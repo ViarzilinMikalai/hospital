@@ -13,7 +13,7 @@
 </head>
 <body>
 <%--<%@include file="/pageFragments/header.html"%>--%>
-<a href="../index.jsp">Back to main menu</a>
+<a href="../../index.jsp">Back to main menu</a>
 
 <br/>
 <br/>
@@ -44,8 +44,8 @@
                 <td>${rprescription.prescription.namePrescription}</td>
                 <td>${rprescription.rprescriptionDate}</td>
                 <td>${rprescription.executed ? "Executed" : ""}</td>
-                <td><a href="<c:url value='/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
-                <%--<td><a href="<c:url value='/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>--%>
+                <td><a href="<c:url value='/doctor/rprescriptions/edit/${rprescription.id}'/>">Edit</a></td>
+                <%--<td><a href="<c:url value='/doctor/rprescriptions/remove/${rprescription.id}'/>">Delete</a></td>--%>
             </tr>
         </c:forEach>
     </table>
@@ -54,7 +54,7 @@
 
 <h1>Add a Patient prescription</h1>
 
-<c:url var="addAction" value="/rprescriptions/add"/>
+<c:url var="addAction" value="/doctor/rprescriptions/add"/>
 <form:form action="${addAction}" modelAttribute="rprescription">
     <table>
         <c:if test="${!empty rprescription.id}">

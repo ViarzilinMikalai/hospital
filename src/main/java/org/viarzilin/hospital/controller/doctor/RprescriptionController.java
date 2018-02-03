@@ -29,7 +29,7 @@ public class RprescriptionController {
     @Autowired(required = true)
     private RprescriptionService rprescriptionService;
 
-    @RequestMapping(value = "rprescriptions", method = RequestMethod.GET)
+    @RequestMapping(value = "doctor/rprescriptions", method = RequestMethod.GET)
     public String listRprescriptions(Model model){
         model.addAttribute("rprescription", new Rprescription());
         model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
@@ -37,10 +37,10 @@ public class RprescriptionController {
         model.addAttribute("listUsersByRoleDoctor", userService.listUsersByRoleDoctor());
         model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
 
-        return "rprescriptions";
+        return "doctor/rprescriptions";
     }
 
-    @RequestMapping(value = "/rprescriptions/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/doctor/rprescriptions/add", method = RequestMethod.POST)
     public String addRprescription(@ModelAttribute("rprescription") Rprescription rprescription){
       if(rprescription.getId() == 0){
 //        this.rprescriptionService.addRprescription(rprescription);
@@ -48,25 +48,23 @@ public class RprescriptionController {
         this.rprescriptionService.updateRprescription(rprescription);
       }
 
-      return "redirect:/rprescriptions";
+      return "redirect:/doctor/rprescriptions";
     }
 
-    @RequestMapping("/rprescriptions/edit/{id}")
+    @RequestMapping("/doctor/rprescriptions/edit/{id}")
     public String editRprescription(@PathVariable("id") int id, Model model){
       model.addAttribute("rprescription", rprescriptionService.getRprescriptionById(id));
       model.addAttribute("listPrescriptions", prescriptionService.listPrescriptions());
       model.addAttribute("listHospitalizedReceptions", receptionService.listHospitalizedReceptions());
       model.addAttribute("listRprescriptions", rprescriptionService.listRprescriptions());
-      return "rprescriptions";
+      return "doctor/rprescriptions";
     }
 
 
-    @RequestMapping("/rprescriptions/remove/{id}")
+    @RequestMapping("/doctor/rprescriptions/remove/{id}")
     public String removeRprescription(@PathVariable("id") int id){
         rprescriptionService.removeRprescription(id);
 
-        return "redirect:/rprescriptions";
+        return "redirect:/doctor/rprescriptions";
     }
-
-
 }
