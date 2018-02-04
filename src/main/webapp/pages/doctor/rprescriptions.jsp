@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-<%--<%@include file="/pageFragments/header.html"%>--%>
+<%@include file="/pageFragments/header.html"%>
 <a href="../../index.jsp">Back to main menu</a>
 
 <br/>

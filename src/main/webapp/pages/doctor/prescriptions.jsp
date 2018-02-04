@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<%--<%@include file="/pageFragments/header.html"%>--%>
+<%@include file="/pageFragments/header.html"%>
 <h1>Prescription List</h1>
 <c:if test="${!empty listPrescriptions}">
     <table class="tg">
@@ -64,7 +64,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="namePrescription"/>
+                <form:input path="namePrescription" required="required"/>
             </td>
         </tr>
         <tr>

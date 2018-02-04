@@ -85,7 +85,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="lastName"/>
+                <form:input path="lastName" required="required"/>
             </td>
         </tr>
         <tr>
@@ -95,7 +95,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="firstName"/>
+                <form:input path="firstName" required="required"/>
             </td>
         </tr>
         <tr>
@@ -105,7 +105,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="surName"/>
+                <form:input path="surName" required="required"/>
             </td>
         </tr>
 
@@ -130,7 +130,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="auth.username"/>
+                <form:input path="auth.username" required="required"/>
             </td>
         </tr>
         <tr>
@@ -140,7 +140,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="auth.password"/>
+                <form:input path="auth.password" required="required"/>
             </td>
         </tr>
         <tr>
@@ -150,7 +150,8 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="auth.email"/>
+                <form:input path="auth.email" required="required" type="email"
+                            pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
             </td>
         </tr>
         <tr>

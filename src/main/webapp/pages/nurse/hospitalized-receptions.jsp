@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<%--<%@include file="/pageFragments/header.html"%>--%>
+<%@include file="/pageFragments/header.html"%>
 <div class="content">
     <h1>Hospitalized patients list</h1>
 

@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<%--<%@include file="/pageFragments/header.html"%>--%>
+<%@include file="/pageFragments/header.html"%>
 <h1>Patient List</h1>
 <c:if test="${!empty listPatients}">
     <table class="tg">
@@ -72,7 +72,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="lastName"/>
+                <form:input path="lastName" required="required"/>
             </td>
         </tr>
         <tr>
@@ -82,7 +82,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="firstName"/>
+                <form:input path="firstName" required="required"/>
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="surName"/>
+                <form:input path="surName"  required="required"/>
             </td>
         </tr>
         <tr>
@@ -102,7 +102,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="adress"/>
+                <form:input path="adress"  required="required"/>
             </td>
         </tr>
 

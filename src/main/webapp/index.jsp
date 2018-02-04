@@ -7,6 +7,7 @@
     </style>
 
     </head>
+
     <body>
     <%@include file="/pageFragments/header.html"%>
         <h1>Hospital application by Viarzilin Mikalai</h1>

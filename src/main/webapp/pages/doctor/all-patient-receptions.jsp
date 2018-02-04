@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-<%--<%@include file="/pageFragments/header.html"%>--%>
+<%@include file="/pageFragments/header.html"%>
 <br>
 <a href="../../index.jsp">Back to main menu</a>
 <br/>
@@ -109,7 +109,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="preliminaryDiagnosis"/>
+                <form:input path="preliminaryDiagnosis" required="required"/>
             </td>
         </tr>
         <tr hidden="hidden">
