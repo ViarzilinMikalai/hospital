@@ -4,6 +4,14 @@
 .userInfo{float:right; width:220px; font-size: 16px;text-align: left}
 .userInfo a, userInfo a:hover, userInfo a:visited{color:#fff;text-decoration:none; border: 1px solid #fff; border-radius: 2px}
 .content {min-height: 100%}
+
+/*menu*/
+.menu {    margin: 0;padding: 0;list-style-type: none;border: 2px solid #4477ff;border-radius: 20px 5px;width: 100%-4px;text-align: center;background-color: #33ADFF;}
+.menu li { display: inline; }
+.menu a {color: #fff;padding: 5px 20px;text-decoration: none;font-weight: bold;display: inline-block;}
+.menu a:hover {border-radius: 20px 5px;background-color: #4477ff;}
+
+
 /*login form css*/
 .login-container{border: 1px solid #a0a0a0;border-radius:5px; width: 300px;height:220px;margin:50px auto}
 .login-container input{width:200px; height:40px; padding:0 10px; border: 2px solid grey;display:block;

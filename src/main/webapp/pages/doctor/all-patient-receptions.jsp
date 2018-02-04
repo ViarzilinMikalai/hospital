@@ -13,8 +13,7 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
-<br>
-<a href="../../index.jsp">Back to main menu</a>
+<%@include file="/pageFragments/nurse-nav.html"%>
 <br/>
 <h1>Reception List</h1>
 

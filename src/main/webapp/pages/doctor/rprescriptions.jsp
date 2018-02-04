@@ -13,10 +13,7 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
-<a href="../../index.jsp">Back to main menu</a>
-
-<br/>
-<br/>
+<%@include file="/pageFragments/nurse-nav.html"%>
 
 <h1>Prescription of Patient List</h1>
 

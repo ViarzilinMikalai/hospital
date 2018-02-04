@@ -15,6 +15,7 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
+<%@include file="/pageFragments/nurse-nav.html"%>
 <br>
 <h1>Patient ${reception.patient.lastName}&nbsp;${reception.patient.firstName}&nbsp;
     ${reception.patient.surName}</h1>

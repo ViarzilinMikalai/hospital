@@ -12,6 +12,7 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
+<%@include file="/pageFragments/nurse-nav.html"%>
 <div class="content">
     <h1>Hospitalized patients list</h1>
 

@@ -15,9 +15,8 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
+<%@include file="/pageFragments/nurse-nav.html"%>
 <br>
-<a href="../../index.jsp">Back to main menu</a>
-
 <h1>User List</h1>
 <c:if test="${!empty listUsers}">
     <table class="tg">

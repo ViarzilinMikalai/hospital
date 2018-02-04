@@ -14,6 +14,7 @@
 </head>
 <body>
 <%@include file="/pageFragments/header.html"%>
+<%@include file="/pageFragments/nurse-nav.html"%>
 <h1>Patient List</h1>
 <c:if test="${!empty listPatients}">
     <table class="tg">
